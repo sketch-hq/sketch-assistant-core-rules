@@ -1,0 +1,68 @@
+{
+  "name": "@sketch-hq/sketch-lint-ruleset-core",
+  "description": "The core sketch-lint ruleset",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "github:sketch-hq/sketch-lint-ruleset-core",
+  "main": "dist/cjs/index",
+  "sketch": "dist/sketch/index",
+  "keywords": [
+    "sketch",
+    "sketch files",
+    "sketch-lint-ruleset",
+    "linting",
+    "lint",
+    "ruleset",
+    "design linting"
+  ],
+  "scripts": {
+    "build": "rm -rf ./dist && yarn build:sketch && yarn build:node",
+    "build:sketch": "yarn webpack --config webpack.sketch.js",
+    "build:node": "yarn webpack --config webpack.node.js",
+    "package-tarball": "yarn build && yarn pack --filename=sketch-lint-ruleset-core-$(node -p -e \"require('./package.json').version\").tgz",
+    "test": "jest",
+    "format-check": "prettier --check **/*.{ts,md,json}",
+    "commitlint": "commitlint --from HEAD~1 --to HEAD --verbose",
+    "release": "HUSKY_SKIP_HOOKS=1 standard-version --no-verify",
+    "prepublishOnly": "yarn build"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "@sketch-hq/sketch-lint-core": "./tarballs/sketch-lint-core-1.0.0.tgz",
+    "@types/jest": "24.0.22",
+    "@types/node": "12.12.7",
+    "commitizen": "4.0.3",
+    "cz-conventional-changelog": "3.0.2",
+    "husky": "3.0.9",
+    "jest": "24.9.0",
+    "prettier": "1.19.1",
+    "standard-version": "7.0.0",
+    "ts-jest": "24.1.0",
+    "ts-loader": "6.2.1",
+    "typescript": "3.7.2",
+    "webpack": "4.41.2",
+    "webpack-bundle-analyzer": "3.6.0",
+    "webpack-cli": "3.3.10",
+    "webpack-node-externals": "1.7.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "standard-version": {
+    "scripts": {
+      "prerelease": "yarn build"
+    }
+  }
+}
