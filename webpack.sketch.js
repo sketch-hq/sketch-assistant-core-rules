@@ -9,7 +9,14 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: 'ts-loader',
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              configFile: 'tsconfig.sketch.json',
+            },
+          },
+        ],
         exclude: [/node_modules/, /\.test.ts$/],
       },
     ],

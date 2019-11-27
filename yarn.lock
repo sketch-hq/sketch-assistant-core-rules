@@ -425,10 +425,16 @@
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
+"@sketch-hq/sketch-file-format-ts@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-file-format-ts/-/sketch-file-format-ts-3.0.0.tgz#4f07cd375a9740152baf01996073e36f9d43673d"
+  integrity sha512-m4Rg+QO02BQVqL9nJTVUb0VXjhev6PToxwH0YCAD9Ojk0YPeMrcz5IeNpppXdkZWtvPbzJJeyx+OQMVqA38SQg==
+
 "@sketch-hq/sketch-lint-core@./tarballs/sketch-lint-core-1.0.0.tgz":
   version "1.0.0"
-  resolved "./tarballs/sketch-lint-core-1.0.0.tgz#4d3215207a2600a328d42d5ccfa32073f6044365"
+  resolved "./tarballs/sketch-lint-core-1.0.0.tgz#0351e65b9984b5ab5ff938d24669ca3deb703e8a"
   dependencies:
+    "@sketch-hq/sketch-file-format-ts" "3.0.0"
     ajv "6.10.2"
     json-ptr "1.2.0"
     mem "6.0.0"
@@ -6782,11 +6788,6 @@ webpack-cli@3.3.10:
     supports-color "6.1.0"
     v8-compile-cache "2.0.3"
     yargs "13.2.4"
-
-webpack-node-externals@1.7.2:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/webpack-node-externals/-/webpack-node-externals-1.7.2.tgz#6e1ee79ac67c070402ba700ef033a9b8d52ac4e3"
-  integrity sha512-ajerHZ+BJKeCLviLUUmnyd5B4RavLF76uv3cs6KNuO8W+HuQaEs0y0L7o40NQxdPy5w0pcv8Ew7yPUAQG0UdCg==
 
 webpack-sources@^1.4.0, webpack-sources@^1.4.1:
   version "1.4.3"
