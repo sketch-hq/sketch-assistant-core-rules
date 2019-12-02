@@ -1,9 +1,10 @@
 {
   "name": "@sketch-hq/sketch-lint-ruleset-core",
   "description": "The core sketch-lint ruleset",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "license": "MIT",
   "repository": "github:sketch-hq/sketch-lint-ruleset-core",
+  "types": "dist/cjs/index",
   "main": "dist/cjs/index",
   "sketch": "dist/sketch/index",
   "keywords": [
