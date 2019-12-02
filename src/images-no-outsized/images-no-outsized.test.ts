@@ -1,16 +1,16 @@
 import { resolve } from 'path'
-import { Config, invokeRule } from '@sketch-hq/sketch-lint-core'
+import { invokeRule, createDummyConfig } from '@sketch-hq/sketch-lint-core'
 
 import { ruleModule } from './'
 import { ruleSet } from '../'
 
 const { name } = ruleModule
 
-const config: Config = {
+const config = createDummyConfig({
   rules: {
     [`${ruleSet.name}/${name}`]: { active: true, maxRatio: 2 },
   },
-}
+})
 
 test('Generates violations correctly', async (): Promise<void> => {
   expect.assertions(1)

@@ -442,6 +442,19 @@
     p-map "3.0.0"
     probe-image-size "5.0.0"
 
+"@sketch-hq/sketch-lint-core@file:./tarballs/sketch-lint-core-1.0.0-alpha.0.tgz":
+  version "1.0.0-alpha.0"
+  resolved "file:./tarballs/sketch-lint-core-1.0.0-alpha.0.tgz#b1e55348ecffe7189de0ffa0360b4d1daa301356"
+  dependencies:
+    "@sketch-hq/sketch-file-format-ts" "3.0.0"
+    ajv "6.10.2"
+    humps "2.0.1"
+    json-ptr "1.2.0"
+    mem "6.0.0"
+    node-stream-zip "1.8.2"
+    p-map "3.0.0"
+    probe-image-size "5.0.0"
+
 "@types/babel__core@^7.1.0":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.3.tgz#e441ea7df63cd080dfcd02ab199e6d16a735fc30"
@@ -3100,6 +3113,11 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
+
+humps@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/humps/-/humps-2.0.1.tgz#dd02ea6081bd0568dc5d073184463957ba9ef9aa"
+  integrity sha1-3QLqYIG9BWjcXQcxhEY5V7qe+ao=
 
 husky@3.0.9:
   version "3.0.9"

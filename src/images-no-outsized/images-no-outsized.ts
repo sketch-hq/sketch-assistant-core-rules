@@ -4,19 +4,7 @@ import {
   RuleInvocationContext,
   Node,
   ReportItem,
-  buildRuleOptionSchema,
-  numberOption,
 } from '@sketch-hq/sketch-lint-core'
-
-const optionSchema = buildRuleOptionSchema(
-  numberOption({
-    name: 'maxRatio',
-    title: 'Maxium ratio',
-    defaultValue: 1,
-    description: 'How much larger an image can be than its frame',
-    minimum: 1,
-  }),
-)
 
 const name = 'images-no-outsized'
 
@@ -51,7 +39,17 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
 const ruleModule: RuleModule = {
   rule,
   name,
-  optionSchema,
+  getOptions(helpers) {
+    return [
+      helpers.numberOption({
+        name: 'maxRatio',
+        title: 'Maxium ratio',
+        defaultValue: 1,
+        description: 'How much larger an image can be than its frame',
+        minimum: 1,
+      }),
+    ]
+  },
   title: 'No outsized images',
   description:
     'Enable this rule to disallow images that are larger than their frame',

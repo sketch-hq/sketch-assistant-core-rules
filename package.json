@@ -31,7 +31,7 @@
     "tarballs"
   ],
   "dependencies": {
-    "@sketch-hq/sketch-lint-core": "./tarballs/sketch-lint-core-1.0.0.tgz"
+    "@sketch-hq/sketch-lint-core": "file:./tarballs/sketch-lint-core-1.0.0-alpha.0.tgz"
   },
   "devDependencies": {
     "@commitlint/cli": "8.2.0",

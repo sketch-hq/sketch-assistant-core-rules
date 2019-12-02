@@ -1,16 +1,20 @@
 import { resolve } from 'path'
-import { Config, invokeRule } from '@sketch-hq/sketch-lint-core'
+import {
+  Config,
+  invokeRule,
+  createDummyConfig,
+} from '@sketch-hq/sketch-lint-core'
 
 import { ruleModule } from './'
 import { ruleSet } from '../'
 
 const { name } = ruleModule
 
-const config: Config = {
+const config: Config = createDummyConfig({
   rules: {
     [name]: { active: true },
   },
-}
+})
 
 test('Generates violations correctly', async (): Promise<void> => {
   expect.assertions(1)
@@ -23,13 +27,19 @@ test('Generates violations correctly', async (): Promise<void> => {
   expect(violations).toMatchInlineSnapshot(`
     Array [
       Object {
-        "context": Object {
-          "objectId": "D1BE0048-A6FC-4A8F-8BC7-A46BE3925F18",
-          "pointer": "/document/pages/0/layers/0",
-        },
         "message": "Unexpected hidden layer",
-        "ruleName": "layers-no-hidden",
-        "ruleSetName": "@sketch-hq/sketch-lint-ruleset-core",
+        "objectId": "D1BE0048-A6FC-4A8F-8BC7-A46BE3925F18",
+        "pointer": "/document/pages/0/layers/0",
+        "ruleModule": Object {
+          "description": "Enable this rule to disallow hidden layers from the document",
+          "name": "layers-no-hidden",
+          "title": "No hidden layers",
+        },
+        "ruleSet": Object {
+          "description": "The core sketch-lint ruleset",
+          "name": "@sketch-hq/sketch-lint-ruleset-core",
+          "title": "Sketch Core",
+        },
         "severity": 3,
       },
     ]

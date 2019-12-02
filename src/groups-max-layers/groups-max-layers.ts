@@ -4,22 +4,7 @@ import {
   RuleModule,
   ReportItem,
   RuleInvocationContext,
-  buildRuleOptionSchema,
-  numberOption,
 } from '@sketch-hq/sketch-lint-core'
-
-// import {
-// } from '@sketch-hq/sketch-lint-core/dist/esm/build-rule-option-schema'
-
-const optionSchema = buildRuleOptionSchema(
-  numberOption({
-    name: 'maxLayers',
-    title: 'Maximum layers',
-    defaultValue: 50,
-    description: 'Maximum layers in a group',
-    minimum: 1,
-  }),
-)
 
 const name = 'groups-max-layers'
 
@@ -55,7 +40,17 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
 const ruleModule: RuleModule = {
   rule,
   name,
-  optionSchema,
+  getOptions(helpers) {
+    return [
+      helpers.numberOption({
+        name: 'maxLayers',
+        title: 'Maximum layers',
+        defaultValue: 50,
+        description: 'Maximum layers in a group',
+        minimum: 1,
+      }),
+    ]
+  },
   title: 'Maximum layers in a group',
   description:
     'Enable this rule to restrict layers to a maximum number of groups',
