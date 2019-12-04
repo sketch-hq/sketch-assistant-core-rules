@@ -23,13 +23,19 @@ test('Generates violations correctly', async (): Promise<void> => {
   expect(violations).toMatchInlineSnapshot(`
     Array [
       Object {
-        "context": Object {
-          "objectId": "64BBDE2F-D786-4078-B332-97D777E9D07B",
-          "pointer": "/document/pages/0/layers/0",
-        },
         "message": "Unexpected x2 oversized image",
-        "ruleName": "images-no-outsized",
-        "ruleSetName": "@sketch-hq/sketch-lint-ruleset-core",
+        "objectId": "64BBDE2F-D786-4078-B332-97D777E9D07B",
+        "pointer": "/document/pages/0/layers/0",
+        "ruleModule": Object {
+          "description": "Enable this rule to disallow images that are larger than their frame",
+          "name": "images-no-outsized",
+          "title": "No outsized images",
+        },
+        "ruleSet": Object {
+          "description": "The core sketch-lint ruleset",
+          "name": "@sketch-hq/sketch-lint-ruleset-core",
+          "title": "Sketch Core",
+        },
         "severity": 3,
       },
     ]

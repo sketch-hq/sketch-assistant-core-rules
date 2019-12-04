@@ -430,21 +430,9 @@
   resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-file-format-ts/-/sketch-file-format-ts-3.0.0.tgz#4f07cd375a9740152baf01996073e36f9d43673d"
   integrity sha512-m4Rg+QO02BQVqL9nJTVUb0VXjhev6PToxwH0YCAD9Ojk0YPeMrcz5IeNpppXdkZWtvPbzJJeyx+OQMVqA38SQg==
 
-"@sketch-hq/sketch-lint-core@./tarballs/sketch-lint-core-1.0.0.tgz":
-  version "1.0.0"
-  resolved "./tarballs/sketch-lint-core-1.0.0.tgz#0351e65b9984b5ab5ff938d24669ca3deb703e8a"
-  dependencies:
-    "@sketch-hq/sketch-file-format-ts" "3.0.0"
-    ajv "6.10.2"
-    json-ptr "1.2.0"
-    mem "6.0.0"
-    node-stream-zip "1.8.2"
-    p-map "3.0.0"
-    probe-image-size "5.0.0"
-
-"@sketch-hq/sketch-lint-core@file:./tarballs/sketch-lint-core-1.0.0-alpha.0.tgz":
-  version "1.0.0-alpha.0"
-  resolved "file:./tarballs/sketch-lint-core-1.0.0-alpha.0.tgz#b1e55348ecffe7189de0ffa0360b4d1daa301356"
+"@sketch-hq/sketch-lint-core@file:./tarballs/sketch-lint-core-1.0.0-alpha.1.tgz":
+  version "1.0.0-alpha.1"
+  resolved "file:./tarballs/sketch-lint-core-1.0.0-alpha.1.tgz#d1cc4ae40a644aeb26e66423886acf0e6d35a38a"
   dependencies:
     "@sketch-hq/sketch-file-format-ts" "3.0.0"
     ajv "6.10.2"

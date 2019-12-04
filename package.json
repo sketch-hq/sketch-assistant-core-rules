@@ -1,7 +1,7 @@
 {
   "name": "@sketch-hq/sketch-lint-ruleset-core",
   "description": "The core sketch-lint ruleset",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "license": "MIT",
   "repository": "github:sketch-hq/sketch-lint-ruleset-core",
   "types": "dist/cjs/index",
@@ -28,15 +28,16 @@
     "prepublishOnly": "yarn build"
   },
   "files": [
-    "dist",
-    "tarballs"
+    "dist"
   ],
-  "dependencies": {
-    "@sketch-hq/sketch-lint-core": "file:./tarballs/sketch-lint-core-1.0.0-alpha.0.tgz"
+  "dependencies": {},
+  "peerDependencies": {
+    "@sketch-hq/sketch-lint-core": "*"
   },
   "devDependencies": {
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
+    "@sketch-hq/sketch-lint-core": "file:./tarballs/sketch-lint-core-1.0.0-alpha.1.tgz",
     "@types/jest": "24.0.22",
     "@types/node": "12.12.7",
     "commitizen": "4.0.3",
