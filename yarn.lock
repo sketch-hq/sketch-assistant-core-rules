@@ -430,9 +430,9 @@
   resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-file-format-ts/-/sketch-file-format-ts-3.0.0.tgz#4f07cd375a9740152baf01996073e36f9d43673d"
   integrity sha512-m4Rg+QO02BQVqL9nJTVUb0VXjhev6PToxwH0YCAD9Ojk0YPeMrcz5IeNpppXdkZWtvPbzJJeyx+OQMVqA38SQg==
 
-"@sketch-hq/sketch-lint-core@file:./tarballs/sketch-lint-core-1.0.0-alpha.1.tgz":
-  version "1.0.0-alpha.1"
-  resolved "file:./tarballs/sketch-lint-core-1.0.0-alpha.1.tgz#d1cc4ae40a644aeb26e66423886acf0e6d35a38a"
+"@sketch-hq/sketch-lint-core@file:./tarballs/sketch-lint-core-1.0.0-alpha.2.tgz":
+  version "1.0.0-alpha.2"
+  resolved "file:./tarballs/sketch-lint-core-1.0.0-alpha.2.tgz#865e4d1597b3c7c17d8f9637ebbf6ffc19b311fa"
   dependencies:
     "@sketch-hq/sketch-file-format-ts" "3.0.0"
     ajv "6.10.2"
@@ -440,6 +440,21 @@
     json-ptr "1.2.0"
     mem "6.0.0"
     node-stream-zip "1.8.2"
+    object-hash "2.0.1"
+    p-map "3.0.0"
+    probe-image-size "5.0.0"
+
+"@sketch-hq/sketch-lint-core@file:./tarballs/sketch-lint-core-1.0.0-alpha.3.tgz":
+  version "1.0.0-alpha.3"
+  resolved "file:./tarballs/sketch-lint-core-1.0.0-alpha.3.tgz#74dc1bfd9013d8f2ef6bd1543db38025f08aee91"
+  dependencies:
+    "@sketch-hq/sketch-file-format-ts" "3.0.0"
+    ajv "6.10.2"
+    humps "2.0.1"
+    json-ptr "1.2.0"
+    mem "6.0.0"
+    node-stream-zip "1.8.2"
+    object-hash "2.0.1"
     p-map "3.0.0"
     probe-image-size "5.0.0"
 
@@ -4801,6 +4816,11 @@ object-copy@^0.1.0:
     copy-descriptor "^0.1.0"
     define-property "^0.2.5"
     kind-of "^3.0.3"
+
+object-hash@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/object-hash/-/object-hash-2.0.1.tgz#cef18a0c940cc60aa27965ecf49b782cbf101d96"
+  integrity sha512-HgcGMooY4JC2PBt9sdUdJ6PMzpin+YtY3r/7wg0uTifP+HJWW8rammseSEHuyt0UeShI183UGssCJqm1bJR7QA==
 
 object-inspect@^1.7.0:
   version "1.7.0"
