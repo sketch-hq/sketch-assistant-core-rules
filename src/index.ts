@@ -12,6 +12,7 @@ import { ruleModule as groupsNoRedundant } from './groups-no-redundant'
 import { ruleModule as bordersNoDisabled } from './borders-no-disabled'
 import { ruleModule as groupsNoEmpty } from './groups-no-empty'
 import { ruleModule as artboardsLayout } from './artboards-layout'
+import { ruleModule as layersSubpixelPositioning } from './layers-subpixel-positioning'
 
 const ruleSet: RuleSet = {
   name: '@sketch-hq/sketch-lint-ruleset-core',
@@ -31,6 +32,7 @@ const ruleSet: RuleSet = {
     bordersNoDisabled,
     groupsNoEmpty,
     artboardsLayout,
+    layersSubpixelPositioning,
   ],
 }
 
