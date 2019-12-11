@@ -37,7 +37,7 @@
   "devDependencies": {
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
-    "@sketch-hq/sketch-lint-core": "file:./tarballs/sketch-lint-core-1.0.0-alpha.1.tgz",
+    "@sketch-hq/sketch-lint-core": "file:./tarballs/sketch-lint-core-1.0.0-alpha.3.tgz",
     "@types/jest": "24.0.22",
     "@types/node": "12.12.7",
     "commitizen": "4.0.3",

@@ -9,11 +9,6 @@ import FileFormat from '@sketch-hq/sketch-file-format-ts'
 
 const name = 'symbols-no-unused'
 
-const nodeToObj = <T extends FileFormat.AnyObject>(node: Node) => {
-  const { $pointer, ...obj } = node
-  return obj as T
-}
-
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
   const masters: Node[] = []
@@ -30,8 +25,8 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
     master =>
       instances.findIndex(
         instance =>
-          nodeToObj<FileFormat.SymbolInstance>(instance).symbolID ===
-          nodeToObj<FileFormat.SymbolMaster>(master).symbolID,
+          utils.nodeToObject<FileFormat.SymbolInstance>(instance).symbolID ===
+          utils.nodeToObject<FileFormat.SymbolMaster>(master).symbolID,
       ) === -1,
   )
   utils.report(

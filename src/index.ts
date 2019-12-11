@@ -6,6 +6,7 @@ import { ruleModule as imagesNoOutsized } from './images-no-outsized'
 import { ruleModule as layersNoHidden } from './layers-no-hidden'
 import { ruleModule as symbolsNoUnused } from './symbols-no-unused'
 import { ruleModule as layerNamesPatternAllowed } from './layer-names-pattern-allowed'
+import { ruleModule as stylesNoDuplicate } from './styles-no-duplicate'
 
 const ruleSet: RuleSet = {
   name: '@sketch-hq/sketch-lint-ruleset-core',
@@ -19,6 +20,7 @@ const ruleSet: RuleSet = {
     layersNoHidden,
     symbolsNoUnused,
     layerNamesPatternAllowed,
+    stylesNoDuplicate,
   ],
 }
 
