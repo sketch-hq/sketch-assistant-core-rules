@@ -9,6 +9,7 @@ import { ruleModule as layerNamesPatternAllowed } from './layer-names-pattern-al
 import { ruleModule as stylesNoDuplicate } from './styles-no-duplicate'
 import { ruleModule as artboardsGrid } from './artboards-grid'
 import { ruleModule as groupsNoRedundant } from './groups-no-redundant'
+import { ruleModule as bordersNoDisabled } from './borders-no-disabled'
 
 const ruleSet: RuleSet = {
   name: '@sketch-hq/sketch-lint-ruleset-core',
@@ -25,6 +26,7 @@ const ruleSet: RuleSet = {
     stylesNoDuplicate,
     artboardsGrid,
     groupsNoRedundant,
+    bordersNoDisabled,
   ],
 }
 
