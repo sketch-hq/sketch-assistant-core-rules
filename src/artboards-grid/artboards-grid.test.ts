@@ -12,7 +12,10 @@ test('Generates violations correctly', async (): Promise<void> => {
     resolve(__dirname, '../../fixtures/artboard-grid.sketch'),
     createDummyConfig({
       rules: {
-        [name]: { active: true, gridBlockSize: 5, thickLinesEvery: 10 },
+        [name]: {
+          active: true,
+          grids: [{ gridBlockSize: 5, thickLinesEvery: 10 }],
+        },
       },
     }),
     ruleSet,
@@ -31,7 +34,10 @@ test('Does not generate false negatives', async (): Promise<void> => {
     resolve(__dirname, '../../fixtures/empty.sketch'),
     createDummyConfig({
       rules: {
-        [name]: { active: true, gridBlockSize: 5, thickLinesEvery: 10 },
+        [name]: {
+          active: true,
+          grids: [{ gridBlockSize: 5, thickLinesEvery: 10 }],
+        },
       },
     }),
     ruleSet,
