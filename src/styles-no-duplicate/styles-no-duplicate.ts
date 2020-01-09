@@ -15,6 +15,9 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   await utils.walk({
     $layers(node): void {
       const layer = utils.nodeToObject(node)
+      // Despite having style props in the file format, artboard and page styles
+      // are not user editable via the inspector so ignore them
+      if (layer._class === 'artboard' || layer._class === 'page') return
       if (!('style' in layer)) return // Narrow type to layers with a `style` prop
       if (!layer.style) return // Narrow type to truthy `style` prop
       if (typeof layer.sharedStyleID === 'string') return // Ignore layers using a shared style
