@@ -12,14 +12,13 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
   const maxLayers = utils.getOption('maxLayers')
   const invalid: Node[] = []
+  if (typeof maxLayers !== 'number') return
   await utils.walk({
     $groups(node): void {
-      if (
-        'layers' in node &&
-        node.layers &&
-        typeof maxLayers === 'number' &&
-        node.layers.length > maxLayers
-      ) {
+      const group = utils.nodeToObject(node)
+      if (!('layers' in group)) return // Narrow type to layer's with layer props, i.e. groups
+      if (group._class === 'shapeGroup') return // Skip counting layers in shapeGroups
+      if (group.layers.length > maxLayers) {
         invalid.push(node)
       }
     },
