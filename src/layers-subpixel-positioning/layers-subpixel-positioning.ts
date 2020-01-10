@@ -33,8 +33,8 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
       const layer = utils.nodeToObject(node)
       if (!('frame' in layer)) return // Narrow type to layers with a `frame` prop
       const { x, y } = layer.frame
-      const xValid = validIncrements.includes((x % 1).toFixed(2))
-      const yValid = validIncrements.includes((y % 1).toFixed(2))
+      const xValid = validIncrements.includes(Math.abs(x % 1).toFixed(2))
+      const yValid = validIncrements.includes(Math.abs(y % 1).toFixed(2))
       if (!xValid || !yValid) {
         invalid.push(node)
       }

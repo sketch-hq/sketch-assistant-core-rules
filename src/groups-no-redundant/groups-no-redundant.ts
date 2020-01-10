@@ -17,7 +17,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
       const isStyled =
         group.style && group.style.shadows && group.style.shadows.length > 0
       const hasOneChild = group.layers.length === 1
-      const onlyChildIsGroup = group.layers[0]._class === 'group'
+      const onlyChildIsGroup = hasOneChild && group.layers[0]._class === 'group'
       if (!usesSharedStyle && !isStyled && hasOneChild && onlyChildIsGroup) {
         invalid.push(node)
       }
