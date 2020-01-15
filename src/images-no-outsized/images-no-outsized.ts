@@ -5,26 +5,39 @@ import {
   Node,
   ReportItem,
 } from '@sketch-hq/sketch-lint-core'
+import FileFormat from '@sketch-hq/sketch-file-format-ts'
 
 const name = 'images-no-outsized'
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
-  const maxRatio = utils.getOption('maxRatio') || Infinity
+  const maxRatio = utils.getOption('maxRatio')
   if (typeof maxRatio !== 'number') return
-  const invalid: Node[] = []
+  const nodes: Node[] = [] // All bitmap nodes encountered in doc
+  const usages = new Set<[string, boolean]>() // Record image ref usages alongside a bool representing their size validity
   await utils.walk({
     async bitmap(node): Promise<void> {
-      if ('image' in node && 'frame' in node && node.image && node.frame) {
-        const { width, height } = await utils.getImageMetadata(node.image._ref)
-        const { frame } = node
-        const isWidthOversized = frame.width * maxRatio < width
-        const isHeightOversized = frame.height * maxRatio < height
-        if (isWidthOversized || isHeightOversized) {
-          invalid.push(node)
-        }
-      }
+      nodes.push(node)
+      const bitmap = utils.nodeToObject<FileFormat.Bitmap>(node)
+      const { frame, image } = bitmap
+      if (image._class === 'MSJSONOriginalDataReference') return // Only interested in images that are file references
+      const { width, height } = await utils.getImageMetadata(bitmap.image._ref)
+      const isWidthOversized = frame.width * maxRatio < width
+      const isHeightOversized = frame.height * maxRatio < height
+      const valid = !isWidthOversized && !isHeightOversized
+      usages.add([image._ref, valid])
     },
+  })
+  // Only consider a bitmap layer invalid if all usages of its image ref are invalid
+  const invalid = nodes.filter(node => {
+    const bitmap = utils.nodeToObject<FileFormat.Bitmap>(node)
+    const results: boolean[] = []
+    for (let value of usages.values()) {
+      if (value[0] === bitmap.image._ref) {
+        results.push(value[1])
+      }
+    }
+    return !results.includes(true)
   })
   utils.report(
     invalid.map(
