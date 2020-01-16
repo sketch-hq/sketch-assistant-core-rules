@@ -110,9 +110,9 @@ test('Exercise all rules', async (): Promise<void> => {
     ),
   }
   // Expect no rule errors
-  expect(await invokeRuleSet(filteredRuleSet, context)).toMatchInlineSnapshot(
-    `Array []`,
-  )
+  await expect(
+    invokeRuleSet(filteredRuleSet, context),
+  ).resolves.toMatchInlineSnapshot(`Array []`)
   // Expect only one violation from each rule
   expect(violations.length).toBe(filteredRuleSet.rules.length)
   // Check violation content

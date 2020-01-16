@@ -42,6 +42,17 @@ test('Generates violations correctly', async (): Promise<void> => {
   `)
 })
 
+test('Skip images used correctly elsewhere', async (): Promise<void> => {
+  expect.assertions(1)
+  const violations = await invokeRule(
+    resolve(__dirname, '../../fixtures/multiuse-outsized-image.sketch'),
+    config,
+    ruleSet,
+    ruleModule,
+  )
+  expect(violations).toHaveLength(0)
+})
+
 test('Does not generate false negatives', async (): Promise<void> => {
   expect.assertions(1)
   const violations = await invokeRule(
