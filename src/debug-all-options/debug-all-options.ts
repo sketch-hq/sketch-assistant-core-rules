@@ -38,7 +38,7 @@ const ruleModule: RuleModule = {
       helpers.booleanOption({
         name: 'booleanOption',
         title: 'Boolean Option',
-        description: 'A string option',
+        description: 'A boolean option',
         defaultValue: true,
       }),
       helpers.stringEnumOption({
@@ -57,6 +57,18 @@ const ruleModule: RuleModule = {
         pattern: '^[A-Za-z\\s]*$',
         minLength: 5,
         maxLength: 20,
+      }),
+      helpers.objectArrayOption({
+        name: 'objectArrayOption',
+        title: 'Object Array Option',
+        description: 'A object array option',
+        props: [
+          helpers.numberOption({
+            name: 'objectArrayNumberOption',
+            title: 'Object Array Number Option',
+            description: 'A object array number option',
+          }),
+        ],
       }),
     ]
   },
