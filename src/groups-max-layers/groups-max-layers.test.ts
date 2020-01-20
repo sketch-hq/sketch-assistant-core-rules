@@ -20,7 +20,7 @@ test('Generates violations correctly', async (): Promise<void> => {
   )
   expect(violations.map(violation => violation.message)).toMatchInlineSnapshot(`
     Array [
-      "Expected 9 or less layers, found 10",
+      "Expected 9 or less layers on group, found 10",
     ]
   `)
 })

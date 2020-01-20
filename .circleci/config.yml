@@ -11,6 +11,10 @@ jobs:
           steps:
             - run: yarn install --frozen-lockfile
       - run: yarn commitlint
-      - run: yarn build
       - run: yarn format-check
+      - run: yarn type-check
+      - run: yarn i18n:compile
+      - run: yarn build:node
+      - run: yarn build:node:types
+      - run: yarn build:sketch
       - run: yarn test --ci

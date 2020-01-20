@@ -21,8 +21,8 @@ test('Generates violations correctly', async (): Promise<void> => {
   )
   expect(violations.map(violation => violation.message)).toMatchInlineSnapshot(`
     Array [
-      "Unexpected layer name 'Rectangle'",
-      "Unexpected layer name 'Type something'",
+      "Unexpected disallowed layer name \\"Rectangle\\"",
+      "Unexpected disallowed layer name \\"Type something\\"",
     ]
   `)
 })

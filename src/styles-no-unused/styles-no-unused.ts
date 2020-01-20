@@ -6,6 +6,8 @@ import {
   RuleInvocationContext,
 } from '@sketch-hq/sketch-lint-core'
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
+import { t } from '@lingui/macro'
+import { _ } from '../i18n'
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
@@ -32,7 +34,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   utils.report(
     invalid.map(
       (node): ReportItem => ({
-        message: 'Unexpected unused shared style',
+        message: _(t`Unexpected unused shared style`),
         node,
       }),
     ),
@@ -42,8 +44,8 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
 const ruleModule: RuleModule = {
   rule,
   name: 'styles-no-unused',
-  title: 'No unused styles',
-  description: 'Enable this rule to disallow unused shared styles',
+  title: _(t`No Unused Shared Style`),
+  description: _(t`Disallow unused shared styles`),
 }
 
 export { ruleModule }

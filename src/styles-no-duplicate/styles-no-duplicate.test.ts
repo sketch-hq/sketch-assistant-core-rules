@@ -31,14 +31,14 @@ test('Generates violations correctly', async (): Promise<void> => {
         "objectId": "DBB809DA-D807-47AC-A558-732705BD9674",
         "pointer": "/document/pages/0/layers/2",
         "ruleModule": Object {
-          "description": "Enable this rule to disallow duplicate styles",
+          "description": "Disallow duplicate layer styles in favour of shared styles",
           "name": "styles-no-duplicate",
-          "title": "No duplicate styles",
+          "title": "No Duplicate Styles",
         },
         "ruleSet": Object {
           "description": "The core sketch-lint ruleset",
           "name": "@sketch-hq/sketch-lint-ruleset-core",
-          "title": "Sketch Core",
+          "title": "Core Ruleset",
         },
         "severity": 3,
       },

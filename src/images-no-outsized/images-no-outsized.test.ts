@@ -27,14 +27,14 @@ test('Generates violations correctly', async (): Promise<void> => {
         "objectId": "64BBDE2F-D786-4078-B332-97D777E9D07B",
         "pointer": "/document/pages/0/layers/0",
         "ruleModule": Object {
-          "description": "Enable this rule to disallow images that are larger than their frame",
+          "description": "Disallow images that are larger than their frame by a configurable ratio",
           "name": "images-no-outsized",
-          "title": "No outsized images",
+          "title": "No Outsized Images",
         },
         "ruleSet": Object {
           "description": "The core sketch-lint ruleset",
           "name": "@sketch-hq/sketch-lint-ruleset-core",
-          "title": "Sketch Core",
+          "title": "Core Ruleset",
         },
         "severity": 3,
       },

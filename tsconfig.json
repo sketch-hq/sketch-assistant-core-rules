@@ -9,7 +9,8 @@
     "target": "es6",
     "removeComments": true,
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "declaration": true
   },
   "include": ["./src"],
   "exclude": ["node_modules", "dist"]

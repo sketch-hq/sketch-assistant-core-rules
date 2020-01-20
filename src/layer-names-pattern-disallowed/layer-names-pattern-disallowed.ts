@@ -1,15 +1,14 @@
 import {
   Rule,
   RuleModule,
-  Node,
-  ReportItem,
   RuleInvocationContext,
 } from '@sketch-hq/sketch-lint-core'
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
+import { t } from '@lingui/macro'
+import { _ } from '../i18n'
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
-  const invalid: Node[] = []
   const patterns = utils.getOption('patterns')
   if (!Array.isArray(patterns) || patterns.length === 0) return
   const regexes: RegExp[] = []
@@ -21,39 +20,35 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   }
   await utils.walk({
     $layers(node): void {
+      const name = utils.nodeToObject<FileFormat.AnyLayer>(node).name
       // Create an array of booleans, with each boolean representing the result
       // of testing the layer's name against each disallowed pattern.
-      const results = regexes.map(regex =>
-        regex.test(utils.nodeToObject<FileFormat.AnyLayer>(node).name),
-      )
+      const results = regexes.map(regex => regex.test(name))
       // If `true` is anywhere in the array it means at least one disallowed
       // pattern was matched
       if (results.includes(true)) {
-        invalid.push(node)
+        utils.report({
+          node,
+          message: _(t`Unexpected disallowed layer name "${name}"`),
+        })
       }
     },
   })
-  utils.report(
-    invalid.map(
-      (node): ReportItem => ({
-        message: `Unexpected layer name '${'name' in node ? node.name : ''}'`,
-        node,
-      }),
-    ),
-  )
 }
 
 const ruleModule: RuleModule = {
   rule,
   name: 'layer-names-pattern-disallowed',
-  title: 'Disallowed layer names',
-  description: 'Enable this rule to disallow layer naming patterns',
+  title: _(t`Disallowed Layer Names`),
+  description: _(t`Define a list of disallowed layer names`),
   getOptions(helpers) {
     return [
       helpers.stringArrayOption({
         name: 'patterns',
-        title: 'Disallowed patterns',
-        description: 'An array of disallowed layer name patterns as regex',
+        title: _(t`Patterns`),
+        description: _(
+          t`An array of disallowed layer name pattern strings as JavaScript compatible regex`,
+        ),
       }),
     ]
   },

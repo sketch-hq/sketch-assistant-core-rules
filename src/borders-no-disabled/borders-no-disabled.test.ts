@@ -26,7 +26,7 @@ test('Generates violations correctly', async (): Promise<void> => {
   )
   expect(violations.map(violation => violation.message)).toMatchInlineSnapshot(`
     Array [
-      "Unexpected disabled border",
+      "Unexpected disabled border on layer style",
     ]
   `)
 })

@@ -4,3 +4,5 @@ node_modules
 dist
 *.tsbuildinfo
 /*.tgz
+locale/_build/
+locale/**/*.js

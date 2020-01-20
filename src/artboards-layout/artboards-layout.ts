@@ -6,6 +6,8 @@ import {
   RuleInvocationContext,
 } from '@sketch-hq/sketch-lint-core'
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
+import { t } from '@lingui/macro'
+import { _ } from '../i18n'
 
 type LayoutSpec = {
   drawVertical: boolean
@@ -137,7 +139,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   utils.report(
     invalid.map(
       (node): ReportItem => ({
-        message: 'Unexpected artboard layout settings',
+        message: _(t`Unexpected artboard layout settings`),
         node,
       }),
     ),
@@ -147,69 +149,71 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
 const ruleModule: RuleModule = {
   rule,
   name: 'artboards-layout',
-  title: 'Artboards layout',
-  description: 'Enable this rule to enforce artboard layout settings',
+  title: _(t`Artboard Layout`),
+  description: _(t`Define a list of allowable artboard layout settings`),
   getOptions(helpers) {
     return [
       helpers.objectArrayOption({
         name: 'layouts',
-        title: 'Layouts',
-        description: 'List of valid layouts',
+        title: _(t`Layouts`),
+        description: _(
+          t`List of valid layouts. Each layout object reproduces the options found on the Layout Settings UI in Sketch`,
+        ),
         props: [
           helpers.booleanOption({
             name: 'drawVertical',
-            title: 'Draw vertical',
-            description: 'Enables drawing columns',
+            title: _(t`Draw Vertical`),
+            description: _(t`Enables drawing columns`),
           }),
           helpers.numberOption({
             name: 'totalWidth',
-            title: 'Total width',
-            description: 'Total width of layout',
+            title: _(t`Total Width`),
+            description: _(t`Total width of layout`),
           }),
           helpers.numberOption({
             name: 'horizontalOffset',
-            title: 'Horizontal offset',
-            description: 'Horizontal offset of layout',
+            title: _(t`Horizontal Offset`),
+            description: _(t`Horizontal offset of layout`),
           }),
           helpers.numberOption({
             name: 'numberOfColumns',
-            title: 'Number of columns',
-            description: 'Number of columns in the layout',
+            title: _(t`Number of Columns`),
+            description: _(t`Number of columns in the layout`),
           }),
           helpers.booleanOption({
             name: 'guttersOutside',
-            title: 'Gutters outside',
-            description: 'Draw gutters on the outside',
+            title: _(t`Gutters Outside`),
+            description: _(t`Draw gutters on the outside`),
           }),
           helpers.numberOption({
             name: 'gutterWidth',
-            title: 'Gutter width',
-            description: 'Gutter width in layout',
+            title: _(t`Gutter Width`),
+            description: _(t`Gutter width in layout`),
           }),
           helpers.numberOption({
             name: 'columnWidth',
-            title: 'Column width',
-            description: 'Layout column widths',
+            title: _(t`Column Width`),
+            description: _(t`Layout column widths`),
           }),
           helpers.booleanOption({
             name: 'drawHorizontal',
-            title: 'Draw horizontal',
-            description: 'Enables drawing rows',
+            title: _(t`Draw Horizontal`),
+            description: _(t`Enables drawing rows`),
           }),
           helpers.numberOption({
             name: 'gutterHeight',
-            title: 'Gutter height',
-            description: 'Draw vertical columns',
+            title: _(t`Gutter Height`),
+            description: _(t`Layout gutter height`),
           }),
           helpers.numberOption({
             name: 'rowHeightMultiplication',
-            title: 'Row height multiplication',
+            title: _(t`Row Height Multiplication`),
             description: 'Row height multiplication',
           }),
           helpers.booleanOption({
             name: 'drawHorizontalLines',
-            title: 'Draw horizontal lines',
-            description: 'Draw all horizontal lines',
+            title: _(t`Draw Horizontal Lines`),
+            description: _(t`Draw all horizontal lines`),
           }),
         ],
       }),

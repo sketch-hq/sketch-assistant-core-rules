@@ -1,22 +1,14 @@
 import {
   Rule,
   RuleModule,
-  Node,
-  ReportItem,
   RuleInvocationContext,
 } from '@sketch-hq/sketch-lint-core'
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
-
-const name = 'layer-names-pattern-allowed'
-
-const nodeToObj = <T extends FileFormat.AnyObject>(node: Node) => {
-  const { $pointer, ...obj } = node
-  return obj as T
-}
+import { t } from '@lingui/macro'
+import { _ } from '../i18n'
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
-  const invalid: Node[] = []
   const patterns = utils.getOption('patterns')
   if (!Array.isArray(patterns) || patterns.length === 0) return
   const regexes: RegExp[] = []
@@ -28,36 +20,32 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   }
   await utils.walk({
     $layers(node): void {
-      if (
-        !regexes
-          .map(regex => regex.test(nodeToObj<FileFormat.AnyLayer>(node).name))
-          .includes(true)
-      ) {
-        invalid.push(node)
+      const name = utils.nodeToObject<FileFormat.AnyLayer>(node).name
+      if (!regexes.map(regex => regex.test(name)).includes(true)) {
+        utils.report({
+          node,
+          message: _(
+            t`Unexpected layer name "${name}", does not match one of the allowable patterns`,
+          ),
+        })
       }
     },
   })
-  utils.report(
-    invalid.map(
-      (node): ReportItem => ({
-        message: `Unexpected layer name "${'name' in node ? node.name : ''}"`,
-        node,
-      }),
-    ),
-  )
 }
 
 const ruleModule: RuleModule = {
   rule,
-  name,
-  title: 'Allowed layer names',
-  description: 'Enable this rule to enforce a naming pattern for layers',
+  name: 'layer-names-pattern-allowed',
+  title: _(t`Allowed Layer Names`),
+  description: _(t`Define a list of allowable layer names`),
   getOptions(helpers) {
     return [
       helpers.stringArrayOption({
         name: 'patterns',
-        title: 'Allowed patterns',
-        description: 'An array of allowed layer name patterns as regex',
+        title: _(t`Patterns`),
+        description: _(
+          t`An array of allowed layer name pattern strings as JavaScript compatible regex`,
+        ),
       }),
     ]
   },
