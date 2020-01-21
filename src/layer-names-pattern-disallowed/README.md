@@ -12,7 +12,7 @@ A team may wish to forbid certain specific layer names according to company or t
 
 ### `patterns: string[]`
 
-Array of forbidden layer name patterns expressed as JavaScript compatible regex.
+Array of forbidden layer name patterns expressed as JavaScript compatible regex. Remember to escape `"` and `\` characters if you need them to be part of your regex.
 
 ## Example configuration
 
@@ -20,7 +20,7 @@ Array of forbidden layer name patterns expressed as JavaScript compatible regex.
 {
   "active": true,
   "patterns": [
-    "^.* Copy( \d*)?$" // Disallows copy pasted layer names like "Rectangle Copy 2"
+    "^.* Copy( \\d*)?$" // Disallows copy pasted layer names like "Rectangle Copy 2"
   ]
 }
 ```
