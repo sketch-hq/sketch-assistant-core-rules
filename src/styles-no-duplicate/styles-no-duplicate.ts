@@ -1,20 +1,18 @@
 import {
   Rule,
   RuleModule,
-  Node,
-  ReportItem,
   RuleInvocationContext,
 } from '@sketch-hq/sketch-lint-core'
-
-const name = 'styles-no-duplicate'
+import FileFormat from '@sketch-hq/sketch-file-format-ts'
+import { t } from '@lingui/macro'
+import { _ } from '../i18n'
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
   const hashes: Set<string> = new Set()
-  const invalid: Node[] = []
   await utils.walk({
     $layers(node): void {
-      const layer = utils.nodeToObject(node)
+      const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
       // Despite having style props in the file format, artboard and page styles
       // are not user editable via the inspector so ignore them
       if (layer._class === 'artboard' || layer._class === 'page') return
@@ -34,26 +32,21 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
       })
       // If hash already seen in a previous style object then consider it invalid
       if (hashes.has(hash)) {
-        invalid.push(node)
+        utils.report({
+          node,
+          message: _(t`Unexpected duplicate style`),
+        })
       }
       hashes.add(hash)
     },
   })
-  utils.report(
-    invalid.map(
-      (node): ReportItem => ({
-        message: 'Unexpected duplicate style',
-        node,
-      }),
-    ),
-  )
 }
 
 const ruleModule: RuleModule = {
   rule,
-  name,
-  title: 'No duplicate styles',
-  description: 'Enable this rule to disallow duplicate styles',
+  name: 'styles-no-duplicate',
+  title: _(t`No Duplicate Styles`),
+  description: _(t`Disallow duplicate layer styles in favour of shared styles`),
 }
 
 export { ruleModule }

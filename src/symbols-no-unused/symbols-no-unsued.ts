@@ -6,8 +6,8 @@ import {
   RuleInvocationContext,
 } from '@sketch-hq/sketch-lint-core'
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
-
-const name = 'symbols-no-unused'
+import { t } from '@lingui/macro'
+import { _ } from '../i18n'
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
@@ -32,7 +32,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   utils.report(
     invalid.map(
       (node): ReportItem => ({
-        message: 'Unexpected unused symbol',
+        message: _(t`Unexpected unused symbol`),
         node,
       }),
     ),
@@ -41,10 +41,11 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
 
 const ruleModule: RuleModule = {
   rule,
-  name,
-  title: 'No unused symbols',
-  description:
-    'Enable this rule to disallow symbols that have no corresponding usage anywhere in the document',
+  name: 'symbols-no-unused',
+  title: _(t`No Unused Symbols`),
+  description: _(
+    t`Disallow symbols that have no corresponding usage anywhere in the document`,
+  ),
 }
 
 export { ruleModule }

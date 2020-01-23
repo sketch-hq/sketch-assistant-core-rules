@@ -20,8 +20,8 @@ test('Generates violations correctly', async (): Promise<void> => {
   )
   expect(violations.map(violation => violation.message)).toMatchInlineSnapshot(`
     Array [
-      "Unexpected subpixel positioning",
-      "Unexpected subpixel positioning",
+      "Unexpected subpixel positioning (0.5,200)",
+      "Unexpected subpixel positioning (200,0.33)",
     ]
   `)
 })
@@ -40,7 +40,7 @@ test('Generates violations correctly', async (): Promise<void> => {
   )
   expect(violations.map(violation => violation.message)).toMatchInlineSnapshot(`
     Array [
-      "Unexpected subpixel positioning",
+      "Unexpected subpixel positioning (200,0.33)",
     ]
   `)
 })

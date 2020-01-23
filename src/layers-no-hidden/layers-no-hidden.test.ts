@@ -31,14 +31,14 @@ test('Generates violations correctly', async (): Promise<void> => {
         "objectId": "D1BE0048-A6FC-4A8F-8BC7-A46BE3925F18",
         "pointer": "/document/pages/0/layers/0",
         "ruleModule": Object {
-          "description": "Enable this rule to disallow hidden layers from the document",
+          "description": "Disallow layers visually hidden in the layers list UI",
           "name": "layers-no-hidden",
-          "title": "No hidden layers",
+          "title": "No Hidden Layers",
         },
         "ruleSet": Object {
           "description": "The core sketch-lint ruleset",
           "name": "@sketch-hq/sketch-lint-ruleset-core",
-          "title": "Sketch Core",
+          "title": "Core Ruleset",
         },
         "severity": 3,
       },

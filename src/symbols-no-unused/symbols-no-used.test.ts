@@ -31,14 +31,14 @@ test('Generates violations correctly', async (): Promise<void> => {
         "objectId": "60445BBE-5020-4C88-B760-DC7B23328B2D",
         "pointer": "/document/pages/1/layers/0",
         "ruleModule": Object {
-          "description": "Enable this rule to disallow symbols that have no corresponding usage anywhere in the document",
+          "description": "Disallow symbols that have no corresponding usage anywhere in the document",
           "name": "symbols-no-unused",
-          "title": "No unused symbols",
+          "title": "No Unused Symbols",
         },
         "ruleSet": Object {
           "description": "The core sketch-lint ruleset",
           "name": "@sketch-hq/sketch-lint-ruleset-core",
-          "title": "Sketch Core",
+          "title": "Core Ruleset",
         },
         "severity": 3,
       },

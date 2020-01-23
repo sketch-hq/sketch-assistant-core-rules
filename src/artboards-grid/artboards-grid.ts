@@ -6,6 +6,8 @@ import {
   RuleInvocationContext,
 } from '@sketch-hq/sketch-lint-core'
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
+import { t } from '@lingui/macro'
+import { _ } from '../i18n'
 
 type GridSpec = {
   gridBlockSize: number
@@ -54,7 +56,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   utils.report(
     invalid.map(
       (node): ReportItem => ({
-        message: 'Unexpected artboard grid settings',
+        message: _(t`Unexpected artboard grid settings`),
         node,
       }),
     ),
@@ -64,24 +66,26 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
 const ruleModule: RuleModule = {
   rule,
   name: 'artboards-grid',
-  title: 'Artboards grid',
-  description: 'Enable this rule to enforce artboard grid settings',
+  title: _(t`Artboard Grids`),
+  description: _(
+    t`Define a list of allowable artboard grid settings. Each grid object reproduces the options found on the Grid Settings UI in Sketch`,
+  ),
   getOptions(helpers) {
     return [
       helpers.objectArrayOption({
         name: 'grids',
-        title: 'Grids',
-        description: 'List of valid grids',
+        title: _(t`Grids`),
+        description: _(t`List of valid grids`),
         props: [
           helpers.integerOption({
             name: 'gridBlockSize',
-            title: 'Grid block size',
-            description: 'Grid block size in pixels',
+            title: _(t`Grid Block Size`),
+            description: _(t`Grid block size in pixels`),
           }),
           helpers.integerOption({
             name: 'thickLinesEvery',
-            title: 'Thick lines every',
-            description: 'Number of blocks between thick grid lines',
+            title: _(t`Thick Lines Every`),
+            description: _(t`Number of blocks between thick grid lines`),
           }),
         ],
       }),

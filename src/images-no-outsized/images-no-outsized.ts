@@ -6,8 +6,8 @@ import {
   ReportItem,
 } from '@sketch-hq/sketch-lint-core'
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
-
-const name = 'images-no-outsized'
+import { t } from '@lingui/macro'
+import { _ } from '../i18n'
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
@@ -42,7 +42,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   utils.report(
     invalid.map(
       (node): ReportItem => ({
-        message: `Unexpected x${maxRatio} oversized image`,
+        message: _(t`Unexpected x${maxRatio} oversized image`),
         node,
       }),
     ),
@@ -51,21 +51,24 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
 
 const ruleModule: RuleModule = {
   rule,
-  name,
+  name: 'images-no-outsized',
+  title: _(t`No Outsized Images`),
+  description: _(
+    t`Disallow images that are larger than their frame by a configurable ratio`,
+  ),
   getOptions(helpers) {
     return [
       helpers.numberOption({
         name: 'maxRatio',
-        title: 'Maxium ratio',
+        title: _(t`Maximum Ratio`),
         defaultValue: 1,
-        description: 'How much larger an image can be than its frame',
+        description: _(
+          t`How much larger an image can be than its frame and still be considered valid`,
+        ),
         minimum: 1,
       }),
     ]
   },
-  title: 'No outsized images',
-  description:
-    'Enable this rule to disallow images that are larger than their frame',
 }
 
 export { ruleModule }

@@ -1,38 +1,32 @@
 import {
   Rule,
   RuleModule,
-  Node,
-  ReportItem,
   RuleInvocationContext,
 } from '@sketch-hq/sketch-lint-core'
-
-const name = 'layers-no-hidden'
+import FileFormat from '@sketch-hq/sketch-file-format-ts'
+import { t } from '@lingui/macro'
+import { _ } from '../i18n'
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
-  const invalid: Node[] = []
   await utils.walk({
     $layers(node): void {
-      if ('isVisible' in node && node.isVisible === false) {
-        invalid.push(node)
+      const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
+      if (layer.isVisible === false) {
+        utils.report({
+          node,
+          message: _(t`Unexpected hidden layer`),
+        })
       }
     },
   })
-  utils.report(
-    invalid.map(
-      (node): ReportItem => ({
-        message: 'Unexpected hidden layer',
-        node,
-      }),
-    ),
-  )
 }
 
 const ruleModule: RuleModule = {
   rule,
-  name,
-  title: 'No hidden layers',
-  description: 'Enable this rule to disallow hidden layers from the document',
+  name: 'layers-no-hidden',
+  title: _(t`No Hidden Layers`),
+  description: _(t`Disallow layers visually hidden in the layers list UI`),
 }
 
 export { ruleModule }

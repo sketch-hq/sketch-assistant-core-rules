@@ -1,4 +1,7 @@
 import { RuleSet } from '@sketch-hq/sketch-lint-core'
+import { t } from '@lingui/macro'
+
+import { i18n } from './i18n'
 import { ruleModule as debugAllOptions } from './debug-all-options'
 import { ruleModule as debugThrowsError } from './debug-throws-error'
 import { ruleModule as groupsMaxLayers } from './groups-max-layers'
@@ -18,8 +21,8 @@ import { ruleModule as stylesNoUnused } from './styles-no-unused'
 
 const ruleSet: RuleSet = {
   name: '@sketch-hq/sketch-lint-ruleset-core',
-  title: 'Sketch Core',
-  description: 'The core sketch-lint ruleset',
+  title: i18n._(t`Core Ruleset`),
+  description: i18n._(t`The core sketch-lint ruleset`),
   rules: [
     debugAllOptions,
     debugThrowsError,
