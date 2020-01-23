@@ -1,4 +1,4 @@
 module.exports = {
   testEnvironment: 'node',
-  testRegex: '^.*\\.test.ts$',
+  roots: ['<rootDir>/src'],
 }

@@ -18,7 +18,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
       regexes.push(new RegExp(pattern))
     }
   }
-  await utils.walk({
+  await utils.iterateCache({
     $layers(node): void {
       const name = utils.nodeToObject<FileFormat.AnyLayer>(node).name
       if (!regexes.map(regex => regex.test(name)).includes(true)) {

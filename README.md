@@ -74,6 +74,20 @@ Interact with the tooling in this repo via the following scripts.
 - PRs should contain only one commit, and are squash merged
 - Commit message format must follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) spec, those that don't will cause a build failure. After doing `yarn install` in the repo root a Git hook will be installed that helps with writing the message
 
+### Developing rules
+
+Use a TDD approach, and the existing rules as a guide.
+
+Rule functions can run in Node against plain Sketch file JSON, so the Mac Sketch app isn't required while actively developing rule logic.
+
+When creating a new rule in this repo:
+
+1. Copy and paste one of the existing rule folders in `src/` as a starting point
+1. Open up the Mac Sketch app and create some example Sketch files to use as test fixtures. These should demonsteate scenarios where you'd expect your rule to report violations
+1. Start up Jest in watch mode `yarn test --watch`
+1. Write some tests that fully exercise the rule logic. Invoke the rule against your Sketch file fixtures and assert that the rule reports the correct violations
+1. Don't forget to add your rule to the ruleset in `src/index.ts`
+
 ### TypeScript
 
 The ruleset is written in TypeScript, this is so we can take advantage of the type safety offered by the `@sketch-hq/sketch-lint-core` package. The types included with `@sketch-hq/sketch-lint-core` fully define rulesets and rule functions.
@@ -82,19 +96,23 @@ Types from `@sketch-hq/sketch-file-format-ts` are included too. These provide ty
 
 Using TypeScript for Sketch lint rulesets is recommended, but not required.
 
-### Build process
+### JavaScript enviroments and build process
 
 There are two build products, which cater for the ruleset running in two different JS environments (Sketch and Node).
 
-#### Sketch (JavaScriptCore)
+#### Sketch (WebKit JavaScriptCore)
 
-- Transformed using Babel [[config here](./babel.sketch.config.js)]. We target Safari 10 during the transformation since this most closely matches the JavaScriptCore environment provided by Sketch
-- Packaged into a single file using Webpack [[config here](./webpack.config.js)], since JavaScriptCore doesn't have a module loader
+1. Transformed using Babel [[config here](./babel.sketch.config.js)] targetting Safari 10, which is as close as we can get to language feature parity with the WebKit JavaScriptCore environment provided by the Sketch app
+2. Packaged into a single file using Webpack [[config here](./webpack.config.js)], since the environment doesn't have a module loader
+3. Output to `dist/sketch/index.js`
+
+> ⚠️ It should be noted that the WebKit JavaScriptCore environment inside Sketch is minimalistic, and provides neither normal browser APIs nor Node's native APIs. Take care not to rely on these when writing your own rules if need them to work in Sketch
 
 #### Node
 
-- Transformed using Babel [[config here](./babel.config.js)]
-- Published as CommonJS modules for consumption by Node
+1. Transformed using Babel [[config here](./babel.config.js)], targetting Node 10
+2. Uses CommonJS modules for consumption by Node
+3. Output to `dist/cjs/index.js`
 
 ### Release process
 
@@ -111,7 +129,9 @@ There are two build products, which cater for the ruleset running in two differe
 
 ### Internationalization
 
-This is handled by [LinguiJS](https://lingui.js.org).
+This is handled by [LinguiJS](https://lingui.js.org), and follows their [guides](https://lingui.js.org/tutorials/javascript.html) for handling plain JavaScript projects.
+
+This core ruleset requires internationalization since it's shipped with the Sketch app, but translating other 3rd party rulesets is completely optional.
 
 #### Supported locales
 
@@ -126,6 +146,6 @@ In Sketch the active language is provided to the ruleset via the `LANG` global v
 
 When ready to perform a round of translation, for example when there are new untranslated strings in the repo, perform the following workflow:
 
-1. Run `yarn i18n:extract` which will update the PO files in `locale/` with the new strings used throughout the source code
-2. Have the PO files translated. For now this only means translating the `zh-Han` file, the `en` master PO file will already be in the correct state
-3. Commit updated PO file back to the repo. The new content will automatically be included in the next build
+1. Run `yarn i18n:extract` which will update the `.po` files in `src/locale/` with the new strings used throughout the source code
+1. Have the PO files translated. For now this only means translating the `src/locale/zh-Hans/messages.po` file, the `en` master PO file will already be in the correct state
+1. Commit the updated `.po` file back to the repo. The `.po` files are automatically compiled to JavaScript for inclusion in the published assets as part of the build

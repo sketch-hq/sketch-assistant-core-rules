@@ -9,7 +9,7 @@ import { _ } from '../i18n'
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
-  await utils.walk({
+  await utils.iterateCache({
     group(node): void {
       const group = utils.nodeToObject<FileFormat.Group>(node)
       const usesSharedStyle = typeof group.sharedStyleID === 'string'

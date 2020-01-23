@@ -16,5 +16,4 @@ module.exports = {
     '@babel/proposal-object-rest-spread',
     'macros',
   ],
-  ignore: ['src/global.d.ts'],
 }

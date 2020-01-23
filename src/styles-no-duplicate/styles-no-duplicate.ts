@@ -10,7 +10,7 @@ import { _ } from '../i18n'
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
   const hashes: Set<string> = new Set()
-  await utils.walk({
+  await utils.iterateCache({
     $layers(node): void {
       const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
       // Despite having style props in the file format, artboard and page styles

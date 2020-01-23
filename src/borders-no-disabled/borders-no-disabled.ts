@@ -15,7 +15,7 @@ const styleHasDisabledBorder = (style: FileFormat.Style): boolean => {
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
-  await utils.walk({
+  await utils.iterateCache({
     $layers(node): void {
       const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
       if (!('style' in layer)) return // Narrow type to layers with a `style` prop

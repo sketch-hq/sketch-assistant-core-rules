@@ -9,7 +9,7 @@ import { _ } from '../i18n'
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
-  await utils.walk({
+  await utils.iterateCache({
     $layers(node): void {
       const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
       if (layer.isVisible === false) {
