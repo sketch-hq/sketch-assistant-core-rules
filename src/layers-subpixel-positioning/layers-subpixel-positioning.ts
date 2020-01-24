@@ -28,7 +28,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
       }
     }
   }
-  await utils.walk({
+  await utils.iterateCache({
     $layers(node): void {
       const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
       if (!('frame' in layer)) return // Narrow type to layers with a `frame` prop

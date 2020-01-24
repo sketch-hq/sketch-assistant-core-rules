@@ -13,7 +13,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
   const masters: Node[] = []
   const instances: Node[] = []
-  await utils.walk({
+  await utils.iterateCache({
     symbolMaster(node): void {
       masters.push(node)
     },

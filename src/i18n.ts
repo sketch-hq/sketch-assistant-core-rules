@@ -1,8 +1,8 @@
 import { I18n, setupI18n } from '@lingui/core'
 // @ts-ignore
-import enMessages from '../locale/en/messages'
+import enMessages from './locale/en/messages'
 // @ts-ignore
-import zhHansMessages from '../locale/zh-Hans/messages'
+import zhHansMessages from './locale/zh-Hans/messages'
 
 const supportedLangs = ['en', 'zh-Hans']
 const defaultLang = 'en'

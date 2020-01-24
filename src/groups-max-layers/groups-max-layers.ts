@@ -11,7 +11,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
   const maxLayers = utils.getOption('maxLayers')
   if (typeof maxLayers !== 'number') return
-  await utils.walk({
+  await utils.iterateCache({
     $groups(node): void {
       const group = utils.nodeToObject<FileFormat.AnyGroup>(node)
       if (group._class === 'shapeGroup') return // Skip counting layers in shapeGroups

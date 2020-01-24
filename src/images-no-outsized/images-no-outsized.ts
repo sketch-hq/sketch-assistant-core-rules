@@ -15,7 +15,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   if (typeof maxRatio !== 'number') return
   const nodes: Node[] = [] // All bitmap nodes encountered in doc
   const usages = new Set<[string, boolean]>() // Record image ref usages alongside a bool representing their size validity
-  await utils.walk({
+  await utils.iterateCache({
     async bitmap(node): Promise<void> {
       nodes.push(node)
       const bitmap = utils.nodeToObject<FileFormat.Bitmap>(node)

@@ -86,7 +86,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
     }
     specs.push(spec)
   }
-  await utils.walk({
+  await utils.iterateCache({
     artboard(node): void {
       const { layout } = utils.nodeToObject<FileFormat.Artboard>(node)
       if (!layout || !layout.isEnabled) {

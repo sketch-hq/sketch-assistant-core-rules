@@ -32,7 +32,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
       specs.push({ gridBlockSize, thickLinesEvery })
     }
   }
-  await utils.walk({
+  await utils.iterateCache({
     artboard(node): void {
       const { grid } = utils.nodeToObject<FileFormat.Artboard>(node)
       if (!grid) {

@@ -18,7 +18,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
       regexes.push(new RegExp(pattern))
     }
   }
-  await utils.walk({
+  await utils.iterateCache({
     $layers(node): void {
       const name = utils.nodeToObject<FileFormat.AnyLayer>(node).name
       // Create an array of booleans, with each boolean representing the result

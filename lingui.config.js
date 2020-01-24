@@ -3,4 +3,5 @@ module.exports = {
   srcPathDirs: ['<rootDir>/src'],
   format: 'po',
   sorting: 'origin',
+  localeDir: '<rootDir>/src/locale',
 }

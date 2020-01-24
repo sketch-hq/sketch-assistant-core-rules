@@ -15,7 +15,7 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const sharedStyles: Node<FileFormat.SharedStyle>[] = []
   const usages: Set<string> = new Set()
 
-  await utils.walk({
+  await utils.iterateCache({
     sharedStyle(node) {
       sharedStyles.push(node as Node<FileFormat.SharedStyle>)
     },
