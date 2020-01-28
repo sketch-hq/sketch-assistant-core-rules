@@ -96,7 +96,7 @@ Types from `@sketch-hq/sketch-file-format-ts` are included too. These provide ty
 
 Using TypeScript for Sketch lint rulesets is recommended, but not required.
 
-### JavaScript enviroments and build process
+### JavaScript environments and build process
 
 There are two build products, which cater for the ruleset running in two different JS environments (Sketch and Node).
 
@@ -106,7 +106,7 @@ There are two build products, which cater for the ruleset running in two differe
 2. Packaged into a single file using Webpack [[config here](./webpack.config.js)], since the environment doesn't have a module loader
 3. Output to `dist/sketch/index.js`
 
-> ⚠️ It should be noted that the WebKit JavaScriptCore environment inside Sketch is minimalistic, and provides neither normal browser APIs nor Node's native APIs. Take care not to rely on these when writing your own rules if need them to work in Sketch
+> ⚠️ It should be noted that the WebKit JavaScriptCore environment inside Sketch is minimalistic, and provides neither normal browser APIs nor Node's native APIs. Take care not to rely on these when writing your own rules if you need them to work in Sketch
 
 #### Node
 
