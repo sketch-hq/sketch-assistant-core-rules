@@ -10,7 +10,7 @@ import { _ } from '../i18n'
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
   const patterns = utils.getOption('patterns')
-  if (!Array.isArray(patterns) || patterns.length === 0) return
+  if (!Array.isArray(patterns)) return
   const regexes: RegExp[] = []
   for (let i = 0; i < patterns.length; i++) {
     const pattern = patterns[i]
