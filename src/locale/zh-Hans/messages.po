@@ -6,6 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: zh-Hans\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
 #: src/artboards-grid/artboards-grid.ts:49
 msgid "Unexpected artboard grid settings"
@@ -370,6 +376,26 @@ msgstr ""
 msgid "An array of disallowed layer name pattern strings as JavaScript compatible regex"
 msgstr ""
 
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:66
+msgid "{maxIdentical, plural, one {Expected no identical layer styles in the document, but found {numIdentical} matching this layer's style. Consider a shared style instead} other {Expected a maximum of # identical layer styles in the document, but found {numIdentical} instances of this layer's style. Consider a shared style instead}}"
+msgstr ""
+
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:78
+msgid "Prefer Shared Styles"
+msgstr ""
+
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:79
+msgid "Disallow identical layer styles in favour of shared styles"
+msgstr ""
+
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:83
+msgid "Max Identical"
+msgstr ""
+
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:84
+msgid "Maximum number of identical layer styles allowable in the document"
+msgstr ""
+
 #: src/layers-no-hidden/layers-no-hidden.ts:20
 msgid "Unexpected hidden layer"
 msgstr ""
@@ -400,18 +426,6 @@ msgstr ""
 
 #: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:60
 msgid "Array of supported scale factors in the document. Accepts elements with values \"@1x\", \"@2x\" and \"@3x\" only, which map to allowing whole pixel positions, 0.5 increments and 0.33 increments respectively"
-msgstr ""
-
-#: src/styles-no-duplicate/styles-no-duplicate.ts:43
-msgid "Unexpected duplicate style"
-msgstr ""
-
-#: src/styles-no-duplicate/styles-no-duplicate.ts:53
-msgid "No Duplicate Styles"
-msgstr ""
-
-#: src/styles-no-duplicate/styles-no-duplicate.ts:54
-msgid "Disallow duplicate layer styles in favour of shared styles"
 msgstr ""
 
 #: src/styles-no-unused/styles-no-unused.ts:29

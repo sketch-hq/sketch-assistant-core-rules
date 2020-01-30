@@ -10,7 +10,7 @@ import { ruleModule as layersNoHidden } from './layers-no-hidden'
 import { ruleModule as symbolsNoUnused } from './symbols-no-unused'
 import { ruleModule as layerNamesPatternAllowed } from './layer-names-pattern-allowed'
 import { ruleModule as layerNamesPatternDisallowed } from './layer-names-pattern-disallowed'
-import { ruleModule as stylesNoDuplicate } from './styles-no-duplicate'
+import { ruleModule as layerStylesPreferShared } from './layer-styles-prefer-shared'
 import { ruleModule as artboardsGrid } from './artboards-grid'
 import { ruleModule as groupsNoRedundant } from './groups-no-redundant'
 import { ruleModule as bordersNoDisabled } from './borders-no-disabled'
@@ -32,7 +32,7 @@ const ruleSet: RuleSet = {
     symbolsNoUnused,
     layerNamesPatternAllowed,
     layerNamesPatternDisallowed,
-    stylesNoDuplicate,
+    layerStylesPreferShared,
     artboardsGrid,
     groupsNoRedundant,
     bordersNoDisabled,
