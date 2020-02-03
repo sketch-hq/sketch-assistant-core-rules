@@ -18,6 +18,7 @@ import { ruleModule as groupsNoEmpty } from './groups-no-empty'
 import { ruleModule as artboardsLayout } from './artboards-layout'
 import { ruleModule as layersSubpixelPositioning } from './layers-subpixel-positioning'
 import { ruleModule as stylesNoUnused } from './styles-no-unused'
+import { ruleModule as textStylesPreferShared } from './text-styles-prefer-shared'
 
 const ruleSet: RuleSet = {
   name: '@sketch-hq/sketch-lint-ruleset-core',
@@ -40,6 +41,7 @@ const ruleSet: RuleSet = {
     artboardsLayout,
     layersSubpixelPositioning,
     stylesNoUnused,
+    textStylesPreferShared,
   ],
 }
 

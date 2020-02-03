@@ -331,11 +331,11 @@ msgstr ""
 msgid "How much larger an image can be than its frame and still be considered valid"
 msgstr ""
 
-#: src/index.ts:21
+#: src/index.ts:22
 msgid "Core Ruleset"
 msgstr ""
 
-#: src/index.ts:22
+#: src/index.ts:23
 msgid "The core sketch-lint ruleset"
 msgstr ""
 
@@ -389,6 +389,7 @@ msgid "Disallow identical layer styles in favour of shared styles"
 msgstr ""
 
 #: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:83
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:84
 msgid "Max Identical"
 msgstr ""
 
@@ -450,4 +451,20 @@ msgstr ""
 
 #: src/symbols-no-unused/symbols-no-unsued.ts:35
 msgid "Disallow symbols that have no corresponding usage anywhere in the document"
+msgstr ""
+
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:67
+msgid "{maxIdentical, plural, one {Expected no identical text styles in the document, but found {numIdentical} matching this layer's text style. Consider a shared text style instead} other {Expected a maximum of # identical text styles in the document, but found {numIdentical} instances of this layer's text style. Consider a shared text style instead}}"
+msgstr ""
+
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:79
+msgid "Prefer Shared Text Styles"
+msgstr ""
+
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:80
+msgid "Disallow identical text styles in favour of shared text styles"
+msgstr ""
+
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:85
+msgid "Maximum number of identical text styles allowable in the document"
 msgstr ""
