@@ -76,3 +76,13 @@ test('Finds violations for illegal @3x positioning', async (): Promise<
     ]
   `)
 })
+
+test('No violations for rotated layers or layers with rotated parents', async (): Promise<
+  void
+> => {
+  expect.assertions(1)
+  const violations = await testRule('./rotated-layers.sketch', ['@1x'])
+  expect(violations.map(violation => violation.message)).toMatchInlineSnapshot(
+    `Array []`,
+  )
+})
