@@ -2,6 +2,7 @@ import {
   Rule,
   RuleModule,
   RuleInvocationContext,
+  PointerValue,
 } from '@sketch-hq/sketch-lint-core'
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
 import { t } from '@lingui/macro'
@@ -12,6 +13,9 @@ const INCREMENTS: { [key: string]: string[] } = {
   '@2x': ['0.00', '0.50'],
   '@3x': ['0.00', '0.33', '0.67'],
 }
+
+const isRotated = (value: PointerValue) =>
+  typeof value === 'object' && 'rotation' in value && value.rotation !== 0
 
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
@@ -32,6 +36,14 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
     $layers(node): void {
       const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
       if (!('frame' in layer)) return // Narrow type to layers with a `frame` prop
+      // If the current layer or any of its parents have rotation return early
+      let hasRotation = isRotated(node)
+      utils.iterateParents(node, parent => {
+        if (isRotated(parent)) {
+          hasRotation = true
+        }
+      })
+      if (hasRotation) return
       const { x, y } = layer.frame
       const xValid = validIncrements.includes(Math.abs(x % 1).toFixed(2))
       const yValid = validIncrements.includes(Math.abs(y % 1).toFixed(2))
