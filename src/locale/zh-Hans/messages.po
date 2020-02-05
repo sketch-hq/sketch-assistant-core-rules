@@ -311,23 +311,27 @@ msgstr ""
 msgid "{0, plural, one {# thing} other {# things}}"
 msgstr ""
 
-#: src/images-no-outsized/images-no-outsized.ts:47
-msgid "Unexpected x{maxRatio} oversized image"
+#: src/images-no-outsized/images-no-outsized.ts:99
+msgid "Unexpected oversized image used in image layer, must be no more than {maxRatio} times larger than the layer frame's width or height"
 msgstr ""
 
-#: src/images-no-outsized/images-no-outsized.ts:54
+#: src/images-no-outsized/images-no-outsized.ts:102
+msgid "Unexpected oversized image used in layer style image fill, must be no more than {maxRatio} times larger than the layer frame's width or height"
+msgstr ""
+
+#: src/images-no-outsized/images-no-outsized.ts:115
 msgid "No Outsized Images"
 msgstr ""
 
-#: src/images-no-outsized/images-no-outsized.ts:55
+#: src/images-no-outsized/images-no-outsized.ts:116
 msgid "Disallow images that are larger than their frame by a configurable ratio"
 msgstr ""
 
-#: src/images-no-outsized/images-no-outsized.ts:60
+#: src/images-no-outsized/images-no-outsized.ts:121
 msgid "Maximum Ratio"
 msgstr ""
 
-#: src/images-no-outsized/images-no-outsized.ts:62
+#: src/images-no-outsized/images-no-outsized.ts:123
 msgid "How much larger an image can be than its frame and still be considered valid"
 msgstr ""
 
@@ -389,7 +393,7 @@ msgid "Disallow identical layer styles in favour of shared styles"
 msgstr ""
 
 #: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:83
-#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:84
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:74
 msgid "Max Identical"
 msgstr ""
 
@@ -409,23 +413,23 @@ msgstr ""
 msgid "Disallow layers visually hidden in the layers list UI"
 msgstr ""
 
-#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:44
+#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:54
 msgid "Unexpected subpixel positioning ({x},{y})"
 msgstr ""
 
-#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:53
+#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:63
 msgid "Layer Subpixel Positioning"
 msgstr ""
 
-#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:54
+#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:64
 msgid "Enforce layer positioning with respect to subpixels"
 msgstr ""
 
-#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:59
+#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:69
 msgid "Scale Factors"
 msgstr ""
 
-#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:60
+#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:70
 msgid "Array of supported scale factors in the document. Accepts elements with values \"@1x\", \"@2x\" and \"@3x\" only, which map to allowing whole pixel positions, 0.5 increments and 0.33 increments respectively"
 msgstr ""
 
@@ -453,18 +457,18 @@ msgstr ""
 msgid "Disallow symbols that have no corresponding usage anywhere in the document"
 msgstr ""
 
-#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:67
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:57
 msgid "{maxIdentical, plural, one {Expected no identical text styles in the document, but found {numIdentical} matching this layer's text style. Consider a shared text style instead} other {Expected a maximum of # identical text styles in the document, but found {numIdentical} instances of this layer's text style. Consider a shared text style instead}}"
 msgstr ""
 
-#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:79
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:69
 msgid "Prefer Shared Text Styles"
 msgstr ""
 
-#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:80
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:70
 msgid "Disallow identical text styles in favour of shared text styles"
 msgstr ""
 
-#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:85
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:75
 msgid "Maximum number of identical text styles allowable in the document"
 msgstr ""

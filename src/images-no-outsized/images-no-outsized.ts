@@ -3,50 +3,132 @@ import {
   RuleModule,
   RuleInvocationContext,
   Node,
-  ReportItem,
+  ImageMetadata,
 } from '@sketch-hq/sketch-lint-core'
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
 import { t } from '@lingui/macro'
 import { _ } from '../i18n'
 
+function assertOption(value: unknown): asserts value is number {
+  if (typeof value !== 'number') throw new Error()
+}
+
+type ImageRef = string
+
+type ImageUsage = {
+  node: Node
+  frame: FileFormat.Rect
+  type: 'bitmap' | 'fill'
+  imageMetadata: ImageMetadata
+}
+
+type Results = Map<ImageRef, ImageUsage[]>
+
+const isValidUsage = (usage: ImageUsage, maxRatio: number): boolean => {
+  const { frame, imageMetadata } = usage
+  const { width, height } = imageMetadata
+  const isWidthOversized = frame.width * maxRatio < width
+  const isHeightOversized = frame.height * maxRatio < height
+  return !isWidthOversized && !isHeightOversized
+}
+
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
+
   const maxRatio = utils.getOption('maxRatio')
-  if (typeof maxRatio !== 'number') return
-  const nodes: Node[] = [] // All bitmap nodes encountered in doc
-  const usages = new Set<[string, boolean]>() // Record image ref usages alongside a bool representing their size validity
+  assertOption(maxRatio)
+
+  // Create a data structure to hold the results from scanning the document.
+  // It's a map keyed by image reference, with the values being an array of
+  // objects representing instances where that image has been used
+  const results: Results = new Map()
+
+  const addResult = async (
+    ref: ImageRef,
+    node: Node,
+    frame: FileFormat.Rect,
+    type: 'bitmap' | 'fill',
+  ): Promise<void> => {
+    const usage: ImageUsage = {
+      node,
+      frame,
+      type,
+      imageMetadata: await utils.getImageMetadata(ref),
+    }
+
+    if (results.has(ref)) {
+      const item = results.get(ref)
+      item?.push(usage)
+      return
+    }
+
+    results.set(ref, [usage])
+  }
+
+  const promises: Promise<void>[] = []
+
   await utils.iterateCache({
-    async bitmap(node): Promise<void> {
-      nodes.push(node)
-      const bitmap = utils.nodeToObject<FileFormat.Bitmap>(node)
-      const { frame, image } = bitmap
-      if (image._class === 'MSJSONOriginalDataReference') return // Only interested in images that are file references
-      const { width, height } = await utils.getImageMetadata(bitmap.image._ref)
-      const isWidthOversized = frame.width * maxRatio < width
-      const isHeightOversized = frame.height * maxRatio < height
-      const valid = !isWidthOversized && !isHeightOversized
-      usages.add([image._ref, valid])
+    async $layers(node): Promise<void> {
+      const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
+      const { frame } = layer
+      // Handle images in bitmap layers
+      if (layer._class === 'bitmap') {
+        if (layer.image && layer.image._class === 'MSJSONFileReference') {
+          promises.push(addResult(layer.image._ref, node, frame, 'bitmap'))
+        }
+      }
+      // Handle image fills in layer styles
+      if (layer.sharedStyleID === 'string') return // Skip shared styles
+      if (!layer.style) return // Narrow to truthy style objects
+      if (!layer.style.fills) return // Narrow to truthy style fills arrays
+      for (const fill of layer.style.fills) {
+        if (fill.fillType !== FileFormat.FillType.Pattern) continue
+        if (!fill.image) continue
+        if (fill.image._class !== 'MSJSONFileReference') continue
+        promises.push(addResult(fill.image._ref, node, frame, 'fill'))
+      }
     },
   })
-  // Only consider a bitmap layer invalid if all usages of its image ref are invalid
-  const invalid = nodes.filter(node => {
-    const bitmap = utils.nodeToObject<FileFormat.Bitmap>(node)
-    const results: boolean[] = []
-    for (let value of usages.values()) {
-      if (value[0] === bitmap.image._ref) {
-        results.push(value[1])
+
+  // Await all promises together to benefit from parallelisation
+  await Promise.all(promises)
+
+  for (const usages of results.values()) {
+    // In order for any usage of an image to be considered invalid, all other
+    // usages of it throughout the document must also be invalid - in other words,
+    // if an image has been used correctly at least once it has earned its
+    // filesize penality in the document
+
+    // Bail early from this loop iteration if at least one usage of this
+    // image is valid
+    const atLeaseOneValid = usages
+      .map(usage => isValidUsage(usage, maxRatio))
+      .includes(true)
+    if (atLeaseOneValid) continue
+
+    // Having got to this point we know that all usages of the image are
+    // invalid, i.e. oversized, so generate a violation for each containing
+    // layer
+    for (const usage of usages) {
+      let message
+      switch (usage.type) {
+        case 'bitmap':
+          message = _(
+            t`Unexpected oversized image used in image layer, must be no more than ${maxRatio} times larger than the layer frame's width or height`,
+          )
+          break
+        case 'fill':
+          message = _(
+            t`Unexpected oversized image used in layer style image fill, must be no more than ${maxRatio} times larger than the layer frame's width or height`,
+          )
+          break
       }
+      utils.report({
+        node: usage.node,
+        message,
+      })
     }
-    return !results.includes(true)
-  })
-  utils.report(
-    invalid.map(
-      (node): ReportItem => ({
-        message: _(t`Unexpected x${maxRatio} oversized image`),
-        node,
-      }),
-    ),
-  )
+  }
 }
 
 const ruleModule: RuleModule = {

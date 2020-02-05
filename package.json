@@ -1,7 +1,7 @@
 {
   "name": "@sketch-hq/sketch-lint-ruleset-core",
   "description": "The core sketch-lint ruleset",
-  "version": "1.0.0-alpha.13",
+  "version": "1.0.0-alpha.14",
   "license": "MIT",
   "repository": "github:sketch-hq/sketch-lint-ruleset-core",
   "types": "dist/cjs/index",
@@ -53,7 +53,7 @@
     "@commitlint/config-conventional": "8.3.4",
     "@lingui/cli": "2.9.1",
     "@lingui/macro": "2.9.1",
-    "@sketch-hq/sketch-lint-core": "file:./tarballs/sketch-lint-core-1.0.0-alpha.12.tgz",
+    "@sketch-hq/sketch-lint-core": "file:./tarballs/sketch-lint-core-1.0.0-alpha.13.tgz",
     "@types/jest": "24.9.0",
     "@types/node": "13.1.8",
     "babel-core": "7.0.0-bridge.0",
