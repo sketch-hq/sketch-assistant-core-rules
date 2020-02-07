@@ -7,15 +7,34 @@ import FileFormat from '@sketch-hq/sketch-file-format-ts'
 import { t } from '@lingui/macro'
 import { _ } from '../i18n'
 
+function assertMaxLayers(maxLayers: unknown): asserts maxLayers is number {
+  if (typeof maxLayers !== 'number') throw new Error()
+}
+
+function assertSkipClasses(
+  skipClasses: unknown,
+): asserts skipClasses is string[] {
+  if (!Array.isArray(skipClasses)) throw new Error()
+  for (const el of skipClasses) {
+    if (typeof el !== 'string') throw new Error()
+  }
+}
+
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
+
   const maxLayers = utils.getOption('maxLayers')
-  if (typeof maxLayers !== 'number') return
+  const skipClasses = utils.getOption('skipClasses')
+  assertMaxLayers(maxLayers)
+  assertSkipClasses(skipClasses)
+
   await utils.iterateCache({
     $groups(node): void {
       const group = utils.nodeToObject<FileFormat.AnyGroup>(node)
-      if (group._class === 'shapeGroup') return // Skip counting layers in shapeGroups
-      const numLayers = group.layers.length
+      if (group._class === 'shapeGroup') return // Do not consider shape groups, its common/expected for these to have many layers
+      const numLayers = group.layers.filter(
+        layer => !skipClasses.includes(layer._class),
+      ).length
       if (numLayers > maxLayers) {
         utils.report({
           node,
@@ -41,6 +60,13 @@ const ruleModule: RuleModule = {
         defaultValue: 50,
         description: _(t`Maximum layers in a group`),
         minimum: 1,
+      }),
+      helpers.stringArrayOption({
+        name: 'skipClasses',
+        title: _(t`Skip Classes`),
+        description: _(
+          t`An array of Sketch file class values for layers that should be skipped and not counted when calculating the number of child layers in a group`,
+        ),
       }),
     ]
   },

@@ -193,20 +193,26 @@ msgid "Throw Error"
 #: src/debug-throws-error/debug-throws-error.ts:10
 msgid "Internal debug rule that always throws a rule error"
 
-#: src/groups-max-layers/groups-max-layers.ts:26
+#: src/groups-max-layers/groups-max-layers.ts:39
 msgid "Expected {maxLayers} or less layers on group, found {numLayers}"
 
-#: src/groups-max-layers/groups-max-layers.ts:35
+#: src/groups-max-layers/groups-max-layers.ts:48
 msgid "Max Group Layers"
 
-#: src/groups-max-layers/groups-max-layers.ts:36
+#: src/groups-max-layers/groups-max-layers.ts:49
 msgid "Restrict groups to a maximum number of child layers"
 
-#: src/groups-max-layers/groups-max-layers.ts:41
+#: src/groups-max-layers/groups-max-layers.ts:54
 msgid "Maximum Layers"
 
-#: src/groups-max-layers/groups-max-layers.ts:43
+#: src/groups-max-layers/groups-max-layers.ts:56
 msgid "Maximum layers in a group"
+
+#: src/groups-max-layers/groups-max-layers.ts:61
+msgid "Skip Classes"
+
+#: src/groups-max-layers/groups-max-layers.ts:62
+msgid "An array of Sketch file class values for layers that should be skipped and not counted when calculating the number of child layers in a group"
 
 #: src/groups-no-empty/groups-no-empty.ts:20
 msgid "Unexpected empty group"

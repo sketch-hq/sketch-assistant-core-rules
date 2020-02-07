@@ -10,14 +10,19 @@ import { ruleSet } from '../..'
 
 const { name } = ruleModule
 
-const testRule = async (fixture: string): Promise<LintViolation[]> =>
+const testRule = async (
+  fixture: string,
+  maxLayers: number = 10,
+  skipClasses: string[] = [],
+): Promise<LintViolation[]> =>
   await invokeRule(
     resolve(__dirname, fixture),
     createDummyConfig({
       rules: {
         [name]: {
           active: true,
-          maxLayers: 10,
+          maxLayers,
+          skipClasses,
         },
       },
     }),
@@ -52,6 +57,16 @@ test('No violations for high layer counts in shape groups', async (): Promise<
 > => {
   expect.assertions(1)
   const violations = await testRule('./shape-group.sketch')
+  expect(violations.map(violation => violation.message)).toMatchInlineSnapshot(
+    `Array []`,
+  )
+})
+
+test('No violations when `skipClasses` option used', async (): Promise<
+  void
+> => {
+  expect.assertions(1)
+  const violations = await testRule('./six-artboards.sketch', 5, ['artboard'])
   expect(violations.map(violation => violation.message)).toMatchInlineSnapshot(
     `Array []`,
   )
