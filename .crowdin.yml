@@ -1,0 +1,9 @@
+"project_identifier": "sketch-lint-ruleset-core"
+"base_path": "/src"
+
+"files": [
+    {
+      "source": "/locale/en/*.po", #source files filter
+      "translation": "/locale/%two_letters_code%/%original_file_name%", #where translations are stored
+    },
+  ]
