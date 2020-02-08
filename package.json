@@ -25,7 +25,7 @@
     "commitlint": "commitlint --from HEAD~1 --to HEAD --verbose",
     "format-check": "yarn prettier --check '{,**/}*.{ts,js,md,json}'",
     "i18n:compile": "lingui compile",
-    "i18n:extract": "lingui extract --clean --overwrite",
+    "i18n:extract": "lingui extract --clean",
     "package-tarball": "yarn build && yarn pack --filename=sketch-lint-ruleset-core-$(node -p -e \"require('./package.json').version\").tgz",
     "prepublishOnly": "yarn build",
     "release": "HUSKY_SKIP_HOOKS=1 standard-version --no-verify",
