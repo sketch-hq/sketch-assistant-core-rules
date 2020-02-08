@@ -1,0 +1,486 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2020-02-08 11:54+0000\n"
+"Mime-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: zh\n"
+"Project-Id-Version: sketch-lint-ruleset-core\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-02-08 14:28\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: sketch-lint-ruleset-core\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /master/locale/en/messages.po\n"
+
+#: src/artboards-grid/artboards-grid.ts:49
+msgid "Unexpected artboard grid settings"
+msgstr ""
+
+#: src/artboards-grid/artboards-grid.ts:56
+msgid "Artboard Grids"
+msgstr ""
+
+#: src/artboards-grid/artboards-grid.ts:57
+msgid "Define a list of allowable artboard grid settings. Each grid object reproduces the options found on the Grid Settings UI in Sketch"
+msgstr ""
+
+#: src/artboards-grid/artboards-grid.ts:62
+msgid "Grids"
+msgstr ""
+
+#: src/artboards-grid/artboards-grid.ts:63
+msgid "List of valid grids"
+msgstr ""
+
+#: src/artboards-grid/artboards-grid.ts:67
+msgid "Grid Block Size"
+msgstr ""
+
+#: src/artboards-grid/artboards-grid.ts:68
+msgid "Grid block size in pixels"
+msgstr ""
+
+#: src/artboards-grid/artboards-grid.ts:72
+msgid "Thick Lines Every"
+msgstr ""
+
+#: src/artboards-grid/artboards-grid.ts:73
+msgid "Number of blocks between thick grid lines"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:105
+msgid "Unexpected artboard layout settings"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:112
+msgid "Artboard Layout"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:113
+msgid "Define a list of allowable artboard layout settings"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:118
+msgid "Layouts"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:119
+msgid "List of valid layouts. Each layout object reproduces the options found on the Layout Settings UI in Sketch"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:123
+msgid "Draw Vertical"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:124
+msgid "Enables drawing columns"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:128
+msgid "Total Width"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:129
+msgid "Total width of layout"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:133
+msgid "Horizontal Offset"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:134
+msgid "Horizontal offset of layout"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:138
+msgid "Number of Columns"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:139
+msgid "Number of columns in the layout"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:143
+msgid "Gutters Outside"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:144
+msgid "Draw gutters on the outside"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:148
+msgid "Gutter Width"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:149
+msgid "Gutter width in layout"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:153
+msgid "Column Width"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:154
+msgid "Layout column widths"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:158
+msgid "Draw Horizontal"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:159
+msgid "Enables drawing rows"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:163
+msgid "Gutter Height"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:164
+msgid "Layout gutter height"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:168
+msgid "Row Height Multiplication"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:173
+msgid "Draw Horizontal Lines"
+msgstr ""
+
+#: src/artboards-layout/artboards-layout.ts:174
+msgid "Draw all horizontal lines"
+msgstr ""
+
+#: src/borders-no-disabled/borders-no-disabled.ts:33
+msgid "Unexpected disabled border on layer style"
+msgstr ""
+
+#: src/borders-no-disabled/borders-no-disabled.ts:42
+msgid "Unexpected disabled border in shared style"
+msgstr ""
+
+#: src/borders-no-disabled/borders-no-disabled.ts:51
+msgid "No Disabled Borders"
+msgstr ""
+
+#: src/borders-no-disabled/borders-no-disabled.ts:52
+msgid "Forbids disabled border styles throughout the document"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:7
+msgid "All Options"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:8
+msgid "Internal debug rule that defines examples of all available option schema types"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:13
+msgid "Number Option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:15
+msgid "A number option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:21
+msgid "Integer Option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:23
+msgid "An integer option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:29
+msgid "String Option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:30
+msgid "A string option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:32
+msgid "Default value"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:38
+msgid "Boolean Option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:39
+msgid "A boolean option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:44
+msgid "String Enum Option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:45
+msgid "A string enum option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:52
+msgid "String Array Option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:53
+msgid "A string array option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:61
+msgid "Object Array Option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:62
+msgid "A object array option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:66
+msgid "Object Array Number Option"
+msgstr ""
+
+#: src/debug-all-options/debug-all-options.ts:67
+msgid "A object array number option"
+msgstr ""
+
+#: src/debug-throws-error/debug-throws-error.ts:9
+msgid "Throw Error"
+msgstr ""
+
+#: src/debug-throws-error/debug-throws-error.ts:10
+msgid "Internal debug rule that always throws a rule error"
+msgstr ""
+
+#: src/groups-max-layers/groups-max-layers.ts:39
+msgid "Expected {maxLayers} or less layers on group, found {numLayers}"
+msgstr ""
+
+#: src/groups-max-layers/groups-max-layers.ts:48
+msgid "Max Group Layers"
+msgstr ""
+
+#: src/groups-max-layers/groups-max-layers.ts:49
+msgid "Restrict groups to a maximum number of child layers"
+msgstr ""
+
+#: src/groups-max-layers/groups-max-layers.ts:54
+msgid "Maximum Layers"
+msgstr ""
+
+#: src/groups-max-layers/groups-max-layers.ts:56
+msgid "Maximum layers in a group"
+msgstr ""
+
+#: src/groups-max-layers/groups-max-layers.ts:61
+msgid "Skip Classes"
+msgstr ""
+
+#: src/groups-max-layers/groups-max-layers.ts:62
+msgid "An array of Sketch file class values for layers that should be skipped and not counted when calculating the number of child layers in a group"
+msgstr ""
+
+#: src/groups-no-empty/groups-no-empty.ts:20
+msgid "Unexpected empty group"
+msgstr ""
+
+#: src/groups-no-empty/groups-no-empty.ts:29
+msgid "No Empty Groups"
+msgstr ""
+
+#: src/groups-no-empty/groups-no-empty.ts:30
+msgid "Disallow empty groups, i.e. with no child layers"
+msgstr ""
+
+#: src/groups-no-redundant/groups-no-redundant.ts:24
+msgid "Unexpected redundant group"
+msgstr ""
+
+#: src/groups-no-redundant/groups-no-redundant.ts:33
+msgid "No Redundant Groups"
+msgstr ""
+
+#: src/groups-no-redundant/groups-no-redundant.ts:34
+msgid "Disallows unstyled groups with only one child which is also a group"
+msgstr ""
+
+#: src/i18n.test.ts:5
+#: src/i18n.test.ts:14
+msgid "Hello world"
+msgstr ""
+
+#: src/i18n.test.ts:8
+msgid "The current count is {count}"
+msgstr ""
+
+#: src/i18n.test.ts:10
+#: src/i18n.test.ts:11
+msgid "{0, plural, one {# thing} other {# things}}"
+msgstr ""
+
+#: src/images-no-outsized/images-no-outsized.ts:99
+msgid "Unexpected oversized image used in image layer, must be no more than {maxRatio} times larger than the layer frame's width or height"
+msgstr ""
+
+#: src/images-no-outsized/images-no-outsized.ts:102
+msgid "Unexpected oversized image used in layer style image fill, must be no more than {maxRatio} times larger than the layer frame's width or height"
+msgstr ""
+
+#: src/images-no-outsized/images-no-outsized.ts:115
+msgid "No Outsized Images"
+msgstr ""
+
+#: src/images-no-outsized/images-no-outsized.ts:116
+msgid "Disallow images that are larger than their frame by a configurable ratio"
+msgstr ""
+
+#: src/images-no-outsized/images-no-outsized.ts:121
+msgid "Maximum Ratio"
+msgstr ""
+
+#: src/images-no-outsized/images-no-outsized.ts:123
+msgid "How much larger an image can be than its frame and still be considered valid"
+msgstr ""
+
+#: src/index.ts:22
+msgid "Core Ruleset"
+msgstr ""
+
+#: src/index.ts:23
+msgid "The core sketch-lint ruleset"
+msgstr ""
+
+#: src/layer-names-pattern-allowed/layer-names-pattern-allowed.ts:30
+msgid "Unexpected layer name \"{name}\", does not match one of the allowable patterns"
+msgstr ""
+
+#: src/layer-names-pattern-allowed/layer-names-pattern-allowed.ts:39
+msgid "Allowed Layer Names"
+msgstr ""
+
+#: src/layer-names-pattern-allowed/layer-names-pattern-allowed.ts:40
+msgid "Define a list of allowable layer names"
+msgstr ""
+
+#: src/layer-names-pattern-allowed/layer-names-pattern-allowed.ts:45
+#: src/layer-names-pattern-disallowed/layer-names-pattern-disallowed.ts:50
+msgid "Patterns"
+msgstr ""
+
+#: src/layer-names-pattern-allowed/layer-names-pattern-allowed.ts:46
+msgid "An array of allowed layer name pattern strings as JavaScript compatible regex"
+msgstr ""
+
+#: src/layer-names-pattern-disallowed/layer-names-pattern-disallowed.ts:35
+msgid "Unexpected disallowed layer name \"{name}\""
+msgstr ""
+
+#: src/layer-names-pattern-disallowed/layer-names-pattern-disallowed.ts:44
+msgid "Disallowed Layer Names"
+msgstr ""
+
+#: src/layer-names-pattern-disallowed/layer-names-pattern-disallowed.ts:45
+msgid "Define a list of disallowed layer names"
+msgstr ""
+
+#: src/layer-names-pattern-disallowed/layer-names-pattern-disallowed.ts:51
+msgid "An array of disallowed layer name pattern strings as JavaScript compatible regex"
+msgstr ""
+
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:66
+msgid "{maxIdentical, plural, one {Expected no identical layer styles in the document, but found {numIdentical} matching this layer's style. Consider a shared style instead} other {Expected a maximum of # identical layer styles in the document, but found {numIdentical} instances of this layer's style. Consider a shared style instead}}"
+msgstr ""
+
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:78
+msgid "Prefer Shared Styles"
+msgstr ""
+
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:79
+msgid "Disallow identical layer styles in favour of shared styles"
+msgstr ""
+
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:83
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:74
+msgid "Max Identical"
+msgstr ""
+
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:84
+msgid "Maximum number of identical layer styles allowable in the document"
+msgstr ""
+
+#: src/layers-no-hidden/layers-no-hidden.ts:20
+msgid "Unexpected hidden layer"
+msgstr ""
+
+#: src/layers-no-hidden/layers-no-hidden.ts:29
+msgid "No Hidden Layers"
+msgstr ""
+
+#: src/layers-no-hidden/layers-no-hidden.ts:30
+msgid "Disallow layers visually hidden in the layers list UI"
+msgstr ""
+
+#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:54
+msgid "Unexpected subpixel positioning ({x},{y})"
+msgstr ""
+
+#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:63
+msgid "Layer Subpixel Positioning"
+msgstr ""
+
+#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:64
+msgid "Enforce layer positioning with respect to subpixels"
+msgstr ""
+
+#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:69
+msgid "Scale Factors"
+msgstr ""
+
+#: src/layers-subpixel-positioning/layers-subpixel-positioning.ts:70
+msgid "Array of supported scale factors in the document. Accepts elements with values \"@1x\", \"@2x\" and \"@3x\" only, which map to allowing whole pixel positions, 0.5 increments and 0.33 increments respectively"
+msgstr ""
+
+#: src/styles-no-unused/styles-no-unused.ts:29
+msgid "Unexpected unused shared style"
+msgstr ""
+
+#: src/styles-no-unused/styles-no-unused.ts:36
+msgid "No Unused Shared Style"
+msgstr ""
+
+#: src/styles-no-unused/styles-no-unused.ts:37
+msgid "Disallow unused shared styles"
+msgstr ""
+
+#: src/symbols-no-unused/symbols-no-unsued.ts:27
+msgid "Unexpected unused symbol"
+msgstr ""
+
+#: src/symbols-no-unused/symbols-no-unsued.ts:34
+msgid "No Unused Symbols"
+msgstr ""
+
+#: src/symbols-no-unused/symbols-no-unsued.ts:35
+msgid "Disallow symbols that have no corresponding usage anywhere in the document"
+msgstr ""
+
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:57
+msgid "{maxIdentical, plural, one {Expected no identical text styles in the document, but found {numIdentical} matching this layer's text style. Consider a shared text style instead} other {Expected a maximum of # identical text styles in the document, but found {numIdentical} instances of this layer's text style. Consider a shared text style instead}}"
+msgstr ""
+
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:69
+msgid "Prefer Shared Text Styles"
+msgstr ""
+
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:70
+msgid "Disallow identical text styles in favour of shared text styles"
+msgstr ""
+
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:75
+msgid "Maximum number of identical text styles allowable in the document"
+msgstr ""
+
