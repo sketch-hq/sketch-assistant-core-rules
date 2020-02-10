@@ -22,13 +22,12 @@
     "build:sketch": "yarn webpack",
     "build": "yarn clean && yarn i18n:compile && yarn build:node && yarn build:node:types && yarn build:sketch",
     "clean": "rm -rf ./dist",
-    "commitlint": "commitlint --from HEAD~1 --to HEAD --verbose",
     "format-check": "yarn prettier --check '{,**/}*.{ts,js,md,json}'",
     "i18n:compile": "lingui compile",
     "i18n:extract": "lingui extract --clean",
     "package-tarball": "yarn build && yarn pack --filename=sketch-lint-ruleset-core-$(node -p -e \"require('./package.json').version\").tgz",
     "prepublishOnly": "yarn build",
-    "release": "HUSKY_SKIP_HOOKS=1 standard-version --no-verify",
+    "release": "standard-version",
     "test": "jest",
     "type-check": "tsc --noEmit",
     "update-yarn": "yarn policies set-version"
@@ -49,8 +48,6 @@
     "@babel/plugin-proposal-object-rest-spread": "7.8.3",
     "@babel/preset-env": "7.8.4",
     "@babel/preset-typescript": "7.8.3",
-    "@commitlint/cli": "8.3.5",
-    "@commitlint/config-conventional": "8.3.4",
     "@lingui/cli": "2.9.1",
     "@lingui/macro": "2.9.1",
     "@sketch-hq/sketch-lint-core": "file:./tarballs/sketch-lint-core-1.0.0-alpha.13.tgz",
@@ -60,25 +57,12 @@
     "babel-jest": "25.1.0",
     "babel-loader": "8.0.6",
     "babel-plugin-macros": "2.8.0",
-    "commitizen": "4.0.3",
-    "cz-conventional-changelog": "3.1.0",
-    "husky": "4.2.1",
     "jest": "25.1.0",
     "prettier": "1.19.1",
     "standard-version": "7.1.0",
     "typescript": "3.7.5",
     "webpack": "4.41.5",
     "webpack-cli": "3.3.10"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-    }
   },
   "standard-version": {
     "scripts": {
