@@ -2,4 +2,4 @@ project_identifier: sketch-lint-ruleset-core
 base_path: /src
 files:
   - source: /locale/en/*.po
-    translation: /locale/%two_letters_code%/%original_file_name%
+    translation: /locale/%locale%/%original_file_name%
