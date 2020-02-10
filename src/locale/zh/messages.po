@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh\n"
 "Project-Id-Version: sketch-lint-ruleset-core\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-02-08 14:28\n"
+"PO-Revision-Date: 2020-02-10 10:19\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -311,7 +311,7 @@ msgstr ""
 #: src/i18n.test.ts:5
 #: src/i18n.test.ts:14
 msgid "Hello world"
-msgstr ""
+msgstr "世界你好"
 
 #: src/i18n.test.ts:8
 msgid "The current count is {count}"
