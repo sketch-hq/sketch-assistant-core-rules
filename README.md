@@ -37,7 +37,8 @@ The full ruleset and available configuration options for each rule are documente
 - [`layer-names-pattern-disallowed`](./src/layer-names-pattern-disallowed)
 - [`layers-no-hidden`](./src/layers-no-hidden)
 - [`layers-subpixel-positioning`](./src/layers-subpixel-positioning)
-- [`styles-no-duplicate`](./src/styles-no-duplicate)
+- [`layer-styles-prefer-shared`](./src/layer-styles-prefer-shared)
+- [`text-styles-prefer-shared`](./src/text-styles-prefer-shared)
 - [`styles-no-unused`](./src/styles-no-unused)
 - [`symbols-no-unused`](./src/symbols-no-unused)
 
