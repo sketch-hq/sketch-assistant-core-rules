@@ -24,6 +24,14 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
     text(node): void {
       const layer = utils.nodeToObject<FileFormat.Text>(node)
       if (typeof layer.sharedStyleID === 'string') return // Ignore layers using a shared style
+      // Determine whether we're inside a symbol instance, if so return early since
+      // duplicate layer styles are to be expected across the docucument in instances
+      const classes: string[] = [node._class]
+      utils.iterateParents(node, parent => {
+        if (typeof parent === 'object' && '_class' in parent)
+          classes.push(parent._class)
+      })
+      if (classes.includes('symbolInstance')) return
       // Get an md5 hash of the style object. Only consider a subset of style
       // object properties when computing the hash (can revisit this to make the
       // check looser or stricter)

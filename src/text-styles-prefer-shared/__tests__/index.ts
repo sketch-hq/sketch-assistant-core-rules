@@ -72,3 +72,16 @@ test('No violations for shared style usage', async (): Promise<void> => {
     `Array []`,
   )
 })
+
+test('Only generate violations for duplicate text styles inside symbol masters, not instances', async (): Promise<
+  void
+> => {
+  expect.assertions(1)
+  const violations = await testRule('./symbols.sketch', 1)
+  expect(violations.map(violation => violation.message)).toMatchInlineSnapshot(`
+    Array [
+      "Expected no identical text styles in the document, but found 2 matching this layer's text style. Consider a shared text style instead",
+      "Expected no identical text styles in the document, but found 2 matching this layer's text style. Consider a shared text style instead",
+    ]
+  `)
+})
