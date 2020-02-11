@@ -14,6 +14,9 @@ function assertMaxIdentical(val: unknown): asserts val is number {
   }
 }
 
+// Do not check for duplicate style properties on these objects
+const IGNORE_CLASSES = ['artboard', 'page', 'symbolMaster', 'text']
+
 const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   const { utils } = context
   // Gather option value and assert its type
@@ -23,12 +26,17 @@ const rule: Rule = async (context: RuleInvocationContext): Promise<void> => {
   await utils.iterateCache({
     $layers(node): void {
       const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
-      if (layer._class === 'artboard' || layer._class === 'page') return // Ignore artboards and pages
-      if (layer._class === 'text') return // Ignore text layers entirely
-      if (!layer.style) return // Narrow type to truthy `style` prop
-      if (!('style' in layer)) return // Narrow type to layers with a `style` prop
+      if (IGNORE_CLASSES.includes(node._class)) return
       if (layer._class === 'group' && !layer.style?.shadows?.length) return // Ignore groups with default styles (i.e. no shadows)
       if (typeof layer.sharedStyleID === 'string') return // Ignore layers using a shared style
+      // Determine whether we're inside a symbol instance, if so return early since
+      // duplicate layer styles are to be expected across the docucument in instances
+      const classes: string[] = [node._class]
+      utils.iterateParents(node, parent => {
+        if (typeof parent === 'object' && '_class' in parent)
+          classes.push(parent._class)
+      })
+      if (classes.includes('symbolInstance')) return
       // Get an md5 hash of the style object. Only consider a subset of style
       // object properties when computing the hash (can revisit this to make the
       // check looser or stricter)
