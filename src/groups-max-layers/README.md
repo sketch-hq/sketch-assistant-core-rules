@@ -12,11 +12,16 @@ Groups with large layer counts could be considered a document hygiene or usabili
 
 Maximum number of child layers within a group.
 
+### `skipClasses: string[]`
+
+An array of Sketch file object classes that shouldn't be considered when counting a group's layers.
+
 ## Example configuration
 
 ```js
 {
   "active": true,
-  "maxLayers": 50
+  "maxLayers": 50,
+  "skipClasses": ["artboards"] // Skips counting artboads on page objects
 }
 ```
