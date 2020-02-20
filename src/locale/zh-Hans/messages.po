@@ -248,6 +248,20 @@ msgstr ""
 msgid "A object array number option"
 msgstr ""
 
+#: src/debug-i18n/debug-i18n.ts:5
+#: src/i18n.test.ts:5
+#: src/i18n.test.ts:14
+msgid "Hello world"
+msgstr "世界你好"
+
+#: src/debug-i18n/debug-i18n.ts:11
+msgid "Debug Internationalization"
+msgstr ""
+
+#: src/debug-i18n/debug-i18n.ts:12
+msgid "Internal debug rule that generates a violation with a translated message"
+msgstr ""
+
 #: src/debug-throws-error/debug-throws-error.ts:9
 msgid "Throw Error"
 msgstr ""
@@ -308,11 +322,6 @@ msgstr ""
 msgid "Disallows unstyled groups with only one child which is also a group"
 msgstr ""
 
-#: src/i18n.test.ts:5
-#: src/i18n.test.ts:14
-msgid "Hello world"
-msgstr "世界你好"
-
 #: src/i18n.test.ts:8
 msgid "The current count is {count}"
 msgstr ""
@@ -346,11 +355,11 @@ msgstr ""
 msgid "How much larger an image can be than its frame and still be considered valid"
 msgstr ""
 
-#: src/index.ts:22
+#: src/index.ts:23
 msgid "Core Ruleset"
 msgstr ""
 
-#: src/index.ts:23
+#: src/index.ts:24
 msgid "The core sketch-lint ruleset"
 msgstr ""
 
@@ -391,24 +400,24 @@ msgstr ""
 msgid "An array of disallowed layer name pattern strings as JavaScript compatible regex"
 msgstr ""
 
-#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:66
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:71
 msgid "{maxIdentical, plural, one {Expected no identical layer styles in the document, but found {numIdentical} matching this layer's style. Consider a shared style instead} other {Expected a maximum of # identical layer styles in the document, but found {numIdentical} instances of this layer's style. Consider a shared style instead}}"
 msgstr ""
 
-#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:78
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:83
 msgid "Prefer Shared Styles"
 msgstr ""
 
-#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:79
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:84
 msgid "Disallow identical layer styles in favour of shared styles"
 msgstr ""
 
-#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:83
-#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:74
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:88
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:83
 msgid "Max Identical"
 msgstr ""
 
-#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:84
+#: src/layer-styles-prefer-shared/layer-styles-prefer-shared.ts:89
 msgid "Maximum number of identical layer styles allowable in the document"
 msgstr ""
 
@@ -468,19 +477,18 @@ msgstr ""
 msgid "Disallow symbols that have no corresponding usage anywhere in the document"
 msgstr ""
 
-#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:57
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:66
 msgid "{maxIdentical, plural, one {Expected no identical text styles in the document, but found {numIdentical} matching this layer's text style. Consider a shared text style instead} other {Expected a maximum of # identical text styles in the document, but found {numIdentical} instances of this layer's text style. Consider a shared text style instead}}"
 msgstr ""
 
-#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:69
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:78
 msgid "Prefer Shared Text Styles"
 msgstr ""
 
-#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:70
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:79
 msgid "Disallow identical text styles in favour of shared text styles"
 msgstr ""
 
-#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:75
+#: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:84
 msgid "Maximum number of identical text styles allowable in the document"
 msgstr ""
-
