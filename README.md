@@ -28,6 +28,7 @@ The full ruleset and available configuration options for each rule are documente
 - [`artboards-layout`](./src/artboards-layout)
 - [`borders-no-disabled`](./src/borders-no-disabled)
 - [`debug-all-options`](./src/debug-all-options)
+- [`debug-i18n`](./src/debug-i18n)
 - [`debug-throws-error`](./src/debug-throws-error)
 - [`groups-max-layers`](./src/groups-max-layers)
 - [`groups-no-empty`](./src/groups-no-empty)
@@ -35,11 +36,12 @@ The full ruleset and available configuration options for each rule are documente
 - [`images-no-outsized`](./src/images-no-outsized)
 - [`layer-names-pattern-allowed`](./src/layer-names-pattern-allowed)
 - [`layer-names-pattern-disallowed`](./src/layer-names-pattern-disallowed)
+- [`layer-styles-prefer-shared`](./src/layer-styles-prefer-shared)
 - [`layers-no-hidden`](./src/layers-no-hidden)
 - [`layers-subpixel-positioning`](./src/layers-subpixel-positioning)
-- [`styles-no-duplicate`](./src/styles-no-duplicate)
 - [`styles-no-unused`](./src/styles-no-unused)
 - [`symbols-no-unused`](./src/symbols-no-unused)
+- [`text-styles-prefer-shared`](./src/text-styles-prefer-shared)
 
 ## Development
 

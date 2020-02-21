@@ -492,4 +492,3 @@ msgstr ""
 #: src/text-styles-prefer-shared/text-styles-prefer-shared.ts:84
 msgid "Maximum number of identical text styles allowable in the document"
 msgstr ""
-
