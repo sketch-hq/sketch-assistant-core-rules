@@ -1,4 +1,4 @@
-project_identifier: sketch-lint-ruleset-core
+project_identifier: sketch-assistant-core-rules
 base_path: /src
 files:
   - source: /locale/en/*.po
