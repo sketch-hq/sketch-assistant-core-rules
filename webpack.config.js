@@ -1,18 +1,16 @@
 const path = require('path')
 const webpack = require('webpack')
-const babelConfig = require('./babel.sketch.config')
+const pkg = require('./package.json')
 
 module.exports = {
   target: 'web',
   mode: 'production',
-  entry: './src/index',
+  entry: './index',
   module: {
     rules: [
       {
         test: /\.(ts|js)$/,
-        exclude: [/node_modules/, /\.test.ts$/],
         loader: 'babel-loader',
-        options: babelConfig,
       },
     ],
   },
@@ -23,7 +21,7 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(process.cwd(), 'dist/sketch'),
     libraryTarget: 'var',
-    library: 'SketchHqSketchLintRulesetCore',
+    library: ['_sketch', 'assistants', pkg.name],
   },
   node: {
     fs: 'empty',

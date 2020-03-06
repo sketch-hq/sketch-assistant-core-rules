@@ -1,7 +1,7 @@
 module.exports = {
   sourceLocale: 'en',
-  srcPathDirs: ['<rootDir>/src'],
+  srcPathDirs: ['<rootDir>'],
   format: 'po',
   sorting: 'origin',
-  localeDir: '<rootDir>/src/locale',
+  localeDir: '<rootDir>/locale',
 }
