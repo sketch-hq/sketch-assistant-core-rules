@@ -21,5 +21,3 @@ declare module '@lingui/core' {
 
   export { I18n, setupI18n }
 }
-
-declare var LANG: string | undefined
