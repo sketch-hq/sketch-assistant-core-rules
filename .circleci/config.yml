@@ -15,7 +15,5 @@ jobs:
           steps:
             - run: yarn install --frozen-lockfile
       - run: yarn format-check
-      - run: yarn type-check
-      - run: yarn i18n:compile
       - run: yarn build
       - run: yarn test --ci
