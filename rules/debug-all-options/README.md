@@ -1,7 +1,7 @@
 # debug-all-options
 
-> ℹ️ Debug rules are useful during the assistant development process, and aren't designed to be
-> generally useful for document linting.
+> ℹ️ Debug rules are useful during the Assistant development process, and aren't designed to be
+> generally useful during the typical design workflow.
 
 This rule is a no-op and will not generate any violations, however it makes use of every rule option
 schema type in its module definition.

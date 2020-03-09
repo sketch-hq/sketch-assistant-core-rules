@@ -38,7 +38,7 @@ export const createRule: CreateRuleFunction = i18n => {
           return
         }
         // The artboard's grid much precisely match one of the grids defined in the
-        // options in order to pass linting
+        // options
         const gridValid = specs
           .map(
             spec =>

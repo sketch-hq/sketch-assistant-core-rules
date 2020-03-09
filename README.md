@@ -11,11 +11,11 @@ Official core rules Sketch Assistant.
 
 ## Usage
 
-TODO: Link to documentation about creating assistants, and extending from assistants here.
+TODO: Link to documentation about creating Assistants, and extending from Assistants here.
 
 ## Related Assistants
 
-TODO: Link to other official Assistants that extend this one
+TODO: Link to other official Assistants that extend this one.
 
 ## Available rules
 
@@ -43,8 +43,8 @@ configuration options and implementation.
 
 ## Development
 
-The following section of the readme only relates to developing the assistant, not using it in your
-own projects
+The following section of the readme only relates to developing the Assistant, not using it in your
+own projects.
 
 ### Requirements
 
@@ -53,11 +53,11 @@ own projects
 
 ### Scripts
 
-Interact with the tooling in this repo via the following scripts.
+Interact with the tooling in this repository via the following scripts.
 
 | Script            | Description                                     |
 | ----------------- | ----------------------------------------------- |
-| yarn build        | Builds the assistant to the `dist` folder       |
+| yarn build        | Builds the Assistant to the `dist` folder       |
 | yarn format-check | Checks the formatting with prettier             |
 | yarn i18n:extract | Extracts strings from the JS source to PO files |
 | yarn test         | Runs the Jest tests                             |
@@ -77,26 +77,26 @@ Use a TDD approach, and the existing rules as a guide.
 Rule functions can run in Node against plain Sketch file JSON, so the Mac Sketch app isn't required
 while actively developing rule logic.
 
-When creating a new rule in this repo:
+When creating a new rule in this repository:
 
-1. Copy and paste one of the existing rule folders in `src/` as a starting point
-1. Open up the Mac Sketch app and create some example Sketch files to use as test fixtures. These
-   should demonsteate scenarios where you'd expect your rule to report violations
-1. Start up Jest in watch mode `yarn test --watch`
-1. Write some tests that fully exercise the rule logic. Invoke the rule against your Sketch file
-   fixtures and assert that the rule reports the correct violations
-1. Don't forget to add your rule to the Assistant definition in `src/index.ts`
+1. Copy and paste one of the existing rule folders in `src/` as a starting point.
+1. Create some example `.sketch` files to use as test fixtures with Sketch. These should demonstrate
+   scenarios where you'd expect your rule to report violations.
+1. Start up Jest in watch mode `yarn test --watch`.
+1. Write tests that fully cover the rule logic. Invoke the rule against your Sketch file fixtures
+   and assert that the rule reports the correct violations.
+1. Don't forget to add your rule to the Assistant definition in `src/index.ts`.
 
 #### Releases
 
-This repo uses [Atlassian Changesets](https://github.com/atlassian/changesets) to automate the npm
-release process. Read the docs for more information, but the top-level summary is:
+This repository uses [Atlassian Changesets](https://github.com/atlassian/changesets) to automate the
+npm release process. Read the docs for more information, but the top-level summary is:
 
 - A GitHub Action maintains a permanently open PR that when merged will publish the package to npm
-  with the latest changes and an automatically determined semver
+  with the latest changes and an automatically determined semver.
 - If the work you do in a PR should affect the next release, then you need to commit a "changeset"
-  to the repo together with the rest of your code changes - do this by running `yarn changeset`.
-  You'll be asked to provide a change type (major, minor or patch) and a message
+  to the repository together with the rest of your code changes - do this by running
+  `yarn changeset`. You'll be asked to provide a change type (major, minor or patch) and a message.
 
 #### Internationalization
 
@@ -113,9 +113,9 @@ The following locales are currently supported in the Sketch Mac app and this pro
 - `zh-Hans` (Chinese Simplified)
 
 When ready to perform a round of translation, for example when there are new untranslated strings in
-the repo, perform the following workflow:
+the repository, perform the following workflow:
 
 1. Run `yarn i18n:extract` which will update the `.po` files in `src/locale/` with the new strings
-   used throughout the source code
-1. PR and merge these changes to `master`
-1. Translation thereafter happens via CrowdIn automation
+   used throughout the source code.
+1. PR and merge these changes to `master`.
+1. Translation thereafter happens via [CrowdIn](https://crowdin.com) automation.

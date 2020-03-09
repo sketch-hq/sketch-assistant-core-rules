@@ -89,8 +89,7 @@ export const createRule: CreateRuleFunction = i18n => {
           invalid.push(node) // Treat artboards without grid settings as invalid
           return
         }
-        // The artboard's layout much match one of the layouts defined in the
-        // options in order to pass linting
+        // The artboard's layout much match one of the layouts defined in the options
         const columnsValid = specs
           .map(spec => {
             if (spec.drawVertical === false) {
