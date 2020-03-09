@@ -10,8 +10,8 @@ will raise violations.
 
 ## Rationale
 
-When highly precise layer naming is required, for example when a Sketch document's contents is
-automatically exported to production assets then a team may want to enforce a limited set of valid
+When highly precise layer naming is required, for example when a Sketch document's contents are
+automatically exported to production assets, then a team may want to enforce a limited set of valid
 layer names.
 
 ## Options
