@@ -1,5 +1,7 @@
 import { t } from '@lingui/macro'
-import { RuleContext, RuleFunction, FileFormat } from '@sketch-hq/sketch-assistant-utils'
+import { RuleContext, RuleFunction } from '@sketch-hq/sketch-assistant-utils'
+import FileFormat from '@sketch-hq/sketch-file-format-ts'
+
 import { CreateRuleFunction } from '../..'
 
 function assertMaxLayers(maxLayers: unknown): asserts maxLayers is number {

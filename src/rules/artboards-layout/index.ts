@@ -1,11 +1,7 @@
 import { t } from '@lingui/macro'
-import {
-  RuleContext,
-  RuleFunction,
-  FileFormat,
-  Node,
-  ReportItem,
-} from '@sketch-hq/sketch-assistant-utils'
+import { RuleContext, RuleFunction, Node, ReportItem } from '@sketch-hq/sketch-assistant-utils'
+import FileFormat from '@sketch-hq/sketch-file-format-ts'
+
 import { CreateRuleFunction } from '../..'
 
 type LayoutSpec = {
