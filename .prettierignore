@@ -1,6 +1,6 @@
 package.json
 dist
 CHANGELOG.md
-src/locale
+locale
 .yarn
 node_modules

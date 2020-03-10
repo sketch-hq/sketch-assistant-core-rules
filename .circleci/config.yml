@@ -6,14 +6,14 @@ jobs:
     executor: node/default
     steps:
       - checkout
+      - node/install:
+          install-npm: false
+          install-yarn: false
+          node-version: '12.6.0'
       - node/with-cache:
           cache-key: yarn.lock
           steps:
             - run: yarn install --frozen-lockfile
       - run: yarn format-check
-      - run: yarn type-check
-      - run: yarn i18n:compile
-      - run: yarn build:node
-      - run: yarn build:node:types
-      - run: yarn build:sketch
+      - run: yarn build
       - run: yarn test --ci
