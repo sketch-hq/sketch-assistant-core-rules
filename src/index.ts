@@ -22,13 +22,13 @@ import * as symbolsNoUnused from './rules/symbols-no-unused'
 import * as textStylesPreferShared from './rules/text-styles-prefer-shared'
 
 import enMessages from './locale/en/messages'
-import pkg from './package.json'
 import zhHansMessages from './locale/zh-Hans/messages'
 
 export type CreateRuleFunction = (i18n: I18n) => RuleDefinition
 
 const SUPPORTED_LOCALES = ['en', 'zh-Hans']
 const FALLBACK_LOCALE = 'en'
+const pkgName = '@sketch-hq/sketch-assistant-core-rules'
 
 const assistant: Assistant = async env => {
   const i18n: I18n = setupI18n({
@@ -40,7 +40,7 @@ const assistant: Assistant = async env => {
   })
 
   return {
-    name: pkg.name,
+    name: pkgName,
     title: i18n._(t`Sketch Assistant Core Rules`),
     description: i18n._(t`Official Sketch Assistant containing the core rule set`),
     rules: [
@@ -64,7 +64,7 @@ const assistant: Assistant = async env => {
       textStylesPreferShared,
     ].map(mod => {
       const rule = mod.createRule(i18n)
-      return { ...rule, name: `${pkg.name}/${rule.name}` }
+      return { ...rule, name: `${pkgName}/${rule.name}` }
     }),
     config: { rules: {} },
   }

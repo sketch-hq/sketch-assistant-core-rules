@@ -6,13 +6,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
-    "rootDir": ".",
-    "outDir": "./dist/cjs",
+    "rootDir": "./src",
+    "outDir": "./dist",
     "declaration": true,
     "allowJs": true,
     "resolveJsonModule": true,
     "target": "es6"
   },
-  "include": ["./rules/**/*.ts", "./*.ts"],
+  "include": ["./src"],
   "exclude": ["node_modules", "dist"]
 }
