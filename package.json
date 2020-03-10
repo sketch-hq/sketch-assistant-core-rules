@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "license": "MIT",
   "repository": "github:sketch-hq/sketch-assistant-core-rules",
-  "types": "dist/cjs/index",
-  "main": "dist/cjs/index",
-  "sketch": "dist/sketch/index",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "sketch": "dist/sketch.js",
   "keywords": [
     "sketch",
     "sketch files",
@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "build:node:types": "tsc --emitDeclarationOnly",
-    "build:node": "babel . --out-dir dist/cjs --extensions '.js,.ts' && cp package.json ./dist/cjs",
+    "build:node": "babel ./src --out-dir dist --extensions '.js,.ts'",
     "build:sketch": "BABEL_ENV=sketch yarn webpack",
     "build": "rm -rf ./dist && yarn i18n:compile && yarn build:node && yarn build:node:types && yarn build:sketch",
     "format-check": "yarn prettier --check '{,**/}*.{ts,js,md,json}'",

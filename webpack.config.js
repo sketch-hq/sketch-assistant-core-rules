@@ -5,7 +5,7 @@ const pkg = require('./package.json')
 module.exports = {
   target: 'web',
   mode: 'production',
-  entry: './index',
+  entry: './src/index',
   module: {
     rules: [
       {
@@ -18,8 +18,8 @@ module.exports = {
     extensions: ['.js', '.ts'],
   },
   output: {
-    filename: 'index.js',
-    path: path.resolve(process.cwd(), 'dist/sketch'),
+    filename: 'sketch.js',
+    path: path.resolve(process.cwd(), 'dist'),
     libraryTarget: 'var',
     library: ['_sketch', 'assistants', pkg.name],
   },
