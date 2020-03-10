@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-assistant-core-rules
 
+## 1.0.3
+
+### Patch Changes
+
+- ebb6b1c: Rework dependency structure
+
 ## 1.0.2
 
 ### Patch Changes
