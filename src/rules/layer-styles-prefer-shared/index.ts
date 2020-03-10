@@ -1,5 +1,7 @@
 import { t, plural } from '@lingui/macro'
-import { RuleContext, RuleFunction, FileFormat, Node } from '@sketch-hq/sketch-assistant-utils'
+import { RuleContext, RuleFunction, Node } from '@sketch-hq/sketch-assistant-utils'
+import FileFormat from '@sketch-hq/sketch-file-format-ts'
+
 import { CreateRuleFunction } from '../..'
 
 function assertMaxIdentical(val: unknown): asserts val is number {

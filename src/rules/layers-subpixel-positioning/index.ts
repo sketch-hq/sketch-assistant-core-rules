@@ -1,10 +1,7 @@
 import { t } from '@lingui/macro'
-import {
-  RuleContext,
-  RuleFunction,
-  FileFormat,
-  PointerValue,
-} from '@sketch-hq/sketch-assistant-utils'
+import { RuleContext, RuleFunction, PointerValue } from '@sketch-hq/sketch-assistant-utils'
+import FileFormat from '@sketch-hq/sketch-file-format-ts'
+
 import { CreateRuleFunction } from '../..'
 
 const INCREMENTS: { [key: string]: string[] } = {
