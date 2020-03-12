@@ -80,12 +80,12 @@ while actively developing rule logic.
 When creating a new rule in this repository:
 
 1. Copy and paste one of the existing rule folders in `src/` as a starting point.
-1. Create some example `.sketch` files to use as test fixtures with Sketch. These should demonstrate
-   scenarios where you'd expect your rule to report violations.
-1. Start up Jest in watch mode `yarn test --watch`.
-1. Write tests that fully cover the rule logic. Invoke the rule against your Sketch file fixtures
-   and assert that the rule reports the correct violations.
-1. Don't forget to add your rule to the Assistant definition in `src/index.ts`.
+1. Add the new rule to the Assistant definition in `src/index.ts`.
+1. With Sketch, create some example `.sketch` files to use as test fixtures. At a minimum these should demonstrate
+   two scenarios - one where you'd expect your rule to report violations, and one where it shouldn't report any
+1. While developing your rule and its tests use Jest in watch mode: `yarn test --watch`.
+1. If you've added new strings then follow the [internationalization](#internationalization) workflow too.
+1. Add changeset for your rule, open a Pull Request and once merged [release](#releases) it
 
 #### Releases
 
