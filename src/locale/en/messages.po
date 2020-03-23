@@ -6,469 +6,495 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: index.ts:45
+#: src/index.ts:46
 msgid "Sketch Assistant Core Rules"
 msgstr "Sketch Assistant Core Rules"
 
-#: index.ts:46
+#: src/index.ts:47
 msgid "Official Sketch Assistant containing the core rule set"
 msgstr "Official Sketch Assistant containing the core rule set"
 
-#: rules/artboards-grid/index.ts:49
+#: src/rules/artboards-grid/index.ts:49
 msgid "Unexpected artboard grid settings"
 msgstr "Unexpected artboard grid settings"
 
-#: rules/artboards-grid/index.ts:56
+#: src/rules/artboards-grid/index.ts:56
 msgid "Artboard Grids"
 msgstr "Artboard Grids"
 
-#: rules/artboards-grid/index.ts:57
+#: src/rules/artboards-grid/index.ts:57
 msgid "Define a list of allowable artboard grid settings. Each grid object reproduces the options found on the Grid Settings UI in Sketch"
 msgstr "Define a list of allowable artboard grid settings. Each grid object reproduces the options found on the Grid Settings UI in Sketch"
 
-#: rules/artboards-grid/index.ts:62
+#: src/rules/artboards-grid/index.ts:62
 msgid "Grids"
 msgstr "Grids"
 
-#: rules/artboards-grid/index.ts:63
+#: src/rules/artboards-grid/index.ts:63
 msgid "List of valid grids"
 msgstr "List of valid grids"
 
-#: rules/artboards-grid/index.ts:67
+#: src/rules/artboards-grid/index.ts:67
 msgid "Grid Block Size"
 msgstr "Grid Block Size"
 
-#: rules/artboards-grid/index.ts:68
+#: src/rules/artboards-grid/index.ts:68
 msgid "Grid block size in pixels"
 msgstr "Grid block size in pixels"
 
-#: rules/artboards-grid/index.ts:72
+#: src/rules/artboards-grid/index.ts:72
 msgid "Thick Lines Every"
 msgstr "Thick Lines Every"
 
-#: rules/artboards-grid/index.ts:73
+#: src/rules/artboards-grid/index.ts:73
 msgid "Number of blocks between thick grid lines"
 msgstr "Number of blocks between thick grid lines"
 
-#: rules/artboards-layout/index.ts:106
+#: src/rules/artboards-layout/index.ts:105
 msgid "Unexpected artboard layout settings"
 msgstr "Unexpected artboard layout settings"
 
-#: rules/artboards-layout/index.ts:113
+#: src/rules/artboards-layout/index.ts:112
 msgid "Artboard Layout"
 msgstr "Artboard Layout"
 
-#: rules/artboards-layout/index.ts:114
+#: src/rules/artboards-layout/index.ts:113
 msgid "Define a list of allowable artboard layout settings"
 msgstr "Define a list of allowable artboard layout settings"
 
-#: rules/artboards-layout/index.ts:119
+#: src/rules/artboards-layout/index.ts:118
 msgid "Layouts"
 msgstr "Layouts"
 
-#: rules/artboards-layout/index.ts:120
+#: src/rules/artboards-layout/index.ts:119
 msgid "List of valid layouts. Each layout object reproduces the options found on the Layout Settings UI in Sketch"
 msgstr "List of valid layouts. Each layout object reproduces the options found on the Layout Settings UI in Sketch"
 
-#: rules/artboards-layout/index.ts:124
+#: src/rules/artboards-layout/index.ts:123
 msgid "Draw Vertical"
 msgstr "Draw Vertical"
 
-#: rules/artboards-layout/index.ts:125
+#: src/rules/artboards-layout/index.ts:124
 msgid "Enables drawing columns"
 msgstr "Enables drawing columns"
 
-#: rules/artboards-layout/index.ts:129
+#: src/rules/artboards-layout/index.ts:128
 msgid "Total Width"
 msgstr "Total Width"
 
-#: rules/artboards-layout/index.ts:130
+#: src/rules/artboards-layout/index.ts:129
 msgid "Total width of layout"
 msgstr "Total width of layout"
 
-#: rules/artboards-layout/index.ts:134
+#: src/rules/artboards-layout/index.ts:133
 msgid "Horizontal Offset"
 msgstr "Horizontal Offset"
 
-#: rules/artboards-layout/index.ts:135
+#: src/rules/artboards-layout/index.ts:134
 msgid "Horizontal offset of layout"
 msgstr "Horizontal offset of layout"
 
-#: rules/artboards-layout/index.ts:139
+#: src/rules/artboards-layout/index.ts:138
 msgid "Number of Columns"
 msgstr "Number of Columns"
 
-#: rules/artboards-layout/index.ts:140
+#: src/rules/artboards-layout/index.ts:139
 msgid "Number of columns in the layout"
 msgstr "Number of columns in the layout"
 
-#: rules/artboards-layout/index.ts:144
+#: src/rules/artboards-layout/index.ts:143
 msgid "Gutters Outside"
 msgstr "Gutters Outside"
 
-#: rules/artboards-layout/index.ts:145
+#: src/rules/artboards-layout/index.ts:144
 msgid "Draw gutters on the outside"
 msgstr "Draw gutters on the outside"
 
-#: rules/artboards-layout/index.ts:149
+#: src/rules/artboards-layout/index.ts:148
 msgid "Gutter Width"
 msgstr "Gutter Width"
 
-#: rules/artboards-layout/index.ts:150
+#: src/rules/artboards-layout/index.ts:149
 msgid "Gutter width in layout"
 msgstr "Gutter width in layout"
 
-#: rules/artboards-layout/index.ts:154
+#: src/rules/artboards-layout/index.ts:153
 msgid "Column Width"
 msgstr "Column Width"
 
-#: rules/artboards-layout/index.ts:155
+#: src/rules/artboards-layout/index.ts:154
 msgid "Layout column widths"
 msgstr "Layout column widths"
 
-#: rules/artboards-layout/index.ts:159
+#: src/rules/artboards-layout/index.ts:158
 msgid "Draw Horizontal"
 msgstr "Draw Horizontal"
 
-#: rules/artboards-layout/index.ts:160
+#: src/rules/artboards-layout/index.ts:159
 msgid "Enables drawing rows"
 msgstr "Enables drawing rows"
 
-#: rules/artboards-layout/index.ts:164
+#: src/rules/artboards-layout/index.ts:163
 msgid "Gutter Height"
 msgstr "Gutter Height"
 
-#: rules/artboards-layout/index.ts:165
+#: src/rules/artboards-layout/index.ts:164
 msgid "Layout gutter height"
 msgstr "Layout gutter height"
 
-#: rules/artboards-layout/index.ts:169
+#: src/rules/artboards-layout/index.ts:168
 msgid "Row Height Multiplication"
 msgstr "Row Height Multiplication"
 
-#: rules/artboards-layout/index.ts:174
+#: src/rules/artboards-layout/index.ts:173
 msgid "Draw Horizontal Lines"
 msgstr "Draw Horizontal Lines"
 
-#: rules/artboards-layout/index.ts:175
+#: src/rules/artboards-layout/index.ts:174
 msgid "Draw all horizontal lines"
 msgstr "Draw all horizontal lines"
 
-#: rules/borders-no-disabled/index.ts:34
+#: src/rules/borders-no-disabled/index.ts:34
 msgid "Unexpected disabled border on layer style"
 msgstr "Unexpected disabled border on layer style"
 
-#: rules/borders-no-disabled/index.ts:45
+#: src/rules/borders-no-disabled/index.ts:45
 msgid "Unexpected disabled border in shared style"
 msgstr "Unexpected disabled border in shared style"
 
-#: rules/borders-no-disabled/index.ts:55
+#: src/rules/borders-no-disabled/index.ts:55
 msgid "No Disabled Borders"
 msgstr "No Disabled Borders"
 
-#: rules/borders-no-disabled/index.ts:56
+#: src/rules/borders-no-disabled/index.ts:56
 msgid "Forbids disabled border styles throughout the document"
 msgstr "Forbids disabled border styles throughout the document"
 
-#: rules/debug-all-options/index.ts:15
+#: src/rules/debug-all-options/index.ts:15
 msgid "All Options"
 msgstr "All Options"
 
-#: rules/debug-all-options/index.ts:16
+#: src/rules/debug-all-options/index.ts:16
 msgid "Internal debug rule that defines examples of all available option schema types"
 msgstr "Internal debug rule that defines examples of all available option schema types"
 
-#: rules/debug-all-options/index.ts:21
+#: src/rules/debug-all-options/index.ts:21
 msgid "Number Option"
 msgstr "Number Option"
 
-#: rules/debug-all-options/index.ts:23
+#: src/rules/debug-all-options/index.ts:23
 msgid "A number option"
 msgstr "A number option"
 
-#: rules/debug-all-options/index.ts:29
+#: src/rules/debug-all-options/index.ts:29
 msgid "Integer Option"
 msgstr "Integer Option"
 
-#: rules/debug-all-options/index.ts:31
+#: src/rules/debug-all-options/index.ts:31
 msgid "An integer option"
 msgstr "An integer option"
 
-#: rules/debug-all-options/index.ts:37
+#: src/rules/debug-all-options/index.ts:37
 msgid "String Option"
 msgstr "String Option"
 
-#: rules/debug-all-options/index.ts:38
+#: src/rules/debug-all-options/index.ts:38
 msgid "A string option"
 msgstr "A string option"
 
-#: rules/debug-all-options/index.ts:40
+#: src/rules/debug-all-options/index.ts:40
 msgid "Default value"
 msgstr "Default value"
 
-#: rules/debug-all-options/index.ts:46
+#: src/rules/debug-all-options/index.ts:46
 msgid "Boolean Option"
 msgstr "Boolean Option"
 
-#: rules/debug-all-options/index.ts:47
+#: src/rules/debug-all-options/index.ts:47
 msgid "A boolean option"
 msgstr "A boolean option"
 
-#: rules/debug-all-options/index.ts:52
+#: src/rules/debug-all-options/index.ts:52
 msgid "String Enum Option"
 msgstr "String Enum Option"
 
-#: rules/debug-all-options/index.ts:53
+#: src/rules/debug-all-options/index.ts:53
 msgid "A string enum option"
 msgstr "A string enum option"
 
-#: rules/debug-all-options/index.ts:60
+#: src/rules/debug-all-options/index.ts:60
 msgid "String Array Option"
 msgstr "String Array Option"
 
-#: rules/debug-all-options/index.ts:61
+#: src/rules/debug-all-options/index.ts:61
 msgid "A string array option"
 msgstr "A string array option"
 
-#: rules/debug-all-options/index.ts:69
+#: src/rules/debug-all-options/index.ts:69
 msgid "Object Array Option"
 msgstr "Object Array Option"
 
-#: rules/debug-all-options/index.ts:70
+#: src/rules/debug-all-options/index.ts:70
 msgid "A object array option"
 msgstr "A object array option"
 
-#: rules/debug-all-options/index.ts:74
+#: src/rules/debug-all-options/index.ts:74
 msgid "Object Array Number Option"
 msgstr "Object Array Number Option"
 
-#: rules/debug-all-options/index.ts:75
+#: src/rules/debug-all-options/index.ts:75
 msgid "A object array number option"
 msgstr "A object array number option"
 
-#: rules/debug-i18n/index.ts:14
+#: src/rules/debug-i18n/index.ts:14
 msgid "Hello world"
 msgstr "Hello world"
 
-#: rules/debug-i18n/index.ts:20
+#: src/rules/debug-i18n/index.ts:20
 msgid "Debug Internationalization"
 msgstr "Debug Internationalization"
 
-#: rules/debug-i18n/index.ts:21
+#: src/rules/debug-i18n/index.ts:21
 msgid "Internal debug rule that generates a violation with a translated message"
 msgstr "Internal debug rule that generates a violation with a translated message"
 
-#: rules/debug-throws-error/index.ts:17
+#: src/rules/debug-throws-error/index.ts:17
 msgid "Throw Error"
 msgstr "Throw Error"
 
-#: rules/debug-throws-error/index.ts:18
+#: src/rules/debug-throws-error/index.ts:18
 msgid "Internal debug rule that always throws a rule error"
 msgstr "Internal debug rule that always throws a rule error"
 
-#: rules/groups-max-layers/index.ts:40
+#: src/rules/groups-max-layers/index.ts:40
 msgid "Expected {maxLayers} or less layers on group, found {numLayers}"
 msgstr "Expected {maxLayers} or less layers on group, found {numLayers}"
 
-#: rules/groups-max-layers/index.ts:50
+#: src/rules/groups-max-layers/index.ts:50
 msgid "Max Group Layers"
 msgstr "Max Group Layers"
 
-#: rules/groups-max-layers/index.ts:51
+#: src/rules/groups-max-layers/index.ts:51
 msgid "Restrict groups to a maximum number of child layers"
 msgstr "Restrict groups to a maximum number of child layers"
 
-#: rules/groups-max-layers/index.ts:56
+#: src/rules/groups-max-layers/index.ts:56
 msgid "Maximum Layers"
 msgstr "Maximum Layers"
 
-#: rules/groups-max-layers/index.ts:58
+#: src/rules/groups-max-layers/index.ts:58
 msgid "Maximum layers in a group"
 msgstr "Maximum layers in a group"
 
-#: rules/groups-max-layers/index.ts:63
+#: src/rules/groups-max-layers/index.ts:63
 msgid "Skip Classes"
 msgstr "Skip Classes"
 
-#: rules/groups-max-layers/index.ts:64
+#: src/rules/groups-max-layers/index.ts:64
 msgid "An array of Sketch file class values for layers that should be skipped and not counted when calculating the number of child layers in a group"
 msgstr "An array of Sketch file class values for layers that should be skipped and not counted when calculating the number of child layers in a group"
 
-#: rules/groups-no-empty/index.ts:21
+#: src/rules/groups-no-empty/index.ts:21
 msgid "Unexpected empty group"
 msgstr "Unexpected empty group"
 
-#: rules/groups-no-empty/index.ts:31
+#: src/rules/groups-no-empty/index.ts:31
 msgid "No Empty Groups"
 msgstr "No Empty Groups"
 
-#: rules/groups-no-empty/index.ts:32
+#: src/rules/groups-no-empty/index.ts:32
 msgid "Disallow empty groups, i.e. with no child layers"
 msgstr "Disallow empty groups, i.e. with no child layers"
 
-#: rules/groups-no-redundant/index.ts:25
+#: src/rules/groups-no-redundant/index.ts:25
 msgid "Unexpected redundant group"
 msgstr "Unexpected redundant group"
 
-#: rules/groups-no-redundant/index.ts:35
+#: src/rules/groups-no-redundant/index.ts:35
 msgid "No Redundant Groups"
 msgstr "No Redundant Groups"
 
-#: rules/groups-no-redundant/index.ts:36
+#: src/rules/groups-no-redundant/index.ts:36
 msgid "Disallows unstyled groups with only one child which is also a group"
 msgstr "Disallows unstyled groups with only one child which is also a group"
 
-#: rules/images-no-outsized/index.ts:96
+#: src/rules/images-no-outsized/index.ts:96
 msgid "Unexpected oversized image used in image layer, must be no more than {maxRatio} times larger than the layer frame's width or height"
 msgstr "Unexpected oversized image used in image layer, must be no more than {maxRatio} times larger than the layer frame's width or height"
 
-#: rules/images-no-outsized/index.ts:99
+#: src/rules/images-no-outsized/index.ts:99
 msgid "Unexpected oversized image used in layer style image fill, must be no more than {maxRatio} times larger than the layer frame's width or height"
 msgstr "Unexpected oversized image used in layer style image fill, must be no more than {maxRatio} times larger than the layer frame's width or height"
 
-#: rules/images-no-outsized/index.ts:112
+#: src/rules/images-no-outsized/index.ts:112
 msgid "No Outsized Images"
 msgstr "No Outsized Images"
 
-#: rules/images-no-outsized/index.ts:113
+#: src/rules/images-no-outsized/index.ts:113
 msgid "Disallow images that are larger than their frame by a configurable ratio"
 msgstr "Disallow images that are larger than their frame by a configurable ratio"
 
-#: rules/images-no-outsized/index.ts:118
+#: src/rules/images-no-outsized/index.ts:118
 msgid "Maximum Ratio"
 msgstr "Maximum Ratio"
 
-#: rules/images-no-outsized/index.ts:120
+#: src/rules/images-no-outsized/index.ts:120
 msgid "How much larger an image can be than its frame and still be considered valid"
 msgstr "How much larger an image can be than its frame and still be considered valid"
 
-#: rules/layer-names-pattern-allowed/index.ts:31
+#: src/rules/layer-names-pattern-allowed/index.ts:31
 msgid "Unexpected layer name \"{name}\", does not match one of the allowable patterns"
 msgstr "Unexpected layer name \"{name}\", does not match one of the allowable patterns"
 
-#: rules/layer-names-pattern-allowed/index.ts:41
+#: src/rules/layer-names-pattern-allowed/index.ts:41
 msgid "Allowed Layer Names"
 msgstr "Allowed Layer Names"
 
-#: rules/layer-names-pattern-allowed/index.ts:42
+#: src/rules/layer-names-pattern-allowed/index.ts:42
 msgid "Define a list of allowable layer names"
 msgstr "Define a list of allowable layer names"
 
-#: rules/layer-names-pattern-allowed/index.ts:47
-#: rules/layer-names-pattern-disallowed/index.ts:52
+#: src/rules/layer-names-pattern-allowed/index.ts:47
+#: src/rules/layer-names-pattern-disallowed/index.ts:52
 msgid "Patterns"
 msgstr "Patterns"
 
-#: rules/layer-names-pattern-allowed/index.ts:48
+#: src/rules/layer-names-pattern-allowed/index.ts:48
 msgid "An array of allowed layer name pattern strings as JavaScript compatible regex"
 msgstr "An array of allowed layer name pattern strings as JavaScript compatible regex"
 
-#: rules/layer-names-pattern-disallowed/index.ts:36
+#: src/rules/layer-names-pattern-disallowed/index.ts:36
 msgid "Unexpected disallowed layer name \"{name}\""
 msgstr "Unexpected disallowed layer name \"{name}\""
 
-#: rules/layer-names-pattern-disallowed/index.ts:46
+#: src/rules/layer-names-pattern-disallowed/index.ts:46
 msgid "Disallowed Layer Names"
 msgstr "Disallowed Layer Names"
 
-#: rules/layer-names-pattern-disallowed/index.ts:47
+#: src/rules/layer-names-pattern-disallowed/index.ts:47
 msgid "Define a list of disallowed layer names"
 msgstr "Define a list of disallowed layer names"
 
-#: rules/layer-names-pattern-disallowed/index.ts:53
+#: src/rules/layer-names-pattern-disallowed/index.ts:53
 msgid "An array of disallowed layer name pattern strings as JavaScript compatible regex"
 msgstr "An array of disallowed layer name pattern strings as JavaScript compatible regex"
 
-#: rules/layer-styles-prefer-shared/index.ts:73
+#: src/rules/layer-styles-prefer-shared/index.ts:73
 msgid "{maxIdentical, plural, one {Expected no identical layer styles in the document, but found {numIdentical} matching this layer's style. Consider a shared style instead} other {Expected a maximum of # identical layer styles in the document, but found {numIdentical} instances of this layer's style. Consider a shared style instead}}"
 msgstr "{maxIdentical, plural, one {Expected no identical layer styles in the document, but found {numIdentical} matching this layer's style. Consider a shared style instead} other {Expected a maximum of # identical layer styles in the document, but found {numIdentical} instances of this layer's style. Consider a shared style instead}}"
 
-#: rules/layer-styles-prefer-shared/index.ts:85
+#: src/rules/layer-styles-prefer-shared/index.ts:85
 msgid "Prefer Shared Styles"
 msgstr "Prefer Shared Styles"
 
-#: rules/layer-styles-prefer-shared/index.ts:86
+#: src/rules/layer-styles-prefer-shared/index.ts:86
 msgid "Disallow identical layer styles in favour of shared styles"
 msgstr "Disallow identical layer styles in favour of shared styles"
 
-#: rules/layer-styles-prefer-shared/index.ts:90
-#: rules/text-styles-prefer-shared/index.ts:85
+#: src/rules/layer-styles-prefer-shared/index.ts:90
+#: src/rules/text-styles-prefer-shared/index.ts:85
 msgid "Max Identical"
 msgstr "Max Identical"
 
-#: rules/layer-styles-prefer-shared/index.ts:91
+#: src/rules/layer-styles-prefer-shared/index.ts:91
 msgid "Maximum number of identical layer styles allowable in the document"
 msgstr "Maximum number of identical layer styles allowable in the document"
 
-#: rules/layers-no-hidden/index.ts:21
+#: src/rules/layers-no-hidden/index.ts:21
 msgid "Unexpected hidden layer"
 msgstr "Unexpected hidden layer"
 
-#: rules/layers-no-hidden/index.ts:31
+#: src/rules/layers-no-hidden/index.ts:31
 msgid "No Hidden Layers"
 msgstr "No Hidden Layers"
 
-#: rules/layers-no-hidden/index.ts:32
+#: src/rules/layers-no-hidden/index.ts:32
 msgid "Disallow layers visually hidden in the layers list UI"
 msgstr "Disallow layers visually hidden in the layers list UI"
 
-#: rules/layers-subpixel-positioning/index.ts:55
+#: src/rules/layers-subpixel-positioning/index.ts:55
 msgid "Unexpected subpixel positioning ({x},{y})"
 msgstr "Unexpected subpixel positioning ({x},{y})"
 
-#: rules/layers-subpixel-positioning/index.ts:65
+#: src/rules/layers-subpixel-positioning/index.ts:65
 msgid "Layer Subpixel Positioning"
 msgstr "Layer Subpixel Positioning"
 
-#: rules/layers-subpixel-positioning/index.ts:66
+#: src/rules/layers-subpixel-positioning/index.ts:66
 msgid "Enforce layer positioning with respect to subpixels"
 msgstr "Enforce layer positioning with respect to subpixels"
 
-#: rules/layers-subpixel-positioning/index.ts:71
+#: src/rules/layers-subpixel-positioning/index.ts:71
 msgid "Scale Factors"
 msgstr "Scale Factors"
 
-#: rules/layers-subpixel-positioning/index.ts:72
+#: src/rules/layers-subpixel-positioning/index.ts:72
 msgid "Array of supported scale factors in the document. Accepts elements with values \"@1x\", \"@2x\" and \"@3x\" only, which map to allowing whole pixel positions, 0.5 increments and 0.33 increments respectively"
 msgstr "Array of supported scale factors in the document. Accepts elements with values \"@1x\", \"@2x\" and \"@3x\" only, which map to allowing whole pixel positions, 0.5 increments and 0.33 increments respectively"
 
-#: rules/shared-styles-no-unused/index.ts:33
+#: src/rules/result-messages-include/index.ts:21
+msgid "Unchecked message \"{message}\""
+msgstr "Unchecked message \"{message}\""
+
+#: src/rules/result-messages-include/index.ts:29
+msgid "Checklist messages"
+msgstr "Checklist messages"
+
+#: src/rules/result-messages-include/index.ts:30
+msgid "Define a list of messages to check for"
+msgstr "Define a list of messages to check for"
+
+#: src/rules/result-messages-include/index.ts:35
+msgid "Messages"
+msgstr "Messages"
+
+#: src/rules/result-messages-include/index.ts:36
+msgid "An array of messages to check for"
+msgstr "An array of messages to check for"
+
+#: src/rules/shared-styles-no-unused/index.ts:33
 msgid "Unexpected unused shared style"
 msgstr "Unexpected unused shared style"
 
-#: rules/shared-styles-no-unused/index.ts:40
+#: src/rules/shared-styles-no-unused/index.ts:40
 msgid "No Unused Shared Style"
 msgstr "No Unused Shared Style"
 
-#: rules/shared-styles-no-unused/index.ts:41
+#: src/rules/shared-styles-no-unused/index.ts:41
 msgid "Disallow unused shared styles"
 msgstr "Disallow unused shared styles"
 
-#: rules/symbols-no-unused/index.ts:31
+#: src/rules/symbols-no-unused/index.ts:31
 msgid "Unexpected unused symbol"
 msgstr "Unexpected unused symbol"
 
-#: rules/symbols-no-unused/index.ts:38
+#: src/rules/symbols-no-unused/index.ts:38
 msgid "No Unused Symbols"
 msgstr "No Unused Symbols"
 
-#: rules/symbols-no-unused/index.ts:39
+#: src/rules/symbols-no-unused/index.ts:39
 msgid "Disallow symbols that have no corresponding usage anywhere in the document"
 msgstr "Disallow symbols that have no corresponding usage anywhere in the document"
 
-#: rules/text-styles-prefer-shared/index.ts:68
+#: src/rules/text-styles-prefer-shared/index.ts:68
 msgid "{maxIdentical, plural, one {Expected no identical text styles in the document, but found {numIdentical} matching this layer's text style. Consider a shared text style instead} other {Expected a maximum of # identical text styles in the document, but found {numIdentical} instances of this layer's text style. Consider a shared text style instead}}"
 msgstr "{maxIdentical, plural, one {Expected no identical text styles in the document, but found {numIdentical} matching this layer's text style. Consider a shared text style instead} other {Expected a maximum of # identical text styles in the document, but found {numIdentical} instances of this layer's text style. Consider a shared text style instead}}"
 
-#: rules/text-styles-prefer-shared/index.ts:80
+#: src/rules/text-styles-prefer-shared/index.ts:80
 msgid "Prefer Shared Text Styles"
 msgstr "Prefer Shared Text Styles"
 
-#: rules/text-styles-prefer-shared/index.ts:81
+#: src/rules/text-styles-prefer-shared/index.ts:81
 msgid "Disallow identical text styles in favour of shared text styles"
 msgstr "Disallow identical text styles in favour of shared text styles"
 
-#: rules/text-styles-prefer-shared/index.ts:86
+#: src/rules/text-styles-prefer-shared/index.ts:86
 msgid "Maximum number of identical text styles allowable in the document"
 msgstr "Maximum number of identical text styles allowable in the document"

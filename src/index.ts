@@ -17,6 +17,7 @@ import * as layerNamesPatternDisallowed from './rules/layer-names-pattern-disall
 import * as layersNoHidden from './rules/layers-no-hidden'
 import * as layersSubpixelPositioning from './rules/layers-subpixel-positioning'
 import * as layerStylesPreferShared from './rules/layer-styles-prefer-shared'
+import * as resultMessagesInclude from './rules/result-messages-include'
 import * as sharedStylesNoUnused from './rules/shared-styles-no-unused'
 import * as symbolsNoUnused from './rules/symbols-no-unused'
 import * as textStylesPreferShared from './rules/text-styles-prefer-shared'
@@ -59,6 +60,7 @@ const assistant: Assistant = async env => {
       layersNoHidden,
       layersSubpixelPositioning,
       layerStylesPreferShared,
+      resultMessagesInclude,
       sharedStylesNoUnused,
       symbolsNoUnused,
       textStylesPreferShared,

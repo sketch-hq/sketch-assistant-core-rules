@@ -37,6 +37,7 @@ configuration options and implementation.
 - [`layer-styles-prefer-shared`](./src/layer-styles-prefer-shared)
 - [`layers-no-hidden`](./src/layers-no-hidden)
 - [`layers-subpixel-positioning`](./src/layers-subpixel-positioning)
+- [`result-messages-include`](./src/result-messages-include)
 - [`shared-styles-no-unused`](./src/shared-styles-no-unused)
 - [`symbols-no-unused`](./src/symbols-no-unused)
 - [`text-styles-prefer-shared`](./src/text-styles-prefer-shared)
