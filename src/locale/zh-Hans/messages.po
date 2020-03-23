@@ -2,16 +2,19 @@ msgid ""
 msgstr ""
 "POT-Creation-Date: 2020-03-09 17:32+0000\n"
 "Mime-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
-"Language: zh-Hans\n"
-"Project-Id-Version: \n"
+"Language: zh\n"
+"Project-Id-Version: sketch-assistant-core-rules\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2020-03-23 15:39\n"
 "Last-Translator: \n"
-"Language-Team: \n"
-"Plural-Forms: \n"
+"Language-Team: Chinese Simplified\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: sketch-assistant-core-rules\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /master/locale/en/messages.po\n"
 
 #: src/index.ts:46
 msgid "Sketch Assistant Core Rules"
@@ -255,7 +258,7 @@ msgstr ""
 
 #: src/rules/debug-i18n/index.ts:14
 msgid "Hello world"
-msgstr "世界你好"
+msgstr ""
 
 #: src/rules/debug-i18n/index.ts:20
 msgid "Debug Internationalization"
@@ -498,3 +501,4 @@ msgstr ""
 #: src/rules/text-styles-prefer-shared/index.ts:86
 msgid "Maximum number of identical text styles allowable in the document"
 msgstr ""
+
