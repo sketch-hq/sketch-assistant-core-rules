@@ -3,7 +3,7 @@ import { RuleContext, RuleFunction, Node, FileFormat } from '@sketch-hq/sketch-a
 
 import { CreateRuleFunction } from '../..'
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
     const masters: Node[] = []
@@ -17,15 +17,15 @@ export const createRule: CreateRuleFunction = i18n => {
       },
     })
     const invalid: Node[] = masters.filter(
-      master =>
+      (master) =>
         instances.findIndex(
-          instance =>
+          (instance) =>
             utils.nodeToObject<FileFormat.SymbolInstance>(instance).symbolID ===
             utils.nodeToObject<FileFormat.SymbolMaster>(master).symbolID,
         ) === -1,
     )
     utils.report(
-      invalid.map(node => ({
+      invalid.map((node) => ({
         message: i18n._(t`Unexpected unused symbol`),
         node,
       })),

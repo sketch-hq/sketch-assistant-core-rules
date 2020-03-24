@@ -17,7 +17,7 @@ const INCREMENTS: { [key: string]: string[] } = {
 const isRotated = (value: PointerValue) =>
   typeof value === 'object' && 'rotation' in value && value.rotation !== 0
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
     // Type safe code to extract option from config
@@ -39,7 +39,7 @@ export const createRule: CreateRuleFunction = i18n => {
         if (!('frame' in layer)) return // Narrow type to layers with a `frame` prop
         // If the current layer or any of its parents have rotation return early
         let hasRotation = isRotated(node)
-        utils.iterateParents(node, parent => {
+        utils.iterateParents(node, (parent) => {
           if (isRotated(parent)) {
             hasRotation = true
           }

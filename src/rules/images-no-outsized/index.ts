@@ -32,7 +32,7 @@ const isValidUsage = (usage: ImageUsage, maxRatio: number): boolean => {
   return !isWidthOversized && !isHeightOversized
 }
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
 
@@ -102,7 +102,7 @@ export const createRule: CreateRuleFunction = i18n => {
 
       // Bail early from this loop iteration if at least one usage of this
       // image is valid
-      const atLeaseOneValid = usages.map(usage => isValidUsage(usage, maxRatio)).includes(true)
+      const atLeaseOneValid = usages.map((usage) => isValidUsage(usage, maxRatio)).includes(true)
       if (atLeaseOneValid) continue
 
       // Having got to this point we know that all usages of the image are

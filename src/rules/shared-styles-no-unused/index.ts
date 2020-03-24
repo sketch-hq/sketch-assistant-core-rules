@@ -3,7 +3,7 @@ import { RuleContext, RuleFunction, Node, FileFormat } from '@sketch-hq/sketch-a
 
 import { CreateRuleFunction } from '../..'
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
 
@@ -22,10 +22,10 @@ export const createRule: CreateRuleFunction = i18n => {
       },
     })
 
-    const invalid: Node[] = sharedStyles.filter(node => !usages.has(node.do_objectID))
+    const invalid: Node[] = sharedStyles.filter((node) => !usages.has(node.do_objectID))
 
     utils.report(
-      invalid.map(node => ({
+      invalid.map((node) => ({
         message: i18n._(t`Unexpected unused shared style`),
         node,
       })),

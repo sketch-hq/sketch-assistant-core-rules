@@ -14,7 +14,7 @@ function assertSkipClasses(skipClasses: unknown): asserts skipClasses is string[
   }
 }
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
 
@@ -28,7 +28,7 @@ export const createRule: CreateRuleFunction = i18n => {
       async $groups(node): Promise<void> {
         const group = utils.nodeToObject<FileFormat.AnyGroup>(node)
         if (group._class === 'shapeGroup') return // Do not consider shape groups, its common/expected for these to have many layers
-        const numLayers = group.layers.filter(layer => !skipClasses.includes(layer._class)).length
+        const numLayers = group.layers.filter((layer) => !skipClasses.includes(layer._class)).length
         if (numLayers > maxLayers) {
           utils.report({
             node,

@@ -1,7 +1,7 @@
 import { t } from '@lingui/macro'
 import { CreateRuleFunction } from '../..'
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule: async () => {
       throw new Error('Test error message')
