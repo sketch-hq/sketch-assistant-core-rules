@@ -1,4 +1,4 @@
-import { Assistant, RuleDefinition } from '@sketch-hq/sketch-assistant-utils'
+import { Assistant, RuleDefinition } from '@sketch-hq/sketch-assistant-types'
 import { I18n, setupI18n } from '@lingui/core'
 import { t } from '@lingui/macro'
 

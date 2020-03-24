@@ -1,6 +1,11 @@
-import { RuleFunction, RuleContext, Node, ReportItem } from '@sketch-hq/sketch-assistant-utils'
+import {
+  RuleFunction,
+  RuleContext,
+  Node,
+  ReportItem,
+  FileFormat,
+} from '@sketch-hq/sketch-assistant-types'
 import { t } from '@lingui/macro'
-import FileFormat from '@sketch-hq/sketch-file-format-ts'
 
 import { CreateRuleFunction } from '../..'
 
