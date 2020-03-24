@@ -3,7 +3,7 @@ import { RuleContext, RuleFunction, FileFormat } from '@sketch-hq/sketch-assista
 
 import { CreateRuleFunction } from '../..'
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
     await utils.iterateCache({

@@ -31,7 +31,7 @@ const SUPPORTED_LOCALES = ['en', 'zh-Hans']
 const FALLBACK_LOCALE = 'en'
 const pkgName = '@sketch-hq/sketch-assistant-core-rules'
 
-const assistant: Assistant = async env => {
+const assistant: Assistant = async (env) => {
   const i18n: I18n = setupI18n({
     language: SUPPORTED_LOCALES.includes(env.locale!) ? env.locale : FALLBACK_LOCALE,
     catalogs: {
@@ -64,7 +64,7 @@ const assistant: Assistant = async env => {
       sharedStylesNoUnused,
       symbolsNoUnused,
       textStylesPreferShared,
-    ].map(mod => {
+    ].map((mod) => {
       const rule = mod.createRule(i18n)
       return { ...rule, name: `${pkgName}/${rule.name}` }
     }),

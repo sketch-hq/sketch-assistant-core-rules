@@ -3,7 +3,7 @@ import { RuleContext, RuleFunction, FileFormat } from '@sketch-hq/sketch-assista
 
 import { CreateRuleFunction } from '../..'
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
     const patterns = utils.getOption('patterns')
@@ -20,7 +20,7 @@ export const createRule: CreateRuleFunction = i18n => {
         const name = utils.nodeToObject<FileFormat.AnyLayer>(node).name
         // Create an array of booleans, with each boolean representing the result
         // of testing the layer's name against each disallowed pattern.
-        const results = regexes.map(regex => regex.test(name))
+        const results = regexes.map((regex) => regex.test(name))
         // If `true` is anywhere in the array it means at least one disallowed
         // pattern was matched
         if (results.includes(true)) {

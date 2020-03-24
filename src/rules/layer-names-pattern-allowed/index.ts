@@ -3,7 +3,7 @@ import { RuleContext, RuleFunction, FileFormat } from '@sketch-hq/sketch-assista
 
 import { CreateRuleFunction } from '../..'
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
     const patterns = utils.getOption('patterns')
@@ -18,7 +18,7 @@ export const createRule: CreateRuleFunction = i18n => {
     await utils.iterateCache({
       async $layers(node): Promise<void> {
         const name = utils.nodeToObject<FileFormat.AnyLayer>(node).name
-        if (!regexes.map(regex => regex.test(name)).includes(true)) {
+        if (!regexes.map((regex) => regex.test(name)).includes(true)) {
           utils.report({
             node,
             message: i18n._(

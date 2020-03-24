@@ -9,7 +9,7 @@ function assertMaxIdentical(val: unknown): asserts val is number {
   }
 }
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
     // Gather option value and assert its type
@@ -23,7 +23,7 @@ export const createRule: CreateRuleFunction = i18n => {
         // Determine whether we're inside a symbol instance, if so return early since
         // duplicate layer styles are to be expected across the docucument in instances
         const classes: string[] = [node._class]
-        utils.iterateParents(node, parent => {
+        utils.iterateParents(node, (parent) => {
           if (typeof parent === 'object' && '_class' in parent) classes.push(parent._class)
         })
         if (classes.includes('symbolInstance')) return
@@ -53,7 +53,7 @@ export const createRule: CreateRuleFunction = i18n => {
       const numIdentical = nodes.length
       if (numIdentical > maxIdentical) {
         utils.report(
-          nodes.map(node => ({
+          nodes.map((node) => ({
             node,
             message: i18n._(
               plural({
@@ -73,7 +73,7 @@ export const createRule: CreateRuleFunction = i18n => {
     name: 'text-styles-prefer-shared',
     title: i18n._(t`Prefer Shared Text Styles`),
     description: i18n._(t`Disallow identical text styles in favour of shared text styles`),
-    getOptions: helpers => [
+    getOptions: (helpers) => [
       helpers.integerOption({
         name: 'maxIdentical',
         title: i18n._(t`Max Identical`),

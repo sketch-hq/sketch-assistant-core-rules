@@ -27,7 +27,7 @@ type LayoutSpec = {
   }
 }
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
     const invalid: Node[] = []
@@ -92,7 +92,7 @@ export const createRule: CreateRuleFunction = i18n => {
         }
         // The artboard's layout much match one of the layouts defined in the options
         const columnsValid = specs
-          .map(spec => {
+          .map((spec) => {
             if (spec.drawVertical === false) {
               // Treat artboard columns as valid and return early if
               // drawVertical set to false, i.e. columns checkbox in layout
@@ -111,7 +111,7 @@ export const createRule: CreateRuleFunction = i18n => {
           })
           .includes(true)
         const rowsValid = specs
-          .map(spec => {
+          .map((spec) => {
             if (spec.drawHorizontal === false) {
               // Treat artboard rows as valid and return early if
               // drawHorizontal set to false, i.e. rows checkbox in layout

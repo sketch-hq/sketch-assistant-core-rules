@@ -14,7 +14,7 @@ type GridSpec = {
   thickLinesEvery: number
 }
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
     const invalid: Node[] = []
@@ -41,7 +41,7 @@ export const createRule: CreateRuleFunction = i18n => {
         // options
         const gridValid = specs
           .map(
-            spec =>
+            (spec) =>
               grid.gridSize === spec.gridBlockSize && grid.thickGridTimes === spec.thickLinesEvery,
           )
           .includes(true)

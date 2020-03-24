@@ -6,10 +6,10 @@ import { CreateRuleFunction } from '../..'
 const styleHasDisabledBorder = (style: FileFormat.Style): boolean => {
   if (!Array.isArray(style.borders)) return false
   if (style.borders.length === 0) return false
-  return style.borders.map(border => border.isEnabled).includes(false)
+  return style.borders.map((border) => border.isEnabled).includes(false)
 }
 
-export const createRule: CreateRuleFunction = i18n => {
+export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
     await utils.iterateCache({
