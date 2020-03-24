@@ -28,10 +28,12 @@
     "test": "jest",
     "type-check": "tsc --noEmit"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@lingui/core": "2.9.1",
-    "@sketch-hq/sketch-file-format-ts": "4.0.2"
+    "@sketch-hq/sketch-assistant-types": "1.0.0"
   },
   "peerDependencies": {},
   "devDependencies": {

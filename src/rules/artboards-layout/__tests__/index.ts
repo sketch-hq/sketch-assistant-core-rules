@@ -1,5 +1,5 @@
 import { testRule } from '../../../test-helpers'
-import { RuleConfig } from '@sketch-hq/sketch-assistant-utils'
+import { RuleConfig } from '@sketch-hq/sketch-assistant-types'
 
 const config: RuleConfig = {
   active: true,

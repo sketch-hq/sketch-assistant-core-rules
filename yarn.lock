@@ -1256,6 +1256,14 @@
   dependencies:
     type-detect "4.0.8"
 
+"@sketch-hq/sketch-assistant-types@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-types/-/sketch-assistant-types-1.0.0.tgz#7f2685a8261d1274bab7f540e3a846d8e0546df5"
+  integrity sha512-4xtlRC5BhMRRAznraoSCgQzF8hq0fRM/m+J3dXgCQwE1vStFw+J5UuvjlNncrCbJ8qrr+jWjxJqTZAFNspFfog==
+  dependencies:
+    "@sketch-hq/sketch-file-format-ts" "4.0.2"
+    "@types/json-schema" "7.0.4"
+
 "@sketch-hq/sketch-assistant-utils@2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-utils/-/sketch-assistant-utils-2.0.2.tgz#f12550cef1a5a893f9d06f1d7b92debd0bbcd724"

@@ -1,5 +1,5 @@
 import { t } from '@lingui/macro'
-import { RuleFunction } from '@sketch-hq/sketch-assistant-utils'
+import { RuleFunction } from '@sketch-hq/sketch-assistant-types'
 import { CreateRuleFunction } from '../..'
 
 export const createRule: CreateRuleFunction = i18n => {
