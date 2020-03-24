@@ -1,5 +1,15 @@
 # @sketch-hq/sketch-assistant-core-rules
 
+## 1.1.0
+
+### Minor Changes
+
+- 5d34daa: New rule "result-messages-include"
+
+### Patch Changes
+
+- e84ec89: Use Assistant Types package
+
 ## 1.0.3
 
 ### Patch Changes
