@@ -34,12 +34,14 @@ configuration options and implementation.
 - [`images-no-outsized`](./src/rules/images-no-outsized)
 - [`layer-names-pattern-allowed`](./src/rules/layer-names-pattern-allowed)
 - [`layer-names-pattern-disallowed`](./src/rules/layer-names-pattern-disallowed)
+- [`layer-styles-no-dirty`](./src/layer-styles-no-dirty)
 - [`layer-styles-prefer-shared`](./src/rules/layer-styles-prefer-shared)
 - [`layers-no-hidden`](./src/rules/layers-no-hidden)
 - [`layers-subpixel-positioning`](./src/rules/layers-subpixel-positioning)
 - [`result-messages-include`](./src/rules/result-messages-include)
 - [`shared-styles-no-unused`](./src/rules/shared-styles-no-unused)
 - [`symbols-no-unused`](./src/rules/symbols-no-unused)
+- [`text-styles-no-dirty`](./src/text-styles-no-dirty)
 - [`text-styles-prefer-shared`](./src/rules/text-styles-prefer-shared)
 
 ## Development
