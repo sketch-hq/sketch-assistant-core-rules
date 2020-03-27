@@ -14,12 +14,17 @@ import * as groupsNoEmpty from './rules/groups-no-empty'
 import * as groupsNoRedundant from './rules/groups-no-redundant'
 import * as imagesNoOutsized from './rules/images-no-outsized'
 import * as innerShadowsNoDisabled from './rules/inner-shadows-no-disabled'
-import * as layerNamesPatternAllowed from './rules/layer-names-pattern-allowed'
-import * as layerNamesPatternDisallowed from './rules/layer-names-pattern-disallowed'
 import * as layersNoHidden from './rules/layers-no-hidden'
 import * as layersSubpixelPositioning from './rules/layers-subpixel-positioning'
 import * as layerStylesNoDirty from './rules/layer-styles-no-dirty'
 import * as layerStylesPreferShared from './rules/layer-styles-prefer-shared'
+import * as namePatternArtboards from './rules/name-pattern-artboards'
+import * as namePatternGroups from './rules/name-pattern-groups'
+import * as namePatternImages from './rules/name-pattern-images'
+import * as namePatternPages from './rules/name-pattern-pages'
+import * as namePatternShapes from './rules/name-pattern-shapes'
+import * as namePatternSymbols from './rules/name-pattern-symbols'
+import * as namePatternText from './rules/name-pattern-text'
 import * as resultMessagesInclude from './rules/result-messages-include'
 import * as shadowsNoDisabled from './rules/shadows-no-disabled'
 import * as sharedStylesNoUnused from './rules/shared-styles-no-unused'
@@ -62,12 +67,17 @@ const assistant: Assistant = async (env) => {
       groupsNoRedundant,
       imagesNoOutsized,
       innerShadowsNoDisabled,
-      layerNamesPatternAllowed,
-      layerNamesPatternDisallowed,
       layersNoHidden,
       layersSubpixelPositioning,
       layerStylesNoDirty,
       layerStylesPreferShared,
+      namePatternArtboards,
+      namePatternGroups,
+      namePatternImages,
+      namePatternPages,
+      namePatternShapes,
+      namePatternSymbols,
+      namePatternText,
       resultMessagesInclude,
       shadowsNoDisabled,
       sharedStylesNoUnused,
