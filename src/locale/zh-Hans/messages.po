@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh\n"
 "Project-Id-Version: sketch-assistant-core-rules\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-03-23 15:39\n"
+"PO-Revision-Date: 2020-03-27 11:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -16,11 +16,11 @@ msgstr ""
 "X-Crowdin-Language: zh-CN\n"
 "X-Crowdin-File: /master/locale/en/messages.po\n"
 
-#: src/index.ts:46
+#: src/index.ts:48
 msgid "Sketch Assistant Core Rules"
 msgstr ""
 
-#: src/index.ts:47
+#: src/index.ts:49
 msgid "Official Sketch Assistant containing the core rule set"
 msgstr ""
 
@@ -389,6 +389,22 @@ msgstr ""
 msgid "An array of disallowed layer name pattern strings as JavaScript compatible regex"
 msgstr ""
 
+#: src/rules/layer-styles-no-dirty/index.ts:56
+msgid "Style differs from the shared layer style"
+msgstr ""
+
+#: src/rules/layer-styles-no-dirty/index.ts:61
+msgid "Unknown layer shared style"
+msgstr ""
+
+#: src/rules/layer-styles-no-dirty/index.ts:71
+msgid "No dirty"
+msgstr ""
+
+#: src/rules/layer-styles-no-dirty/index.ts:72
+msgid "Disallow layers with styles that differ from their shared styles"
+msgstr ""
+
 #: src/rules/layer-styles-prefer-shared/index.ts:73
 msgid "{maxIdentical, plural, one {Expected no identical layer styles in the document, but found {numIdentical} matching this layer's style. Consider a shared style instead} other {Expected a maximum of # identical layer styles in the document, but found {numIdentical} instances of this layer's style. Consider a shared style instead}}"
 msgstr ""
@@ -484,6 +500,22 @@ msgstr ""
 
 #: src/rules/symbols-no-unused/index.ts:39
 msgid "Disallow symbols that have no corresponding usage anywhere in the document"
+msgstr ""
+
+#: src/rules/text-styles-no-dirty/index.ts:51
+msgid "Style differs from the shared text style"
+msgstr ""
+
+#: src/rules/text-styles-no-dirty/index.ts:56
+msgid "Unknown shared style"
+msgstr ""
+
+#: src/rules/text-styles-no-dirty/index.ts:66
+msgid "Prefer text styles to be in sync with their shared style"
+msgstr ""
+
+#: src/rules/text-styles-no-dirty/index.ts:67
+msgid "Disallow text styles that differ from their shared styles"
 msgstr ""
 
 #: src/rules/text-styles-prefer-shared/index.ts:68
