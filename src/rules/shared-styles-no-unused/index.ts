@@ -14,6 +14,12 @@ export const createRule: CreateRuleFunction = (i18n) => {
       async sharedStyle(node) {
         sharedStyles.push(node as Node<FileFormat.SharedStyle>)
       },
+      async symbolInstance(node) {
+        const obj = utils.nodeToObject<FileFormat.SymbolInstance>(node)
+        obj.overrideValues.forEach((override) => {
+          if (typeof override.value === 'string') usages.add(override.value)
+        })
+      },
       async $layers(node) {
         const obj = utils.nodeToObject(node)
         if ('sharedStyleID' in obj && typeof obj.sharedStyleID === 'string') {
