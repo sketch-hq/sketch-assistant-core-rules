@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/index.ts:48
+#: src/index.ts:51
 msgid "Sketch Assistant Core Rules"
 msgstr ""
 
-#: src/index.ts:49
+#: src/index.ts:52
 msgid "Official Sketch Assistant containing the core rule set"
 msgstr ""
 
@@ -273,6 +273,22 @@ msgstr ""
 msgid "Internal debug rule that always throws a rule error"
 msgstr ""
 
+#: src/rules/fills-no-disabled/index.ts:28
+msgid "Unexpected disabled fill on layer style"
+msgstr ""
+
+#: src/rules/fills-no-disabled/index.ts:39
+msgid "Unexpected disabled fill in shared style"
+msgstr ""
+
+#: src/rules/fills-no-disabled/index.ts:49
+msgid "No Disabled Fills"
+msgstr ""
+
+#: src/rules/fills-no-disabled/index.ts:50
+msgid "Forbids disabled fill styles throughout the document"
+msgstr ""
+
 #: src/rules/groups-max-layers/index.ts:40
 msgid "Expected {maxLayers} or less layers on group, found {numLayers}"
 msgstr ""
@@ -349,6 +365,22 @@ msgstr ""
 msgid "How much larger an image can be than its frame and still be considered valid"
 msgstr ""
 
+#: src/rules/inner-shadows-no-disabled/index.ts:28
+msgid "Unexpected disabled inner shadow on layer style"
+msgstr ""
+
+#: src/rules/inner-shadows-no-disabled/index.ts:39
+msgid "Unexpected disabled inner shadow in shared style"
+msgstr ""
+
+#: src/rules/inner-shadows-no-disabled/index.ts:49
+msgid "No Disabled Inner Shadows"
+msgstr ""
+
+#: src/rules/inner-shadows-no-disabled/index.ts:50
+msgid "Forbids disabled inner shadow styles throughout the document"
+msgstr ""
+
 #: src/rules/layer-names-pattern-allowed/index.ts:31
 msgid "Unexpected layer name \"{name}\", does not match one of the allowable patterns"
 msgstr ""
@@ -390,15 +422,11 @@ msgstr ""
 msgid "Style differs from the shared layer style"
 msgstr ""
 
-#: src/rules/layer-styles-no-dirty/index.ts:61
-msgid "Unknown layer shared style"
+#: src/rules/layer-styles-no-dirty/index.ts:68
+msgid "Prefer layer styles to be in sync with their shared style"
 msgstr ""
 
-#: src/rules/layer-styles-no-dirty/index.ts:71
-msgid "No dirty"
-msgstr ""
-
-#: src/rules/layer-styles-no-dirty/index.ts:72
+#: src/rules/layer-styles-no-dirty/index.ts:69
 msgid "Disallow layers with styles that differ from their shared styles"
 msgstr ""
 
@@ -475,6 +503,22 @@ msgstr ""
 msgid "An array of messages to check for"
 msgstr ""
 
+#: src/rules/shadows-no-disabled/index.ts:28
+msgid "Unexpected disabled shadow on layer style"
+msgstr ""
+
+#: src/rules/shadows-no-disabled/index.ts:39
+msgid "Unexpected disabled shadow in shared style"
+msgstr ""
+
+#: src/rules/shadows-no-disabled/index.ts:49
+msgid "No Disabled Shadows"
+msgstr ""
+
+#: src/rules/shadows-no-disabled/index.ts:50
+msgid "Forbids disabled shadow styles throughout the document"
+msgstr ""
+
 #: src/rules/shared-styles-no-unused/index.ts:33
 msgid "Unexpected unused shared style"
 msgstr ""
@@ -503,15 +547,11 @@ msgstr ""
 msgid "Style differs from the shared text style"
 msgstr ""
 
-#: src/rules/text-styles-no-dirty/index.ts:56
-msgid "Unknown shared style"
-msgstr ""
-
-#: src/rules/text-styles-no-dirty/index.ts:66
+#: src/rules/text-styles-no-dirty/index.ts:63
 msgid "Prefer text styles to be in sync with their shared style"
 msgstr ""
 
-#: src/rules/text-styles-no-dirty/index.ts:67
+#: src/rules/text-styles-no-dirty/index.ts:64
 msgid "Disallow text styles that differ from their shared styles"
 msgstr ""
 

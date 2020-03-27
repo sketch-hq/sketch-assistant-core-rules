@@ -8,10 +8,12 @@ import * as bordersNoDisabled from './rules/borders-no-disabled'
 import * as debugAllOptions from './rules/debug-all-options'
 import * as debugI18n from './rules/debug-i18n'
 import * as debugThrowsError from './rules/debug-throws-error'
+import * as fillsNoDisabled from './rules/fills-no-disabled'
 import * as groupsMaxLayers from './rules/groups-max-layers'
 import * as groupsNoEmpty from './rules/groups-no-empty'
 import * as groupsNoRedundant from './rules/groups-no-redundant'
 import * as imagesNoOutsized from './rules/images-no-outsized'
+import * as innerShadowsNoDisabled from './rules/inner-shadows-no-disabled'
 import * as layerNamesPatternAllowed from './rules/layer-names-pattern-allowed'
 import * as layerNamesPatternDisallowed from './rules/layer-names-pattern-disallowed'
 import * as layersNoHidden from './rules/layers-no-hidden'
@@ -19,6 +21,7 @@ import * as layersSubpixelPositioning from './rules/layers-subpixel-positioning'
 import * as layerStylesNoDirty from './rules/layer-styles-no-dirty'
 import * as layerStylesPreferShared from './rules/layer-styles-prefer-shared'
 import * as resultMessagesInclude from './rules/result-messages-include'
+import * as shadowsNoDisabled from './rules/shadows-no-disabled'
 import * as sharedStylesNoUnused from './rules/shared-styles-no-unused'
 import * as symbolsNoUnused from './rules/symbols-no-unused'
 import * as textStylesNoDirty from './rules/text-styles-no-dirty'
@@ -53,10 +56,12 @@ const assistant: Assistant = async (env) => {
       debugAllOptions,
       debugI18n,
       debugThrowsError,
+      fillsNoDisabled,
       groupsMaxLayers,
       groupsNoEmpty,
       groupsNoRedundant,
       imagesNoOutsized,
+      innerShadowsNoDisabled,
       layerNamesPatternAllowed,
       layerNamesPatternDisallowed,
       layersNoHidden,
@@ -64,6 +69,7 @@ const assistant: Assistant = async (env) => {
       layerStylesNoDirty,
       layerStylesPreferShared,
       resultMessagesInclude,
+      shadowsNoDisabled,
       sharedStylesNoUnused,
       symbolsNoUnused,
       textStylesNoDirty,
