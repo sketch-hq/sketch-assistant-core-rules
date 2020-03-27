@@ -10,17 +10,6 @@ import {
 import { I18n } from '@lingui/core'
 import { t } from '@lingui/macro'
 
-function assertOption(value: Maybe<RuleOption>): asserts value is string[] {
-  if (!Array.isArray(value)) {
-    throw new Error()
-  }
-  for (let i = 0; i < value.length; i++) {
-    if (typeof value[i] !== 'string') {
-      throw new Error()
-    }
-  }
-}
-
 /**
  * Abstracts the creation of a name-pattern-* rule function. All these rules have identical logic,
  * and only differ based on the Sketch layer classes they're interested in.
@@ -29,6 +18,17 @@ function assertOption(value: Maybe<RuleOption>): asserts value is string[] {
  * @param classes Array of file format `_class` values indicating the types of layers to scan
  */
 const createNamePatternRuleFunction = (i18n: I18n, classes: SketchClass[]): RuleFunction => {
+  function assertOption(value: Maybe<RuleOption>): asserts value is string[] {
+    if (!Array.isArray(value)) {
+      throw new Error('Option value is not an array')
+    }
+    for (let i = 0; i < value.length; i++) {
+      if (typeof value[i] !== 'string') {
+        throw new Error('Option array element is not a string')
+      }
+    }
+  }
+
   // This function returns a RuleFunction:
   return async (context: RuleContext) => {
     const { utils } = context
@@ -58,7 +58,7 @@ const createNamePatternRuleFunction = (i18n: I18n, classes: SketchClass[]): Rule
           node,
           message: i18n._(t`Layer name matches one of the forbidden patterns`),
         })
-        return // Return after reporting a name as forbidden, i.e. even if name has been explicitly allowed/whitelisted it can still be forbidden
+        return // Return after reporting a name as forbidden, i.e. once a name is forbidden we don't care about the allowed status
       }
 
       if (!isAllowed) {

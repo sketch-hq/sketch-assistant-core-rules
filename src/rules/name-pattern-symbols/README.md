@@ -9,7 +9,7 @@ When highly precise layer naming is required, for example when a Sketch document
 automatically exported to production assets, then a team may want to enforce a specific name
 patterns.
 
-Alternatively a team may which to control names purely for document hygiene purposes, for example
+Alternatively a team may wish to control names purely for document hygiene purposes, for example
 forbidding default names.
 
 ## Options

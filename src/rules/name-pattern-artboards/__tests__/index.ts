@@ -80,4 +80,20 @@ describe('name-pattern-artboards', () => {
     expect(violations).toHaveLength(1)
     expect(errors).toHaveLength(0)
   })
+
+  test('syntax error in a pattern triggers a rule error', async (): Promise<void> => {
+    expect.assertions(2)
+    const { violations, errors } = await testRule(
+      __dirname,
+      './named-artboards.sketch',
+      'name-pattern-artboards',
+      {
+        active: true,
+        allowed: [],
+        forbidden: ['('],
+      },
+    )
+    expect(violations).toHaveLength(0)
+    expect(errors).toHaveLength(1)
+  })
 })
