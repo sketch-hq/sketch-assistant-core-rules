@@ -1,5 +1,24 @@
 # @sketch-hq/sketch-assistant-core-rules
 
+## 2.0.0
+
+### Major Changes
+
+- d592d7d: Remove old layer name pattern rules, and replace with seven new rules that target
+  specific layer types
+
+### Minor Changes
+
+- a707bd3: Added rules `layer-styles-no-dirty` and `text-styles-no-dirty`
+- 146e432: Adds the new rule "layers-no-loose" that does not allow layers to be outside Artboards.
+- 74c69aa: Added the rules `shadows-no-disabled`, `fills-no-disabled` and
+  `inner-shadows-no-disabled`
+
+### Patch Changes
+
+- 5d8563d: Fix a bug where shared styles used via symbol overrides where causing false negatives in
+  the `shared-styles-no-used` rule
+
 ## 1.1.0
 
 ### Minor Changes
