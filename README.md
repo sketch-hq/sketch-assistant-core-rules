@@ -37,6 +37,7 @@ configuration options and implementation.
 - [`layer-styles-no-dirty`](./src/layer-styles-no-dirty)
 - [`layer-styles-prefer-shared`](./src/rules/layer-styles-prefer-shared)
 - [`layers-no-hidden`](./src/rules/layers-no-hidden)
+- [`layers-no-loose`](./src/rules/layers-no-loose)
 - [`layers-subpixel-positioning`](./src/rules/layers-subpixel-positioning)
 - [`name-pattern-artboards`](./src/rules/name-pattern-artboards)
 - [`name-pattern-groups`](./src/rules/name-pattern-groups)

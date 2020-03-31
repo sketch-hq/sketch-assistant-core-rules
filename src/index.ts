@@ -15,6 +15,7 @@ import * as groupsNoRedundant from './rules/groups-no-redundant'
 import * as imagesNoOutsized from './rules/images-no-outsized'
 import * as innerShadowsNoDisabled from './rules/inner-shadows-no-disabled'
 import * as layersNoHidden from './rules/layers-no-hidden'
+import * as layersNoLoose from './rules/layers-no-loose'
 import * as layersSubpixelPositioning from './rules/layers-subpixel-positioning'
 import * as layerStylesNoDirty from './rules/layer-styles-no-dirty'
 import * as layerStylesPreferShared from './rules/layer-styles-prefer-shared'
@@ -68,6 +69,7 @@ const assistant: Assistant = async (env) => {
       imagesNoOutsized,
       innerShadowsNoDisabled,
       layersNoHidden,
+      layersNoLoose,
       layersSubpixelPositioning,
       layerStylesNoDirty,
       layerStylesPreferShared,
