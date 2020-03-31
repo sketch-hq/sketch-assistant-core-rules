@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh\n"
 "Project-Id-Version: sketch-assistant-core-rules\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-03-27 12:11\n"
+"PO-Revision-Date: 2020-03-31 15:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -16,12 +16,20 @@ msgstr ""
 "X-Crowdin-Language: zh-CN\n"
 "X-Crowdin-File: /master/locale/en/messages.po\n"
 
-#: src/index.ts:51
+#: src/index.ts:57
 msgid "Sketch Assistant Core Rules"
 msgstr ""
 
-#: src/index.ts:52
+#: src/index.ts:58
 msgid "Official Sketch Assistant containing the core rule set"
+msgstr ""
+
+#: src/rule-helpers.ts:51
+msgid "Layer name matches one of the forbidden patterns"
+msgstr ""
+
+#: src/rule-helpers.ts:58
+msgid "Layer name does not match any of the allowed patterns"
 msgstr ""
 
 #: src/rules/artboards-grid/index.ts:49
@@ -384,43 +392,6 @@ msgstr ""
 msgid "Forbids disabled inner shadow styles throughout the document"
 msgstr ""
 
-#: src/rules/layer-names-pattern-allowed/index.ts:31
-msgid "Unexpected layer name \"{name}\", does not match one of the allowable patterns"
-msgstr ""
-
-#: src/rules/layer-names-pattern-allowed/index.ts:41
-msgid "Allowed Layer Names"
-msgstr ""
-
-#: src/rules/layer-names-pattern-allowed/index.ts:42
-msgid "Define a list of allowable layer names"
-msgstr ""
-
-#: src/rules/layer-names-pattern-allowed/index.ts:47
-#: src/rules/layer-names-pattern-disallowed/index.ts:52
-msgid "Patterns"
-msgstr ""
-
-#: src/rules/layer-names-pattern-allowed/index.ts:48
-msgid "An array of allowed layer name pattern strings as JavaScript compatible regex"
-msgstr ""
-
-#: src/rules/layer-names-pattern-disallowed/index.ts:36
-msgid "Unexpected disallowed layer name \"{name}\""
-msgstr ""
-
-#: src/rules/layer-names-pattern-disallowed/index.ts:46
-msgid "Disallowed Layer Names"
-msgstr ""
-
-#: src/rules/layer-names-pattern-disallowed/index.ts:47
-msgid "Define a list of disallowed layer names"
-msgstr ""
-
-#: src/rules/layer-names-pattern-disallowed/index.ts:53
-msgid "An array of disallowed layer name pattern strings as JavaScript compatible regex"
-msgstr ""
-
 #: src/rules/layer-styles-no-dirty/index.ts:56
 msgid "Style differs from the shared layer style"
 msgstr ""
@@ -466,6 +437,18 @@ msgstr ""
 msgid "Disallow layers visually hidden in the layers list UI"
 msgstr ""
 
+#: src/rules/layers-no-loose/index.ts:22
+msgid "Unexpected loose layer"
+msgstr ""
+
+#: src/rules/layers-no-loose/index.ts:32
+msgid "No Loose Layers"
+msgstr ""
+
+#: src/rules/layers-no-loose/index.ts:33
+msgid "Disallow layers outside of Artboards"
+msgstr ""
+
 #: src/rules/layers-subpixel-positioning/index.ts:55
 msgid "Unexpected subpixel positioning ({x},{y})"
 msgstr ""
@@ -484,6 +467,102 @@ msgstr ""
 
 #: src/rules/layers-subpixel-positioning/index.ts:72
 msgid "Array of supported scale factors in the document. Accepts elements with values \"@1x\", \"@2x\" and \"@3x\" only, which map to allowing whole pixel positions, 0.5 increments and 0.33 increments respectively"
+msgstr ""
+
+#: src/rules/name-pattern-artboards/index.ts:7
+msgid "Artboard Name Patterns"
+msgstr ""
+
+#: src/rules/name-pattern-artboards/index.ts:8
+msgid "Defines allowable and forbidden name patterns for artboard layers"
+msgstr ""
+
+#: src/rules/name-pattern-artboards/index.ts:13
+#: src/rules/name-pattern-groups/index.ts:13
+#: src/rules/name-pattern-images/index.ts:13
+#: src/rules/name-pattern-pages/index.ts:13
+#: src/rules/name-pattern-shapes/index.ts:21
+#: src/rules/name-pattern-symbols/index.ts:13
+#: src/rules/name-pattern-text/index.ts:13
+msgid "Allowable Patterns"
+msgstr ""
+
+#: src/rules/name-pattern-artboards/index.ts:14
+#: src/rules/name-pattern-groups/index.ts:14
+#: src/rules/name-pattern-images/index.ts:14
+#: src/rules/name-pattern-pages/index.ts:14
+#: src/rules/name-pattern-shapes/index.ts:22
+#: src/rules/name-pattern-symbols/index.ts:14
+#: src/rules/name-pattern-text/index.ts:14
+msgid "An array of allowed name pattern strings as JavaScript compatible regex"
+msgstr ""
+
+#: src/rules/name-pattern-artboards/index.ts:18
+#: src/rules/name-pattern-groups/index.ts:18
+#: src/rules/name-pattern-images/index.ts:18
+#: src/rules/name-pattern-pages/index.ts:18
+#: src/rules/name-pattern-shapes/index.ts:26
+#: src/rules/name-pattern-symbols/index.ts:18
+#: src/rules/name-pattern-text/index.ts:18
+msgid "Forbidden Patterns"
+msgstr ""
+
+#: src/rules/name-pattern-artboards/index.ts:19
+#: src/rules/name-pattern-groups/index.ts:19
+#: src/rules/name-pattern-images/index.ts:19
+#: src/rules/name-pattern-pages/index.ts:19
+#: src/rules/name-pattern-shapes/index.ts:27
+#: src/rules/name-pattern-symbols/index.ts:19
+#: src/rules/name-pattern-text/index.ts:19
+msgid "An array of forbidden name pattern strings as JavaScript compatible regex"
+msgstr ""
+
+#: src/rules/name-pattern-groups/index.ts:7
+msgid "Group Name Patterns"
+msgstr ""
+
+#: src/rules/name-pattern-groups/index.ts:8
+msgid "Defines allowable and forbidden name patterns for group layers"
+msgstr ""
+
+#: src/rules/name-pattern-images/index.ts:7
+msgid "Image Name Patterns"
+msgstr ""
+
+#: src/rules/name-pattern-images/index.ts:8
+msgid "Defines allowable and forbidden name patterns for image layers"
+msgstr ""
+
+#: src/rules/name-pattern-pages/index.ts:7
+msgid "Page Name Patterns"
+msgstr ""
+
+#: src/rules/name-pattern-pages/index.ts:8
+msgid "Defines allowable and forbidden name patterns for page layers"
+msgstr ""
+
+#: src/rules/name-pattern-shapes/index.ts:15
+msgid "Shape Name Patterns"
+msgstr ""
+
+#: src/rules/name-pattern-shapes/index.ts:16
+msgid "Defines allowable and forbidden name patterns for shape layers"
+msgstr ""
+
+#: src/rules/name-pattern-symbols/index.ts:7
+msgid "Symbol Name Patterns"
+msgstr ""
+
+#: src/rules/name-pattern-symbols/index.ts:8
+msgid "Defines allowable and forbidden name patterns for symbols"
+msgstr ""
+
+#: src/rules/name-pattern-text/index.ts:7
+msgid "Text Name Patterns"
+msgstr ""
+
+#: src/rules/name-pattern-text/index.ts:8
+msgid "Defines allowable and forbidden name patterns for text layers"
 msgstr ""
 
 #: src/rules/result-messages-include/index.ts:21
