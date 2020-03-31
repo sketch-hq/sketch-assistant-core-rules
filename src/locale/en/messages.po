@@ -21,11 +21,11 @@ msgstr "Sketch Assistant Core Rules"
 msgid "Official Sketch Assistant containing the core rule set"
 msgstr "Official Sketch Assistant containing the core rule set"
 
-#: src/rule-helpers.ts:51
+#: src/rule-helpers.ts:117
 msgid "Layer name matches one of the forbidden patterns"
 msgstr "Layer name matches one of the forbidden patterns"
 
-#: src/rule-helpers.ts:58
+#: src/rule-helpers.ts:124
 msgid "Layer name does not match any of the allowed patterns"
 msgstr "Layer name does not match any of the allowed patterns"
 
@@ -385,29 +385,53 @@ msgstr "No Redundant Groups"
 msgid "Disallows unstyled groups with only one child which is also a group"
 msgstr "Disallows unstyled groups with only one child which is also a group"
 
-#: src/rules/images-no-outsized/index.ts:96
+#: src/rules/images-no-outsized/index.ts:54
 msgid "Unexpected oversized image used in image layer, must be no more than {maxRatio} times larger than the layer frame's width or height"
 msgstr "Unexpected oversized image used in image layer, must be no more than {maxRatio} times larger than the layer frame's width or height"
 
-#: src/rules/images-no-outsized/index.ts:99
+#: src/rules/images-no-outsized/index.ts:57
 msgid "Unexpected oversized image used in layer style image fill, must be no more than {maxRatio} times larger than the layer frame's width or height"
 msgstr "Unexpected oversized image used in layer style image fill, must be no more than {maxRatio} times larger than the layer frame's width or height"
 
-#: src/rules/images-no-outsized/index.ts:112
+#: src/rules/images-no-outsized/index.ts:70
 msgid "No Outsized Images"
 msgstr "No Outsized Images"
 
-#: src/rules/images-no-outsized/index.ts:113
+#: src/rules/images-no-outsized/index.ts:71
 msgid "Disallow images that are larger than their frame by a configurable ratio"
 msgstr "Disallow images that are larger than their frame by a configurable ratio"
 
-#: src/rules/images-no-outsized/index.ts:118
+#: src/rules/images-no-outsized/index.ts:76
 msgid "Maximum Ratio"
 msgstr "Maximum Ratio"
 
-#: src/rules/images-no-outsized/index.ts:120
+#: src/rules/images-no-outsized/index.ts:78
 msgid "How much larger an image can be than its frame and still be considered valid"
 msgstr "How much larger an image can be than its frame and still be considered valid"
+
+#: src/rules/images-no-undersized/index.ts:43
+msgid "Unexpected undersized image used in image layer, must fill at least {0}% of the layer frame's width or height"
+msgstr "Unexpected undersized image used in image layer, must fill at least {0}% of the layer frame's width or height"
+
+#: src/rules/images-no-undersized/index.ts:46
+msgid "Unexpected undersized image used in layer style image fill, must fill at least {0}% of the layer frame's width or height"
+msgstr "Unexpected undersized image used in layer style image fill, must fill at least {0}% of the layer frame's width or height"
+
+#: src/rules/images-no-undersized/index.ts:60
+msgid "No Undersized Images"
+msgstr "No Undersized Images"
+
+#: src/rules/images-no-undersized/index.ts:61
+msgid "Disallow images that are smaller than their frame by a configurable ratio"
+msgstr "Disallow images that are smaller than their frame by a configurable ratio"
+
+#: src/rules/images-no-undersized/index.ts:66
+msgid "Minium Allowed Ratio"
+msgstr "Minium Allowed Ratio"
+
+#: src/rules/images-no-undersized/index.ts:68
+msgid "How much smaller an image can be in relation to its frame and still be considered valid"
+msgstr "How much smaller an image can be in relation to its frame and still be considered valid"
 
 #: src/rules/inner-shadows-no-disabled/index.ts:28
 msgid "Unexpected disabled inner shadow on layer style"
