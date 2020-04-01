@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/index.ts:57
+#: src/index.ts:58
 msgid "Sketch Assistant Core Rules"
 msgstr "Sketch Assistant Core Rules"
 
-#: src/index.ts:58
+#: src/index.ts:59
 msgid "Official Sketch Assistant containing the core rule set"
 msgstr "Official Sketch Assistant containing the core rule set"
 
@@ -168,6 +168,26 @@ msgstr "Draw Horizontal Lines"
 #: src/rules/artboards-layout/index.ts:174
 msgid "Draw all horizontal lines"
 msgstr "Draw all horizontal lines"
+
+#: src/rules/artboards-max-ungrouped-layers/index.ts:28
+msgid "Found {nonGroupLayers} ungrouped layers at top level of artboard, expected at most {maxUngrouped}"
+msgstr "Found {nonGroupLayers} ungrouped layers at top level of artboard, expected at most {maxUngrouped}"
+
+#: src/rules/artboards-max-ungrouped-layers/index.ts:38
+msgid "Max Ungrouped Layers in Artboards"
+msgstr "Max Ungrouped Layers in Artboards"
+
+#: src/rules/artboards-max-ungrouped-layers/index.ts:39
+msgid "Specifies a maximum number of ungrouped layers allowable at the top-level of artboards"
+msgstr "Specifies a maximum number of ungrouped layers allowable at the top-level of artboards"
+
+#: src/rules/artboards-max-ungrouped-layers/index.ts:44
+msgid "Maximum Ungrouped Layers"
+msgstr "Maximum Ungrouped Layers"
+
+#: src/rules/artboards-max-ungrouped-layers/index.ts:46
+msgid "Maximum number of ungrouped layers"
+msgstr "Maximum number of ungrouped layers"
 
 #: src/rules/borders-no-disabled/index.ts:34
 msgid "Unexpected disabled border on layer style"
@@ -598,15 +618,15 @@ msgstr "No Disabled Shadows"
 msgid "Forbids disabled shadow styles throughout the document"
 msgstr "Forbids disabled shadow styles throughout the document"
 
-#: src/rules/shared-styles-no-unused/index.ts:33
+#: src/rules/shared-styles-no-unused/index.ts:42
 msgid "Unexpected unused shared style"
 msgstr "Unexpected unused shared style"
 
-#: src/rules/shared-styles-no-unused/index.ts:40
+#: src/rules/shared-styles-no-unused/index.ts:49
 msgid "No Unused Shared Style"
 msgstr "No Unused Shared Style"
 
-#: src/rules/shared-styles-no-unused/index.ts:41
+#: src/rules/shared-styles-no-unused/index.ts:50
 msgid "Disallow unused shared styles"
 msgstr "Disallow unused shared styles"
 

@@ -24,6 +24,7 @@ configuration options and implementation.
 
 - [`artboards-grid`](./src/rules/artboards-grid)
 - [`artboards-layout`](./src/rules/artboards-layout)
+- [`artboards-max-ungrouped`](./src/rules/artboards-max-ungrouped)
 - [`borders-no-disabled`](./src/rules/borders-no-disabled)
 - [`debug-all-options`](./src/rules/debug-all-options)
 - [`debug-i18n`](./src/rules/debug-i18n)
