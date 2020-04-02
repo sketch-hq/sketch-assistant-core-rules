@@ -9,7 +9,7 @@ import * as bordersNoDisabled from './rules/borders-no-disabled'
 import * as debugAllOptions from './rules/debug-all-options'
 import * as debugI18n from './rules/debug-i18n'
 import * as debugThrowsError from './rules/debug-throws-error'
-import * as exportedLayerNoBlendMode from './rules/exported-layers-no-blend-mode'
+import * as exportedLayersNormalBlendMode from './rules/exported-layers-normal-blend-mode'
 import * as fillsNoDisabled from './rules/fills-no-disabled'
 import * as groupsMaxLayers from './rules/groups-max-layers'
 import * as groupsNoEmpty from './rules/groups-no-empty'
@@ -65,7 +65,7 @@ const assistant: Assistant = async (env) => {
       debugAllOptions,
       debugI18n,
       debugThrowsError,
-      exportedLayerNoBlendMode,
+      exportedLayersNormalBlendMode,
       fillsNoDisabled,
       groupsMaxLayers,
       groupsNoEmpty,

@@ -3,9 +3,9 @@ import { RuleContext, RuleFunction, FileFormat } from '@sketch-hq/sketch-assista
 
 import { CreateRuleFunction } from '../..'
 
-type StyleItem = FileFormat.Fill | FileFormat.Border | FileFormat.Shadow | FileFormat.InnerShadow
-
-const isBlended = (styles: StyleItem[] = []): boolean => {
+const isBlended = (
+  styles: (FileFormat.Fill | FileFormat.Border | FileFormat.Shadow | FileFormat.InnerShadow)[] = [],
+): boolean => {
   return !!styles.find((item) => item.contextSettings.blendMode !== FileFormat.BlendMode.Normal)
 }
 
@@ -18,6 +18,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
         if (layer._class === 'artboard' || layer._class === 'page') return
         if (layer.exportOptions.exportFormats.length === 0) return
         if (
+          layer.style?.contextSettings?.blendMode !== FileFormat.BlendMode.Normal ||
           isBlended(layer.style?.fills) ||
           isBlended(layer.style?.borders) ||
           isBlended(layer.style?.shadows) ||
@@ -36,8 +37,8 @@ export const createRule: CreateRuleFunction = (i18n) => {
 
   return {
     rule,
-    name: 'exported-layers-no-blend-mode',
-    title: i18n._(t`No Blend Mode on Exported Layers`),
+    name: 'exported-layers-normal-blend-mode',
+    title: i18n._(t`No Blend Modes on Exported Layers`),
     description: i18n._(
       t`Flags blend modes applied to exported layers, since the effects are not reliably reproducable in exported assets`,
     ),

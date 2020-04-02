@@ -2,4 +2,4 @@
 '@sketch-hq/sketch-assistant-core-rules': minor
 ---
 
-Add rule `exported-layers-no-blend-mode`
+Add rule `exported-layers-normal-blend-mode`

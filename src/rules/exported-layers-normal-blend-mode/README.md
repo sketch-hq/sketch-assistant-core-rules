@@ -1,4 +1,4 @@
-# exported-layers-no-blend-mode
+# exported-layers-normal-blend-mode
 
 Layers that have been marked for export but also have blend modes applied to their styles are
 considered violations.
