@@ -29,6 +29,7 @@ configuration options and implementation.
 - [`debug-all-options`](./src/rules/debug-all-options)
 - [`debug-i18n`](./src/rules/debug-i18n)
 - [`debug-throws-error`](./src/rules/debug-throws-error)
+- [`exported-layers-no-blend-mode`](./src/rules/exported-layers-no-blend-mode)
 - [`fills-no-disabled`](./src/rules/fills-no-disabled)
 - [`groups-max-layers`](./src/rules/groups-max-layers)
 - [`groups-no-empty`](./src/rules/groups-no-empty)
