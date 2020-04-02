@@ -4,6 +4,7 @@ import { t } from '@lingui/macro'
 
 import * as artboardsGrid from './rules/artboards-grid'
 import * as artboardsLayout from './rules/artboards-layout'
+import * as artboardsMaxUngroupedLayers from './rules/artboards-max-ungrouped-layers'
 import * as bordersNoDisabled from './rules/borders-no-disabled'
 import * as debugAllOptions from './rules/debug-all-options'
 import * as debugI18n from './rules/debug-i18n'
@@ -58,6 +59,7 @@ const assistant: Assistant = async (env) => {
     rules: [
       artboardsGrid,
       artboardsLayout,
+      artboardsMaxUngroupedLayers,
       bordersNoDisabled,
       debugAllOptions,
       debugI18n,
