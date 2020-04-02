@@ -9,7 +9,7 @@ organisation.
 
 ## Options
 
-### `maxUngrouped: number`
+### `maxUngroupedLayers: number`
 
 Maximum number of ungrouped layers at the top level of any artboard.
 
@@ -18,6 +18,6 @@ Maximum number of ungrouped layers at the top level of any artboard.
 ```js
 {
   "active": true,
-  "maxUngrouped": 5
+  "maxUngroupedLayers": 5
 }
 ```

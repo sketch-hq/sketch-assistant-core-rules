@@ -9,7 +9,7 @@ describe('artboards-max-ungrouped-layers', () => {
       'artboards-max-ungrouped-layers',
       {
         active: true,
-        maxUngrouped: 5,
+        maxUngroupedLayers: 5,
       },
     )
     expect(violations).toHaveLength(0)
@@ -26,7 +26,7 @@ describe('artboards-max-ungrouped-layers', () => {
       'artboards-max-ungrouped-layers',
       {
         active: true,
-        maxUngrouped: 4,
+        maxUngroupedLayers: 4,
       },
     )
     expect(violations).toHaveLength(1)

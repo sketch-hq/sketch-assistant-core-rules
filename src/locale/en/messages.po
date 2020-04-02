@@ -170,8 +170,8 @@ msgid "Draw all horizontal lines"
 msgstr "Draw all horizontal lines"
 
 #: src/rules/artboards-max-ungrouped-layers/index.ts:28
-msgid "Found {nonGroupLayers} ungrouped layers at top level of artboard, expected at most {maxUngrouped}"
-msgstr "Found {nonGroupLayers} ungrouped layers at top level of artboard, expected at most {maxUngrouped}"
+msgid "Found {nonGroupLayers} ungrouped layers at top level of artboard, expected at most {maxUngroupedLayers}"
+msgstr "Found {nonGroupLayers} ungrouped layers at top level of artboard, expected at most {maxUngroupedLayers}"
 
 #: src/rules/artboards-max-ungrouped-layers/index.ts:38
 msgid "Max Ungrouped Layers in Artboards"

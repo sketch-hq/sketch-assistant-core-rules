@@ -3,24 +3,24 @@ import { RuleContext, RuleFunction, FileFormat } from '@sketch-hq/sketch-assista
 
 import { CreateRuleFunction } from '../..'
 
-function assertMaxUngrouped(maxUngrouped: unknown): asserts maxUngrouped is number {
-  if (typeof maxUngrouped !== 'number') throw Error()
+function assertMaxUngrouped(maxUngroupedLayers: unknown): asserts maxUngroupedLayers is number {
+  if (typeof maxUngroupedLayers !== 'number') throw Error()
 }
 
 export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
-    const maxUngrouped = utils.getOption('maxUngrouped')
-    assertMaxUngrouped(maxUngrouped)
+    const maxUngroupedLayers = utils.getOption('maxUngroupedLayers')
+    assertMaxUngrouped(maxUngroupedLayers)
     await utils.iterateCache({
       async artboard(node): Promise<void> {
         const artboard = utils.nodeToObject<FileFormat.Artboard>(node)
         const nonGroupLayers = artboard.layers.filter((layer) => layer._class !== 'group').length
-        if (nonGroupLayers > maxUngrouped) {
+        if (nonGroupLayers > maxUngroupedLayers) {
           utils.report({
             node,
             message: i18n._(
-              t`Found ${nonGroupLayers} ungrouped layers at top level of artboard, expected at most ${maxUngrouped}`,
+              t`Found ${nonGroupLayers} ungrouped layers at top level of artboard, expected at most ${maxUngroupedLayers}`,
             ),
           })
         }
@@ -38,7 +38,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
     getOptions(helpers) {
       return [
         helpers.numberOption({
-          name: 'maxUngrouped',
+          name: 'maxUngroupedLayers',
           title: i18n._(t`Maximum Ungrouped Layers`),
           defaultValue: 5,
           description: i18n._(t`Maximum number of ungrouped layers`),
