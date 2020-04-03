@@ -46,7 +46,6 @@ configuration options and implementation.
 - [`name-pattern-groups`](./src/rules/name-pattern-groups)
 - [`name-pattern-images`](./src/rules/name-pattern-images)
 - [`name-pattern-pages`](./src/rules/name-pattern-pages)
-- [`name-pattern-pages`](./src/rules/name-pattern-pages)
 - [`name-pattern-shapes`](./src/rules/name-pattern-shapes)
 - [`name-pattern-symbols`](./src/rules/name-pattern-symbols)
 - [`name-pattern-text`](./src/rules/name-pattern-text)
