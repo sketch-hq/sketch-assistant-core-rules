@@ -1,5 +1,16 @@
 # @sketch-hq/sketch-assistant-core-rules
 
+## 3.0.0
+
+### Major Changes
+
+- 2598a13: Add rule 'images-no-undersized'
+
+### Minor Changes
+
+- 1beecd1: Add rule `exported-layers-normal-blend-mode`
+- f76561c: Add new rule `artboards-max-ungrouped-layers`
+
 ## 2.0.0
 
 ### Major Changes
