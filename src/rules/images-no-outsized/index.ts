@@ -1,28 +1,12 @@
 import { t } from '@lingui/macro'
-import {
-  RuleContext,
-  RuleFunction,
-  Node,
-  ImageMetadata,
-  FileFormat,
-} from '@sketch-hq/sketch-assistant-types'
+import { RuleContext, RuleFunction } from '@sketch-hq/sketch-assistant-types'
 
 import { CreateRuleFunction } from '../..'
+import { ImageUsage, createImageProcessor } from '../../rule-helpers'
 
 function assertOption(value: unknown): asserts value is number {
   if (typeof value !== 'number') throw new Error()
 }
-
-type ImageRef = string
-
-type ImageUsage = {
-  node: Node
-  frame: FileFormat.Rect
-  type: 'bitmap' | 'fill'
-  imageMetadata: ImageMetadata
-}
-
-type Results = Map<ImageRef, ImageUsage[]>
 
 const isValidUsage = (usage: ImageUsage, maxRatio: number): boolean => {
   const { frame, imageMetadata } = usage
@@ -39,60 +23,15 @@ export const createRule: CreateRuleFunction = (i18n) => {
     const maxRatio = utils.getOption('maxRatio')
     assertOption(maxRatio)
 
-    // Create a data structure to hold the results from scanning the document.
-    // It's a map keyed by image reference, with the values being an array of
-    // objects representing instances where that image has been used
-    const results: Results = new Map()
-
-    const addResult = async (
-      ref: ImageRef,
-      node: Node,
-      frame: FileFormat.Rect,
-      type: 'bitmap' | 'fill',
-    ): Promise<void> => {
-      const usage: ImageUsage = {
-        node,
-        frame,
-        type,
-        imageMetadata: await utils.getImageMetadata(ref),
-      }
-
-      if (results.has(ref)) {
-        const item = results.get(ref)
-        item?.push(usage)
-        return
-      }
-
-      results.set(ref, [usage])
-    }
-
-    const promises: Promise<void>[] = []
+    const imageProcessor = createImageProcessor(utils.getImageMetadata, utils.nodeToObject)
 
     await utils.iterateCache({
       async $layers(node): Promise<void> {
-        const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
-        const { frame } = layer
-        // Handle images in bitmap layers
-        if (layer._class === 'bitmap') {
-          if (layer.image && layer.image._class === 'MSJSONFileReference') {
-            promises.push(addResult(layer.image._ref, node, frame, 'bitmap'))
-          }
-        }
-        // Handle image fills in layer styles
-        if (layer.sharedStyleID === 'string') return // Skip shared styles
-        if (!layer.style) return // Narrow to truthy style objects
-        if (!layer.style.fills) return // Narrow to truthy style fills arrays
-        for (const fill of layer.style.fills) {
-          if (fill.fillType !== FileFormat.FillType.Pattern) continue
-          if (!fill.image) continue
-          if (fill.image._class !== 'MSJSONFileReference') continue
-          promises.push(addResult(fill.image._ref, node, frame, 'fill'))
-        }
+        imageProcessor.handleLayerImages(node)
       },
     })
 
-    // Await all promises together to benefit from parallelisation
-    await Promise.all(promises)
+    const results = await imageProcessor.getResults()
 
     for (const usages of results.values()) {
       // In order for any usage of an image to be considered invalid, all other

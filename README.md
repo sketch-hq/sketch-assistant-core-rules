@@ -35,6 +35,7 @@ configuration options and implementation.
 - [`groups-no-empty`](./src/rules/groups-no-empty)
 - [`groups-no-redundant`](./src/rules/groups-no-redundant)
 - [`images-no-outsized`](./src/rules/images-no-outsized)
+- [`images-no-undersized`](./src/rules/images-no-undersized)
 - [`inner-shadows-no-disabled`](./src/rules/inner-shadows-no-disabled)
 - [`layer-styles-no-dirty`](./src/layer-styles-no-dirty)
 - [`layer-styles-prefer-shared`](./src/rules/layer-styles-prefer-shared)

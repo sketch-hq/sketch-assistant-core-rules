@@ -1,14 +1,101 @@
 import {
-  RuleFunction,
-  RuleContext,
+  FileFormat,
+  ImageMetadata,
   Maybe,
-  RuleOption,
-  SketchClass,
   Node,
   NodeCacheVisitor,
+  RuleContext,
+  RuleFunction,
+  RuleOption,
+  SketchClass,
 } from '@sketch-hq/sketch-assistant-types'
 import { I18n } from '@lingui/core'
 import { t } from '@lingui/macro'
+
+type ImageRef = string
+
+export type ImageUsage = {
+  node: Node
+  frame: FileFormat.Rect
+  type: 'bitmap' | 'fill'
+  imageMetadata: ImageMetadata
+}
+
+interface ImageProcessor {
+  handleLayerImages: (node: Node) => void
+  getResults: () => Promise<Map<ImageRef, ImageUsage[]>>
+}
+
+/**
+ * Abstracts the creation of a function that gets the node images.
+ * This logic to find images in a node is identically used in all the
+ * `image-*` rules.
+ * These rules only differ at how they validate images.
+ *
+ * @param getImageMetadata Function used to build the ImageMetaData object
+ * @param getLayer Function used to get the layer object from a node
+ */
+const createImageProcessor = (
+  getImageMetadata: (ref: string) => Promise<ImageMetadata>,
+  getLayer: (n: Node) => FileFormat.AnyLayer,
+): ImageProcessor => {
+  // Create a data structure to hold the results from scanning the document.
+  // It's a map keyed by image reference, with the values being an array of
+  // objects representing instances where that image has been used
+  const results: Map<ImageRef, ImageUsage[]> = new Map()
+
+  const addResult = async (
+    ref: ImageRef,
+    node: Node,
+    frame: FileFormat.Rect,
+    type: 'bitmap' | 'fill',
+  ): Promise<void> => {
+    const usage: ImageUsage = {
+      node,
+      frame,
+      type,
+      imageMetadata: await getImageMetadata(ref),
+    }
+
+    if (results.has(ref)) {
+      const item = results.get(ref)
+      item?.push(usage)
+      return
+    }
+
+    results.set(ref, [usage])
+  }
+
+  const promises: Promise<void>[] = []
+
+  return {
+    handleLayerImages(node) {
+      const layer = getLayer(node)
+      const { frame } = layer
+      // Handle images in bitmap layers
+      if (layer._class === 'bitmap') {
+        if (layer.image && layer.image._class === 'MSJSONFileReference') {
+          promises.push(addResult(layer.image._ref, node, frame, 'bitmap'))
+        }
+      }
+      // Handle image fills in layer styles
+      if (layer.sharedStyleID === 'string') return // Skip shared styles
+      if (!layer.style) return // Narrow to truthy style objects
+      if (!layer.style.fills) return // Narrow to truthy style fills arrays
+      for (const fill of layer.style.fills) {
+        if (fill.fillType !== FileFormat.FillType.Pattern) continue
+        if (!fill.image) continue
+        if (fill.image._class !== 'MSJSONFileReference') continue
+        promises.push(addResult(fill.image._ref, node, frame, 'fill'))
+      }
+    },
+    async getResults() {
+      // Await all promises together to benefit from parallelisation
+      await Promise.all(promises)
+      return results
+    },
+  }
+}
 
 /**
  * Abstracts the creation of a name-pattern-* rule function. All these rules have identical logic,
@@ -73,4 +160,4 @@ const createNamePatternRuleFunction = (i18n: I18n, classes: SketchClass[]): Rule
   }
 }
 
-export { createNamePatternRuleFunction }
+export { createNamePatternRuleFunction, createImageProcessor }
