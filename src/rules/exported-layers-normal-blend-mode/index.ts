@@ -17,8 +17,16 @@ export const createRule: CreateRuleFunction = (i18n) => {
         const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
         if (layer._class === 'artboard' || layer._class === 'page') return
         if (layer.exportOptions.exportFormats.length === 0) return
+        if (layer.style?.contextSettings?.blendMode !== FileFormat.BlendMode.Normal) {
+          utils.report({
+            node,
+            message: i18n._(
+              t`Unexpected blend mode found on exported layer, consider flattening the blend mode for consistent export results.`,
+            ),
+          })
+          return
+        }
         if (
-          layer.style?.contextSettings?.blendMode !== FileFormat.BlendMode.Normal ||
           isBlended(layer.style?.fills) ||
           isBlended(layer.style?.borders) ||
           isBlended(layer.style?.shadows) ||

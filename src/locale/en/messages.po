@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/index.ts:58
+#: src/index.ts:59
 msgid "Sketch Assistant Core Rules"
 msgstr "Sketch Assistant Core Rules"
 
-#: src/index.ts:59
+#: src/index.ts:60
 msgid "Official Sketch Assistant containing the core rule set"
 msgstr "Official Sketch Assistant containing the core rule set"
 
@@ -300,6 +300,22 @@ msgstr "Throw Error"
 #: src/rules/debug-throws-error/index.ts:18
 msgid "Internal debug rule that always throws a rule error"
 msgstr "Internal debug rule that always throws a rule error"
+
+#: src/rules/exported-layers-normal-blend-mode/index.ts:30
+msgid "Unexpected blend mode found on exported layer, consider flattening the blend mode for consistent export results."
+msgstr "Unexpected blend mode found on exported layer, consider flattening the blend mode for consistent export results."
+
+#: src/rules/exported-layers-normal-blend-mode/index.ts:40
+msgid "Unexpected style with blend mode found on exported layer, consider flattening the blend modes for consistent export results."
+msgstr "Unexpected style with blend mode found on exported layer, consider flattening the blend modes for consistent export results."
+
+#: src/rules/exported-layers-normal-blend-mode/index.ts:50
+msgid "No Blend Modes on Exported Layers"
+msgstr "No Blend Modes on Exported Layers"
+
+#: src/rules/exported-layers-normal-blend-mode/index.ts:51
+msgid "Flags blend modes applied to exported layers, since the effects are not reliably reproducable in exported assets"
+msgstr "Flags blend modes applied to exported layers, since the effects are not reliably reproducable in exported assets"
 
 #: src/rules/fills-no-disabled/index.ts:28
 msgid "Unexpected disabled fill on layer style"
