@@ -2,6 +2,7 @@ import { t, plural } from '@lingui/macro'
 import { RuleContext, RuleFunction, Node, FileFormat } from '@sketch-hq/sketch-assistant-types'
 
 import { CreateRuleFunction } from '../..'
+import { isCombinedShapeChildLayer } from '../../rule-helpers'
 
 function assertMaxIdentical(val: unknown): asserts val is number {
   if (typeof val !== 'number') {
@@ -23,6 +24,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
       async $layers(node): Promise<void> {
         const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
         if (IGNORE_CLASSES.includes(node._class)) return
+        if (isCombinedShapeChildLayer(node, utils)) return // Ignore layers in combined shapes
         if (layer._class === 'group' && !layer.style?.shadows?.length) return // Ignore groups with default styles (i.e. no shadows)
         if (typeof layer.sharedStyleID === 'string') return // Ignore layers using a shared style
         // Determine whether we're inside a symbol instance, if so return early since

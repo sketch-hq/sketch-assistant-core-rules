@@ -8,6 +8,7 @@ import {
   RuleFunction,
   RuleOption,
   SketchClass,
+  RuleUtils,
 } from '@sketch-hq/sketch-assistant-types'
 import { I18n } from '@lingui/core'
 import { t } from '@lingui/macro'
@@ -160,4 +161,15 @@ const createNamePatternRuleFunction = (i18n: I18n, classes: SketchClass[]): Rule
   }
 }
 
-export { createNamePatternRuleFunction, createImageProcessor }
+/**
+ * Indicate whether a given Node is a child layer of a ShapeGroup (aka combined shape).
+ */
+const isCombinedShapeChildLayer = (node: Node, utils: RuleUtils): boolean => {
+  const parent = utils.parent(node.$pointer)
+  if (!parent || typeof parent !== 'object') return false
+  const grandParent = utils.parent(parent.$pointer)
+  if (!grandParent || typeof grandParent !== 'object' || !('_class' in grandParent)) return false
+  return grandParent._class === 'shapeGroup'
+}
+
+export { createNamePatternRuleFunction, createImageProcessor, isCombinedShapeChildLayer }
