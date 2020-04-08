@@ -109,4 +109,19 @@ describe('layer-styles-prefer-shared', () => {
     expect(violations).toHaveLength(2)
     expect(errors).toHaveLength(0)
   })
+
+  test('do not generate violations from layers inside combined shapes', async (): Promise<void> => {
+    expect.assertions(2)
+    const { violations, errors } = await testRule(
+      __dirname,
+      './combined-shape.sketch',
+      'layer-styles-prefer-shared',
+      {
+        active: true,
+        maxIdentical: 1,
+      },
+    )
+    expect(violations).toHaveLength(0)
+    expect(errors).toHaveLength(0)
+  })
 })
