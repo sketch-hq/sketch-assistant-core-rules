@@ -1,5 +1,12 @@
 # @sketch-hq/sketch-assistant-core-rules
 
+## 3.0.1
+
+### Patch Changes
+
+- 75b8335: Do not check styles in combined shapes
+- 6b8373d: Handle layer positions with more than two decimal places in `layers-subpixel-positioning`
+
 ## 3.0.0
 
 ### Major Changes
