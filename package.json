@@ -1,7 +1,7 @@
 {
   "name": "@sketch-hq/sketch-assistant-core-rules",
   "description": "Official core rules Sketch Assistant",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "MIT",
   "repository": "github:sketch-hq/sketch-assistant-core-rules",
   "types": "dist/index.d.ts",
