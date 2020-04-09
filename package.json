@@ -1,12 +1,15 @@
 {
   "name": "@sketch-hq/sketch-assistant-core-rules",
-  "description": "Official core rules Sketch Assistant",
   "version": "3.0.1",
   "license": "MIT",
   "repository": "github:sketch-hq/sketch-assistant-core-rules",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "sketch": "dist/sketch.js",
+  "sketch-assistant": {
+    "title": "Sketch Core Rules Assistant",
+    "description": "Official core rules Sketch Assistant"
+  },
   "keywords": [
     "sketch",
     "sketch files",
@@ -28,10 +31,12 @@
     "test": "jest",
     "type-check": "tsc --noEmit"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@lingui/core": "2.9.1",
-    "@sketch-hq/sketch-assistant-types": "1.0.0"
+    "@sketch-hq/sketch-assistant-types": "2.0.1"
   },
   "peerDependencies": {},
   "devDependencies": {
@@ -44,7 +49,7 @@
     "@changesets/cli": "2.6.1",
     "@lingui/cli": "2.9.1",
     "@lingui/macro": "2.9.1",
-    "@sketch-hq/sketch-assistant-utils": "3.0.1",
+    "@sketch-hq/sketch-assistant-utils": "4.0.0",
     "@types/jest": "25.1.4",
     "@types/node": "13.9.3",
     "babel-core": "7.0.0-bridge.0",

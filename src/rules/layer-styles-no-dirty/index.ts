@@ -1,5 +1,5 @@
 import { t } from '@lingui/macro'
-import { RuleContext, RuleFunction } from '@sketch-hq/sketch-assistant-utils'
+import { RuleContext, RuleFunction } from '@sketch-hq/sketch-assistant-types'
 import FileFormat from '@sketch-hq/sketch-file-format-ts'
 
 import { CreateRuleFunction } from '../..'

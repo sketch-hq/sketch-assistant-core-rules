@@ -1,6 +1,5 @@
-import { Assistant, RuleDefinition } from '@sketch-hq/sketch-assistant-types'
+import { Assistant, RuleDefinition, AssistantDefinition } from '@sketch-hq/sketch-assistant-types'
 import { I18n, setupI18n } from '@lingui/core'
-import { t } from '@lingui/macro'
 
 import * as artboardsGrid from './rules/artboards-grid'
 import * as artboardsLayout from './rules/artboards-layout'
@@ -53,11 +52,8 @@ const assistant: Assistant = async (env) => {
       'zh-Hans': zhHansMessages,
     },
   })
-
-  return {
+  const definition: AssistantDefinition = {
     name: pkgName,
-    title: i18n._(t`Sketch Assistant Core Rules`),
-    description: i18n._(t`Official Sketch Assistant containing the core rule set`),
     rules: [
       artboardsGrid,
       artboardsLayout,
@@ -98,6 +94,7 @@ const assistant: Assistant = async (env) => {
     }),
     config: { rules: {} },
   }
+  return definition
 }
 
 export default assistant

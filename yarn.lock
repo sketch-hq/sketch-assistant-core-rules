@@ -1407,6 +1407,11 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
+"@schemastore/package@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@schemastore/package/-/package-0.0.5.tgz#67b621d5c833ad2d5a29a1acf868717b7839bb8a"
+  integrity sha512-0XEiMT/Rh8I0SEIO81fo5MN3AHhONFv9SJ1IIJ5OTI3PN/jG032OPlHUMxvrun7yc6YUGtufVg2WPQVK8PaH5Q==
+
 "@sinonjs/commons@^1.7.0":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.7.1.tgz#da5fd19a5f71177a53778073978873964f49acf1"
@@ -1414,34 +1419,34 @@
   dependencies:
     type-detect "4.0.8"
 
-"@sketch-hq/sketch-assistant-types@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-types/-/sketch-assistant-types-1.0.0.tgz#7f2685a8261d1274bab7f540e3a846d8e0546df5"
-  integrity sha512-4xtlRC5BhMRRAznraoSCgQzF8hq0fRM/m+J3dXgCQwE1vStFw+J5UuvjlNncrCbJ8qrr+jWjxJqTZAFNspFfog==
+"@sketch-hq/sketch-assistant-types@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-types/-/sketch-assistant-types-2.0.1.tgz#e6a7809901bb0f36da89a66cb1bc287272245420"
+  integrity sha512-sQsai2zvJGNNoPCy5PIk/IK3L3MFW3xloo5RQRI6gindxEOabktdi/A0hu5jAkBD7ZlTYiJaMEmmkCl/n5Hn/w==
   dependencies:
-    "@sketch-hq/sketch-file-format-ts" "4.0.2"
+    "@schemastore/package" "0.0.5"
+    "@sketch-hq/sketch-file-format-ts" "4.0.3"
     "@types/json-schema" "7.0.4"
 
-"@sketch-hq/sketch-assistant-utils@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-utils/-/sketch-assistant-utils-3.0.1.tgz#e36829f911979c50559d9c0817ddd0d4d74d1ab3"
-  integrity sha512-9RbrbouT+vZOSiqpO18Vl/VkCCHYYgGH44+/UYIaEBaLLYK7a6n5+4olcTAEXfa+QX5kMeVf73wuxjam7BohMw==
+"@sketch-hq/sketch-assistant-utils@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-utils/-/sketch-assistant-utils-4.0.0.tgz#e0fcf1b8ad7c5df6ba21fb52f9424b4d2ce80ddd"
+  integrity sha512-d/3Zvq20TBCKoZMgfB1d2L8l+b2JE+O+XmIQO2F8rpruYLaaQP9gQk45s7yYKrcrW8bdVydIbriGfI2L0CoJoQ==
   dependencies:
     "@json-schema-spec/json-pointer" "0.1.2"
-    "@sketch-hq/sketch-file-format-ts" "4.0.2"
-    "@types/json-schema" "7.0.4"
+    "@sketch-hq/sketch-assistant-types" "2.0.1"
     ajv "6.12.0"
     humps "2.0.1"
     mem "6.0.1"
     node-stream-zip "1.9.1"
     object-hash "2.0.3"
-    p-map "3.0.0"
+    p-map "4.0.0"
     probe-image-size "5.0.0"
 
-"@sketch-hq/sketch-file-format-ts@4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-file-format-ts/-/sketch-file-format-ts-4.0.2.tgz#a21ff0d0c3b63ab737e8641f85dc0c074fdd7a9e"
-  integrity sha512-CIu1kAmbxi4tX3Xt4SY/l/QoOaZ3DBe2pr666x7E2aegmzuy4dneOXSOdZarhwXmNE1PzfbjLy1NnhcSyPD22Q==
+"@sketch-hq/sketch-file-format-ts@4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-file-format-ts/-/sketch-file-format-ts-4.0.3.tgz#4f2c44e7a61622e977e40bd89d67ab2f9fe5f95f"
+  integrity sha512-Ndgb5GtPi53bp2jOmCcVYiz9Mwx9Mjox7uMQxaNrD2Qm0C8doc2mejzPWPOOiruK7qpHtFBPFX3hXl9pkMkxIA==
 
 "@types/babel__core@^7.1.0":
   version "7.1.6"
@@ -5702,10 +5707,10 @@ p-locate@^4.1.0:
   dependencies:
     p-limit "^2.2.0"
 
-p-map@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/p-map/-/p-map-3.0.0.tgz#d704d9af8a2ba684e2600d9a215983d4141a979d"
-  integrity sha512-d3qXVTF/s+W+CdJ5A29wywV2n8CQQYahlgz2bFiA+4eVNJbHJodPZ+/gXwPGh0bOqA+j8S+6+ckmvLGPk1QpxQ==
+p-map@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/p-map/-/p-map-4.0.0.tgz#bb2f95a5eda2ec168ec9274e06a747c3e2904d2b"
+  integrity sha512-/bjOqmgETBYB5BoEeGVea8dmvHb2m9GLy1E9W43yeyfP6QQCZGFNa+XRceJEuDB6zqr+gKpIAmlLebMpykw/MQ==
   dependencies:
     aggregate-error "^3.0.0"
 
