@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-assistant-core-rules
 
+## 3.0.2
+
+### Patch Changes
+
+- 95b8bba: Add human readable Assistant title and description to package.json
+
 ## 3.0.1
 
 ### Patch Changes
