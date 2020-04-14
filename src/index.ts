@@ -21,6 +21,7 @@ import * as layersNoLoose from './rules/layers-no-loose'
 import * as layersSubpixelPositioning from './rules/layers-subpixel-positioning'
 import * as layerStylesNoDirty from './rules/layer-styles-no-dirty'
 import * as layerStylesPreferShared from './rules/layer-styles-prefer-shared'
+import * as layerStylesPreferLibrary from './rules/layer-styles-prefer-library'
 import * as namePatternArtboards from './rules/name-pattern-artboards'
 import * as namePatternGroups from './rules/name-pattern-groups'
 import * as namePatternImages from './rules/name-pattern-images'
@@ -32,7 +33,9 @@ import * as resultMessagesInclude from './rules/result-messages-include'
 import * as shadowsNoDisabled from './rules/shadows-no-disabled'
 import * as sharedStylesNoUnused from './rules/shared-styles-no-unused'
 import * as symbolsNoUnused from './rules/symbols-no-unused'
+import * as symbolsPreferLibrary from './rules/symbols-prefer-library'
 import * as textStylesNoDirty from './rules/text-styles-no-dirty'
+import * as textStylesPreferLibrary from './rules/text-styles-prefer-library'
 import * as textStylesPreferShared from './rules/text-styles-prefer-shared'
 
 import enMessages from './locale/en/messages'
@@ -75,6 +78,7 @@ const assistant: Assistant = async (env) => {
       layersSubpixelPositioning,
       layerStylesNoDirty,
       layerStylesPreferShared,
+      layerStylesPreferLibrary,
       namePatternArtboards,
       namePatternGroups,
       namePatternImages,
@@ -86,7 +90,9 @@ const assistant: Assistant = async (env) => {
       shadowsNoDisabled,
       sharedStylesNoUnused,
       symbolsNoUnused,
+      symbolsPreferLibrary,
       textStylesNoDirty,
+      textStylesPreferLibrary,
       textStylesPreferShared,
     ].map((mod) => {
       const rule = mod.createRule(i18n)

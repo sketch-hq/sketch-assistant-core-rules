@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/index.ts:59
+#: src/index.ts:63
 msgid "Sketch Assistant Core Rules"
 msgstr ""
 
-#: src/index.ts:60
+#: src/index.ts:64
 msgid "Official Sketch Assistant containing the core rule set"
 msgstr ""
 
@@ -189,19 +189,19 @@ msgstr ""
 msgid "Maximum number of ungrouped layers"
 msgstr ""
 
-#: src/rules/borders-no-disabled/index.ts:34
+#: src/rules/borders-no-disabled/index.ts:37
 msgid "Unexpected disabled border on layer style"
 msgstr ""
 
-#: src/rules/borders-no-disabled/index.ts:45
+#: src/rules/borders-no-disabled/index.ts:48
 msgid "Unexpected disabled border in shared style"
 msgstr ""
 
-#: src/rules/borders-no-disabled/index.ts:55
+#: src/rules/borders-no-disabled/index.ts:58
 msgid "No Disabled Borders"
 msgstr ""
 
-#: src/rules/borders-no-disabled/index.ts:56
+#: src/rules/borders-no-disabled/index.ts:59
 msgid "Forbids disabled border styles throughout the document"
 msgstr ""
 
@@ -317,19 +317,19 @@ msgstr ""
 msgid "Flags blend modes applied to exported layers, since the effects are not reliably reproducable in exported assets"
 msgstr ""
 
-#: src/rules/fills-no-disabled/index.ts:28
+#: src/rules/fills-no-disabled/index.ts:31
 msgid "Unexpected disabled fill on layer style"
 msgstr ""
 
-#: src/rules/fills-no-disabled/index.ts:39
+#: src/rules/fills-no-disabled/index.ts:42
 msgid "Unexpected disabled fill in shared style"
 msgstr ""
 
-#: src/rules/fills-no-disabled/index.ts:49
+#: src/rules/fills-no-disabled/index.ts:52
 msgid "No Disabled Fills"
 msgstr ""
 
-#: src/rules/fills-no-disabled/index.ts:50
+#: src/rules/fills-no-disabled/index.ts:53
 msgid "Forbids disabled fill styles throughout the document"
 msgstr ""
 
@@ -433,19 +433,19 @@ msgstr ""
 msgid "How much smaller an image can be in relation to its frame and still be considered valid"
 msgstr ""
 
-#: src/rules/inner-shadows-no-disabled/index.ts:28
+#: src/rules/inner-shadows-no-disabled/index.ts:31
 msgid "Unexpected disabled inner shadow on layer style"
 msgstr ""
 
-#: src/rules/inner-shadows-no-disabled/index.ts:39
+#: src/rules/inner-shadows-no-disabled/index.ts:42
 msgid "Unexpected disabled inner shadow in shared style"
 msgstr ""
 
-#: src/rules/inner-shadows-no-disabled/index.ts:49
+#: src/rules/inner-shadows-no-disabled/index.ts:52
 msgid "No Disabled Inner Shadows"
 msgstr ""
 
-#: src/rules/inner-shadows-no-disabled/index.ts:50
+#: src/rules/inner-shadows-no-disabled/index.ts:53
 msgid "Forbids disabled inner shadow styles throughout the document"
 msgstr ""
 
@@ -461,24 +461,64 @@ msgstr ""
 msgid "Disallow layers with styles that differ from their shared styles"
 msgstr ""
 
-#: src/rules/layer-styles-prefer-shared/index.ts:73
+#: src/rules/layer-styles-prefer-library/index.ts:39
+msgid "Layer styles must be set with the shared styles of a library"
+msgstr ""
+
+#: src/rules/layer-styles-prefer-library/index.ts:50
+#: src/rules/text-styles-prefer-library/index.ts:39
+msgid "A shared style from a library is expected"
+msgstr ""
+
+#: src/rules/layer-styles-prefer-library/index.ts:63
+#: src/rules/symbols-prefer-library/index.ts:43
+#: src/rules/text-styles-prefer-library/index.ts:52
+msgid "Uses the unauthorized library \"{libraryName}\""
+msgstr ""
+
+#: src/rules/layer-styles-prefer-library/index.ts:95
+#: src/rules/text-styles-prefer-library/index.ts:86
+msgid "Shared style differs from library"
+msgstr ""
+
+#: src/rules/layer-styles-prefer-library/index.ts:106
+msgid "Prefer Layer Library Styles"
+msgstr ""
+
+#: src/rules/layer-styles-prefer-library/index.ts:107
+msgid "Disallow layer styles in favour of library styles"
+msgstr ""
+
+#: src/rules/layer-styles-prefer-library/index.ts:111
+#: src/rules/symbols-prefer-library/index.ts:61
+#: src/rules/text-styles-prefer-library/index.ts:102
+msgid "Authorized libraries"
+msgstr ""
+
+#: src/rules/layer-styles-prefer-library/index.ts:112
+#: src/rules/symbols-prefer-library/index.ts:62
+#: src/rules/text-styles-prefer-library/index.ts:103
+msgid "Libraries that are valid to use. An error is shown if a library that does not belong to this list is used."
+msgstr ""
+
+#: src/rules/layer-styles-prefer-shared/index.ts:76
 msgid "{maxIdentical, plural, one {Expected no identical layer styles in the document, but found {numIdentical} matching this layer's style. Consider a shared style instead} other {Expected a maximum of # identical layer styles in the document, but found {numIdentical} instances of this layer's style. Consider a shared style instead}}"
 msgstr ""
 
-#: src/rules/layer-styles-prefer-shared/index.ts:85
+#: src/rules/layer-styles-prefer-shared/index.ts:88
 msgid "Prefer Shared Styles"
 msgstr ""
 
-#: src/rules/layer-styles-prefer-shared/index.ts:86
+#: src/rules/layer-styles-prefer-shared/index.ts:89
 msgid "Disallow identical layer styles in favour of shared styles"
 msgstr ""
 
-#: src/rules/layer-styles-prefer-shared/index.ts:90
+#: src/rules/layer-styles-prefer-shared/index.ts:93
 #: src/rules/text-styles-prefer-shared/index.ts:85
 msgid "Max Identical"
 msgstr ""
 
-#: src/rules/layer-styles-prefer-shared/index.ts:91
+#: src/rules/layer-styles-prefer-shared/index.ts:94
 msgid "Maximum number of identical layer styles allowable in the document"
 msgstr ""
 
@@ -506,23 +546,23 @@ msgstr ""
 msgid "Disallow layers outside of Artboards"
 msgstr ""
 
-#: src/rules/layers-subpixel-positioning/index.ts:55
+#: src/rules/layers-subpixel-positioning/index.ts:62
 msgid "Unexpected subpixel positioning ({x},{y})"
 msgstr ""
 
-#: src/rules/layers-subpixel-positioning/index.ts:65
+#: src/rules/layers-subpixel-positioning/index.ts:72
 msgid "Layer Subpixel Positioning"
 msgstr ""
 
-#: src/rules/layers-subpixel-positioning/index.ts:66
+#: src/rules/layers-subpixel-positioning/index.ts:73
 msgid "Enforce layer positioning with respect to subpixels"
 msgstr ""
 
-#: src/rules/layers-subpixel-positioning/index.ts:71
+#: src/rules/layers-subpixel-positioning/index.ts:78
 msgid "Scale Factors"
 msgstr ""
 
-#: src/rules/layers-subpixel-positioning/index.ts:72
+#: src/rules/layers-subpixel-positioning/index.ts:79
 msgid "Array of supported scale factors in the document. Accepts elements with values \"@1x\", \"@2x\" and \"@3x\" only, which map to allowing whole pixel positions, 0.5 increments and 0.33 increments respectively"
 msgstr ""
 
@@ -642,19 +682,19 @@ msgstr ""
 msgid "An array of messages to check for"
 msgstr ""
 
-#: src/rules/shadows-no-disabled/index.ts:28
+#: src/rules/shadows-no-disabled/index.ts:31
 msgid "Unexpected disabled shadow on layer style"
 msgstr ""
 
-#: src/rules/shadows-no-disabled/index.ts:39
+#: src/rules/shadows-no-disabled/index.ts:42
 msgid "Unexpected disabled shadow in shared style"
 msgstr ""
 
-#: src/rules/shadows-no-disabled/index.ts:49
+#: src/rules/shadows-no-disabled/index.ts:52
 msgid "No Disabled Shadows"
 msgstr ""
 
-#: src/rules/shadows-no-disabled/index.ts:50
+#: src/rules/shadows-no-disabled/index.ts:53
 msgid "Forbids disabled shadow styles throughout the document"
 msgstr ""
 
@@ -682,6 +722,18 @@ msgstr ""
 msgid "Disallow symbols that have no corresponding usage anywhere in the document"
 msgstr ""
 
+#: src/rules/symbols-prefer-library/index.ts:30
+msgid "A symbol from a library is expected"
+msgstr ""
+
+#: src/rules/symbols-prefer-library/index.ts:56
+msgid "Prefer Library Symbols"
+msgstr ""
+
+#: src/rules/symbols-prefer-library/index.ts:57
+msgid "Disallow local symbols in favour of library symbols"
+msgstr ""
+
 #: src/rules/text-styles-no-dirty/index.ts:51
 msgid "Style differs from the shared text style"
 msgstr ""
@@ -692,6 +744,18 @@ msgstr ""
 
 #: src/rules/text-styles-no-dirty/index.ts:64
 msgid "Disallow text styles that differ from their shared styles"
+msgstr ""
+
+#: src/rules/text-styles-prefer-library/index.ts:28
+msgid "Text styles must be set with the shared styles of a library"
+msgstr ""
+
+#: src/rules/text-styles-prefer-library/index.ts:97
+msgid "Prefer Text Library Styles"
+msgstr ""
+
+#: src/rules/text-styles-prefer-library/index.ts:98
+msgid "Disallow local text styles in favour of library text styles"
 msgstr ""
 
 #: src/rules/text-styles-prefer-shared/index.ts:68
