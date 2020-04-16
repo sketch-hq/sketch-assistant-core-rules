@@ -13,7 +13,8 @@ export const testRule = async (
 ): Promise<RunResult> =>
   await utils.testRule(
     resolve(dirname, fixture),
-    { [`@sketch-hq/sketch-assistant-core-rules/${ruleId}`]: config },
     assistant,
+    `@sketch-hq/sketch-assistant-core-rules/${ruleId}`,
+    config,
     env,
   )

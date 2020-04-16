@@ -1459,31 +1459,22 @@
   dependencies:
     type-detect "4.0.8"
 
-"@sketch-hq/sketch-assistant-types@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-types/-/sketch-assistant-types-2.0.1.tgz#e6a7809901bb0f36da89a66cb1bc287272245420"
-  integrity sha512-sQsai2zvJGNNoPCy5PIk/IK3L3MFW3xloo5RQRI6gindxEOabktdi/A0hu5jAkBD7ZlTYiJaMEmmkCl/n5Hn/w==
+"@sketch-hq/sketch-assistant-types@3.0.0-next.1":
+  version "3.0.0-next.1"
+  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-types/-/sketch-assistant-types-3.0.0-next.1.tgz#5652f9e398c54a50e678b957702887663b96da1e"
+  integrity sha512-zttYrn3F7wdzyVE4OKFkLCVbMOdPrbGjL5FdVsw+dtnpknk2smq8TmgOEGwInRo82XEISY7EcFOHK2Y0K+Lo6A==
   dependencies:
     "@schemastore/package" "0.0.5"
     "@sketch-hq/sketch-file-format-ts" "4.0.3"
     "@types/json-schema" "7.0.4"
 
-"@sketch-hq/sketch-assistant-types@3.0.0-next.0":
-  version "3.0.0-next.0"
-  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-types/-/sketch-assistant-types-3.0.0-next.0.tgz#47a84b122374f6b0f70948241cff7fbbda4c26e4"
-  integrity sha512-uLy0f4UWXWAwc9oKLjXRdHn8Eh2+6/TUGhCgHRmHAMPcdQtg80WNE//crChNu9bn7d29Brfrb4GXeZqdeJ1XIw==
-  dependencies:
-    "@schemastore/package" "0.0.5"
-    "@sketch-hq/sketch-file-format-ts" "4.0.3"
-    "@types/json-schema" "7.0.4"
-
-"@sketch-hq/sketch-assistant-utils@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-utils/-/sketch-assistant-utils-4.0.0.tgz#e0fcf1b8ad7c5df6ba21fb52f9424b4d2ce80ddd"
-  integrity sha512-d/3Zvq20TBCKoZMgfB1d2L8l+b2JE+O+XmIQO2F8rpruYLaaQP9gQk45s7yYKrcrW8bdVydIbriGfI2L0CoJoQ==
+"@sketch-hq/sketch-assistant-utils@5.0.0-next.1":
+  version "5.0.0-next.1"
+  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-utils/-/sketch-assistant-utils-5.0.0-next.1.tgz#7227dc3df3ece1c6191226e6e1a8f18aba62b540"
+  integrity sha512-VMszncOKpNiB56rN0ytMwA6IgB8TMab9X66CB+DLHD5M6Aq+zKwOy1EfNWwjSYqmJC3bFDoLffKDZ3dMPFCBKw==
   dependencies:
     "@json-schema-spec/json-pointer" "0.1.2"
-    "@sketch-hq/sketch-assistant-types" "2.0.1"
+    "@sketch-hq/sketch-assistant-types" "3.0.0-next.1"
     ajv "6.12.0"
     humps "2.0.1"
     mem "6.0.1"
