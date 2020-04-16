@@ -1,5 +1,16 @@
 # @sketch-hq/sketch-assistant-core-rules
 
+## 3.1.0-next.0
+
+### Minor Changes
+
+- b1499a1: Adds 3 new rules: layer-styles-prefer-library, text-styles-prefer-library and
+  symbols-prefer-library
+
+### Patch Changes
+
+- 90fdfbd: Update type and utils deps
+
 ## 3.0.2
 
 ### Patch Changes
