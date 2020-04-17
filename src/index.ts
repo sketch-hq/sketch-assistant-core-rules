@@ -13,6 +13,7 @@ import * as fillsNoDisabled from './rules/fills-no-disabled'
 import * as groupsMaxLayers from './rules/groups-max-layers'
 import * as groupsNoEmpty from './rules/groups-no-empty'
 import * as groupsNoRedundant from './rules/groups-no-redundant'
+import * as groupsNoSimilar from './rules/groups-no-similar'
 import * as imagesNoOutsized from './rules/images-no-outsized'
 import * as imagesNoUndersized from './rules/images-no-undersized'
 import * as innerShadowsNoDisabled from './rules/inner-shadows-no-disabled'
@@ -70,6 +71,7 @@ const assistant: Assistant = async (env) => {
       groupsMaxLayers,
       groupsNoEmpty,
       groupsNoRedundant,
+      groupsNoSimilar,
       imagesNoOutsized,
       imagesNoUndersized,
       innerShadowsNoDisabled,
