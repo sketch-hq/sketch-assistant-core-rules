@@ -13,14 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/index.ts:63
-msgid "Sketch Assistant Core Rules"
-msgstr "Sketch Assistant Core Rules"
-
-#: src/index.ts:64
-msgid "Official Sketch Assistant containing the core rule set"
-msgstr "Official Sketch Assistant containing the core rule set"
-
 #: src/rule-helpers.ts:117
 msgid "Layer name matches one of the forbidden patterns"
 msgstr "Layer name matches one of the forbidden patterns"
@@ -385,6 +377,28 @@ msgstr "No Redundant Groups"
 msgid "Disallows unstyled groups with only one child which is also a group"
 msgstr "Disallows unstyled groups with only one child which is also a group"
 
+#: src/rules/groups-no-similar/index.ts:45
+msgid "Group is similar to {identicalGroupNames}. A Symbol is preferred."
+msgstr "Group is similar to {identicalGroupNames}. A Symbol is preferred."
+
+#: src/rules/groups-no-similar/index.ts:54
+msgid "No Similar Groups"
+msgstr "No Similar Groups"
+
+#: src/rules/groups-no-similar/index.ts:55
+msgid "Disallow similar groups"
+msgstr "Disallow similar groups"
+
+#: src/rules/groups-no-similar/index.ts:59
+#: src/rules/layer-styles-prefer-shared/index.ts:93
+#: src/rules/text-styles-prefer-shared/index.ts:85
+msgid "Max Identical"
+msgstr "Max Identical"
+
+#: src/rules/groups-no-similar/index.ts:60
+msgid "Maximum number of identical groups allowable in the document"
+msgstr "Maximum number of identical groups allowable in the document"
+
 #: src/rules/images-no-outsized/index.ts:54
 msgid "Unexpected oversized image used in image layer, must be no more than {maxRatio} times larger than the layer frame's width or height"
 msgstr "Unexpected oversized image used in image layer, must be no more than {maxRatio} times larger than the layer frame's width or height"
@@ -482,8 +496,8 @@ msgid "Shared style differs from library"
 msgstr "Shared style differs from library"
 
 #: src/rules/layer-styles-prefer-library/index.ts:106
-msgid "Prefer Layer Library Styles"
-msgstr "Prefer Layer Library Styles"
+msgid "Prefer Library Layer Styles"
+msgstr "Prefer Library Layer Styles"
 
 #: src/rules/layer-styles-prefer-library/index.ts:107
 msgid "Disallow layer styles in favour of library styles"
@@ -512,11 +526,6 @@ msgstr "Prefer Shared Styles"
 #: src/rules/layer-styles-prefer-shared/index.ts:89
 msgid "Disallow identical layer styles in favour of shared styles"
 msgstr "Disallow identical layer styles in favour of shared styles"
-
-#: src/rules/layer-styles-prefer-shared/index.ts:93
-#: src/rules/text-styles-prefer-shared/index.ts:85
-msgid "Max Identical"
-msgstr "Max Identical"
 
 #: src/rules/layer-styles-prefer-shared/index.ts:94
 msgid "Maximum number of identical layer styles allowable in the document"
@@ -751,8 +760,8 @@ msgid "Text styles must be set with the shared styles of a library"
 msgstr "Text styles must be set with the shared styles of a library"
 
 #: src/rules/text-styles-prefer-library/index.ts:97
-msgid "Prefer Text Library Styles"
-msgstr "Prefer Text Library Styles"
+msgid "Prefer Library Text Styles"
+msgstr "Prefer Library Text Styles"
 
 #: src/rules/text-styles-prefer-library/index.ts:98
 msgid "Disallow local text styles in favour of library text styles"
