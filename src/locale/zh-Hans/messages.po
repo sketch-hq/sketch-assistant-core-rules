@@ -8,21 +8,13 @@ msgstr ""
 "Language: zh\n"
 "Project-Id-Version: sketch-assistant-core-rules\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-04-16 15:12\n"
+"PO-Revision-Date: 2020-04-20 16:39\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: sketch-assistant-core-rules\n"
 "X-Crowdin-Language: zh-CN\n"
 "X-Crowdin-File: /master/locale/en/messages.po\n"
-
-#: src/index.ts:63
-msgid "Sketch Assistant Core Rules"
-msgstr ""
-
-#: src/index.ts:64
-msgid "Official Sketch Assistant containing the core rule set"
-msgstr ""
 
 #: src/rule-helpers.ts:117
 msgid "Layer name matches one of the forbidden patterns"
@@ -388,6 +380,28 @@ msgstr ""
 msgid "Disallows unstyled groups with only one child which is also a group"
 msgstr ""
 
+#: src/rules/groups-no-similar/index.ts:45
+msgid "Group is similar to {identicalGroupNames}. A Symbol is preferred."
+msgstr ""
+
+#: src/rules/groups-no-similar/index.ts:54
+msgid "No Similar Groups"
+msgstr ""
+
+#: src/rules/groups-no-similar/index.ts:55
+msgid "Disallow similar groups"
+msgstr ""
+
+#: src/rules/groups-no-similar/index.ts:59
+#: src/rules/layer-styles-prefer-shared/index.ts:93
+#: src/rules/text-styles-prefer-shared/index.ts:85
+msgid "Max Identical"
+msgstr ""
+
+#: src/rules/groups-no-similar/index.ts:60
+msgid "Maximum number of identical groups allowable in the document"
+msgstr ""
+
 #: src/rules/images-no-outsized/index.ts:54
 msgid "Unexpected oversized image used in image layer, must be no more than {maxRatio} times larger than the layer frame's width or height"
 msgstr ""
@@ -485,7 +499,7 @@ msgid "Shared style differs from library"
 msgstr ""
 
 #: src/rules/layer-styles-prefer-library/index.ts:106
-msgid "Prefer Layer Library Styles"
+msgid "Prefer Library Layer Styles"
 msgstr ""
 
 #: src/rules/layer-styles-prefer-library/index.ts:107
@@ -514,11 +528,6 @@ msgstr ""
 
 #: src/rules/layer-styles-prefer-shared/index.ts:89
 msgid "Disallow identical layer styles in favour of shared styles"
-msgstr ""
-
-#: src/rules/layer-styles-prefer-shared/index.ts:93
-#: src/rules/text-styles-prefer-shared/index.ts:85
-msgid "Max Identical"
 msgstr ""
 
 #: src/rules/layer-styles-prefer-shared/index.ts:94
@@ -754,7 +763,7 @@ msgid "Text styles must be set with the shared styles of a library"
 msgstr ""
 
 #: src/rules/text-styles-prefer-library/index.ts:97
-msgid "Prefer Text Library Styles"
+msgid "Prefer Library Text Styles"
 msgstr ""
 
 #: src/rules/text-styles-prefer-library/index.ts:98
