@@ -21,7 +21,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
           utils.report({
             node,
             message: i18n._(
-              t`Unexpected blend mode found on exported layer, consider flattening the blend mode for consistent export results.`,
+              t`Blend mode found on exported layer, consider flattening the blend mode for consistent export results.`,
             ),
           })
           return
@@ -35,7 +35,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
           utils.report({
             node,
             message: i18n._(
-              t`Unexpected style with blend mode found on exported layer, consider flattening the blend modes for consistent export results.`,
+              t`Blend mode found on exported layer, consider flattening the blend modes for consistent export results.`,
             ),
           })
         }
@@ -46,9 +46,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'exported-layers-normal-blend-mode',
-    title: i18n._(t`No Blend Modes on Exported Layers`),
+    title: i18n._(t`Avoid blend modes on exported layers`),
     description: i18n._(
-      t`Flags blend modes applied to exported layers, since the effects are not reliably reproducable in exported assets`,
+      t`The visual effect of a blend mode is dependant on what's behind the layer, therefore exporting these layers will often not reproduce the desired result in the exported asset. Some teams may wish to flag exported layers with blend modes in case they represent a mistake`,
     ),
   }
 }

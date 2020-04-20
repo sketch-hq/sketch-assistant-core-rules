@@ -7,8 +7,10 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule: createNamePatternRuleFunction(i18n, ['group']),
     name: 'name-pattern-groups',
-    title: i18n._(t`Group Name Patterns`),
-    description: i18n._(t`Defines allowable and forbidden name patterns for group layers`),
+    title: i18n._(t`Group names should follow the conventions`),
+    description: i18n._(
+      t`When highly precise layer naming is required, for example when a Sketch document's contents are automatically exported to production assets, then a team may want to enforce a specific name patterns`,
+    ),
     getOptions(helpers) {
       return [
         helpers.stringArrayOption({

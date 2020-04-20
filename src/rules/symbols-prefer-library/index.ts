@@ -50,8 +50,16 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'symbols-prefer-library',
-    title: i18n._(t`Prefer Library Symbols`),
-    description: i18n._(t`Disallow local symbols in favour of library symbols`),
+    title: (ruleConfig) => {
+      const libraries = Array.isArray(ruleConfig.libraries) ? ruleConfig.libraries : []
+      const authorizedLibraries = libraries.join(', ')
+      return libraries.length === 0
+        ? i18n._(t`Symbols must come from a library`)
+        : i18n._(t`Symbols must come from the ${authorizedLibraries} libraries`)
+    },
+    description: i18n._(
+      t`Teams may wish to enforce the usage of libraries within a document, and the presence of local symbols can represent an opportunity to refactor them into a library`,
+    ),
     getOptions: (helpers) => [
       helpers.stringArrayOption({
         name: 'libraries',

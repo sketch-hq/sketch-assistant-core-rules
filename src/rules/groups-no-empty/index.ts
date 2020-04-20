@@ -22,7 +22,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'groups-no-empty',
-    title: i18n._(t`No Empty Groups`),
-    description: i18n._(t`Disallow empty groups, i.e. with no child layers`),
+    title: i18n._(t`Groups should not be empty`),
+    description: i18n._(
+      t`Empty groups can collect in a document over time due to copy and paste errors, and could be considered a document hygiene or usability concern by some teams`,
+    ),
   }
 }

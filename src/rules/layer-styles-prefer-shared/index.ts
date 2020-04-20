@@ -77,8 +77,11 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'layer-styles-prefer-shared',
-    title: i18n._(t`Prefer Shared Styles`),
-    description: i18n._(t`Disallow identical layer styles in favour of shared styles`),
+    title: (ruleConfig) =>
+      i18n._(t`No more than ${ruleConfig.maxIdentical} layer styles can be identical`),
+    description: i18n._(
+      t`Teams may wish to enforce the usage of shared styles within a document, and the presence of identical layer styles represent an opportunity to refactor them to use a single shared style`,
+    ),
     getOptions: (helpers) => [
       helpers.integerOption({
         name: 'maxIdentical',

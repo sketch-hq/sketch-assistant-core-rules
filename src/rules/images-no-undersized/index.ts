@@ -65,9 +65,10 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'images-no-undersized',
-    title: i18n._(t`No Undersized Images`),
+    title: (ruleConfig) =>
+      i18n._(t`Images must be no less than ${ruleConfig.minRatio}x smaller than their frame`),
     description: i18n._(
-      t`Disallow images that are smaller than their frame by a configurable ratio`,
+      t`Image bitmaps smaller than their layer might produce poor results in exported graphics. Some teams may wish to put limits in place to prevent this`,
     ),
     getOptions(helpers) {
       return [

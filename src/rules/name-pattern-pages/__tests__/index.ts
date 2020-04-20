@@ -11,6 +11,7 @@ describe('name-pattern-pages', () => {
         active: true,
         allowed: [],
         forbidden: [],
+        conventions: '',
       },
     )
     expect(violations).toHaveLength(0)
@@ -27,6 +28,7 @@ describe('name-pattern-pages', () => {
         active: true,
         allowed: ['Foo', 'Bar'],
         forbidden: [],
+        conventions: '',
       },
     )
     expect(violations).toHaveLength(0)
@@ -43,6 +45,7 @@ describe('name-pattern-pages', () => {
         active: true,
         allowed: ['Foo'],
         forbidden: [],
+        conventions: '',
       },
     )
     expect(violations).toHaveLength(1)
@@ -59,6 +62,7 @@ describe('name-pattern-pages', () => {
         active: true,
         allowed: [],
         forbidden: ['Foo'],
+        conventions: '',
       },
     )
     expect(violations).toHaveLength(1)
@@ -75,6 +79,7 @@ describe('name-pattern-pages', () => {
         active: true,
         allowed: ['Foo', 'Bar'],
         forbidden: ['Foo'],
+        conventions: '',
       },
     )
     expect(violations).toHaveLength(1)

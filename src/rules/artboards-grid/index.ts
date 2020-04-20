@@ -63,9 +63,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'artboards-grid',
-    title: i18n._(t`Artboard Grids`),
+    title: i18n._(t`Artboard grid settings should match the conventions`),
     description: i18n._(
-      t`Define a list of allowable artboard grid settings. Each grid object reproduces the options found on the Grid Settings UI in Sketch`,
+      t`Enforce the consistent and precise usage of specific grid settings across a document, team or project`,
     ),
     getOptions(helpers) {
       return [

@@ -91,8 +91,16 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'text-styles-prefer-library',
-    title: i18n._(t`Prefer Library Text Styles`),
-    description: i18n._(t`Disallow local text styles in favour of library text styles`),
+    title: (ruleConfig) => {
+      const libraries = Array.isArray(ruleConfig.libraries) ? ruleConfig.libraries : []
+      const authorizedLibraries = libraries.join(', ')
+      return libraries.length === 0
+        ? i18n._(t`Text styles must come from a library`)
+        : i18n._(t`Text styles must come from the ${authorizedLibraries} libraries`)
+    },
+    description: i18n._(
+      t`Teams may wish to enforce the usage of libraries within a document, and the presence of local shared text styles represent an opportunity to refactor them into the library`,
+    ),
     getOptions: (helpers) => [
       helpers.stringArrayOption({
         name: 'libraries',

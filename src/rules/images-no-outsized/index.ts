@@ -52,12 +52,12 @@ export const createRule: CreateRuleFunction = (i18n) => {
         switch (usage.type) {
           case 'bitmap':
             message = i18n._(
-              t`Unexpected oversized image used in image layer, must be no more than ${maxRatio} times larger than the layer frame's width or height`,
+              t`Unexpected oversized image used in image layer, must be no more than ${maxRatio}x larger than the layer frame's width or height`,
             )
             break
           case 'fill':
             message = i18n._(
-              t`Unexpected oversized image used in layer style image fill, must be no more than ${maxRatio} times larger than the layer frame's width or height`,
+              t`Unexpected oversized image used in layer style image fill, must be no more than ${maxRatio}x larger than the layer frame's width or height`,
             )
             break
         }
@@ -72,9 +72,10 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'images-no-outsized',
-    title: i18n._(t`No Outsized Images`),
+    title: (ruleConfig) =>
+      i18n._(t`Images should be no more than ${ruleConfig.maxRatio}x larger than their frame`),
     description: i18n._(
-      t`Disallow images that are larger than their frame by a configurable ratio`,
+      t`Image bitmaps much larger than their layer needlessly swell the document size and potentially cause performance problems navigating the document. Some teams may wish to put limits in place to prevent this`,
     ),
     getOptions(helpers) {
       return [

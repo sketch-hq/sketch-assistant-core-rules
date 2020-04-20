@@ -3,13 +3,9 @@
   "version": "3.1.0-next.0",
   "license": "MIT",
   "repository": "github:sketch-hq/sketch-assistant-core-rules",
+  "homepage": "https://github.com/sketch-hq/sketch-assistant-core-rules",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
-  "sketch": "dist/sketch.js",
-  "sketch-assistant": {
-    "title": "Sketch Core Rules Assistant",
-    "description": "Official core rules Sketch Assistant"
-  },
   "keywords": [
     "sketch",
     "sketch files",
@@ -20,10 +16,9 @@
     "design ops"
   ],
   "scripts": {
-    "build:node:types": "tsc --emitDeclarationOnly",
+    "build:types": "tsc --emitDeclarationOnly",
     "build:node": "babel ./src --out-dir dist --extensions '.js,.ts'",
-    "build:sketch": "BABEL_ENV=sketch yarn webpack",
-    "build": "rm -rf ./dist && yarn i18n:compile && yarn build:node && yarn build:node:types && yarn build:sketch",
+    "build": "rm -rf ./dist && yarn i18n:compile && yarn build:node && yarn build:types",
     "format-check": "yarn prettier --check '{,**/}*.{ts,js,md,json}'",
     "i18n:compile": "lingui compile",
     "i18n:extract": "lingui extract --clean",
@@ -31,10 +26,11 @@
     "test": "jest",
     "type-check": "tsc --noEmit"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "@lingui/core": "2.9.1",
-    "@sketch-hq/sketch-assistant-types": "3.0.0-next.1"
+    "@lingui/core": "2.9.1"
   },
   "peerDependencies": {},
   "devDependencies": {
@@ -47,7 +43,7 @@
     "@changesets/cli": "2.6.2",
     "@lingui/cli": "2.9.1",
     "@lingui/macro": "2.9.1",
-    "@sketch-hq/sketch-assistant-utils": "5.0.0-next.1",
+    "@sketch-hq/sketch-assistant-utils": "5.0.0-next.3",
     "@types/jest": "25.2.1",
     "@types/node": "13.11.1",
     "babel-core": "7.0.0-bridge.0",
@@ -56,8 +52,6 @@
     "babel-plugin-macros": "2.8.0",
     "jest": "25.3.0",
     "prettier": "2.0.4",
-    "typescript": "3.8.3",
-    "webpack": "4.42.1",
-    "webpack-cli": "3.3.11"
+    "typescript": "3.8.3"
   }
 }
