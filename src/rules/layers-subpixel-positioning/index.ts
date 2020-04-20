@@ -12,6 +12,7 @@ const INCREMENTS: { [key: string]: string[] } = {
   '@1x': ['0.00'],
   '@2x': ['0.00', '0.50'],
   '@3x': ['0.00', '0.33', '0.67'],
+  '@4x': ['0.00', '0.25', '0.50', '0.75'],
 }
 
 const isRotated = (value: PointerValue) =>
@@ -46,7 +47,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
         })
         if (hasRotation) return
         let { x, y } = layer.frame
-        // Round x,y values to two decimal places to mimick how Sketch normalises
+        // Round x,y values to two decimal places to mimic how Sketch normalizes
         // values too. This avoids reporting subpixel violations that don't match
         // with what Sketch displays in the inspector
         x = Math.round(x * 100) / 100
@@ -69,18 +70,18 @@ export const createRule: CreateRuleFunction = (i18n) => {
     rule,
     name: 'layers-subpixel-positioning',
     title: i18n._(t`Layer Subpixel Positioning`),
-    description: i18n._(t`Enforce layer positioning with respect to subpixels`),
+    description: i18n._(t`Enforce layer positioning with respect to sub-pixels`),
     getOptions(helpers) {
       return [
         helpers.stringArrayOption({
           name: 'scaleFactors',
           title: i18n._(t`Scale Factors`),
           description: i18n._(
-            t`Array of supported scale factors in the document. Accepts elements with values "@1x", "@2x" and "@3x" only, which map to allowing whole pixel positions, 0.5 increments and 0.33 increments respectively`,
+            t`Array of supported scale factors in the document. Accepts elements with values "@1x", "@2x", "@3x" and "@4x" only, which map to allowing whole pixel positions, 0.5 increments, 0.33 increments and 0.25 increments respectively`,
           ),
           minLength: 1,
           maxLength: 3,
-          pattern: '^@[1-3]x$',
+          pattern: '^@[1-4]x$',
         }),
       ]
     },

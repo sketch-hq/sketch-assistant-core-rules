@@ -46,6 +46,21 @@ describe('layers-subpixel-positioning', () => {
     expect(errors).toHaveLength(0)
   })
 
+  test('no violations for whitelisted quarter pixels', async (): Promise<void> => {
+    expect.assertions(2)
+    const { violations, errors } = await testRule(
+      __dirname,
+      './quarter-pixels.sketch',
+      'layers-subpixel-positioning',
+      {
+        active: true,
+        scaleFactors: ['@4x'],
+      },
+    )
+    expect(violations).toHaveLength(0)
+    expect(errors).toHaveLength(0)
+  })
+
   test('finds violations for illegal @2x positioning', async (): Promise<void> => {
     expect.assertions(2)
     const { violations, errors } = await testRule(
@@ -69,7 +84,22 @@ describe('layers-subpixel-positioning', () => {
       'layers-subpixel-positioning',
       {
         active: true,
-        scaleFactors: ['@1x', '@2x'],
+        scaleFactors: ['@1x', '@2x', '@4x'],
+      },
+    )
+    expect(violations).toHaveLength(2)
+    expect(errors).toHaveLength(0)
+  })
+
+  test('finds violations for illegal @4x positioning', async (): Promise<void> => {
+    expect.assertions(2)
+    const { violations, errors } = await testRule(
+      __dirname,
+      './quarter-pixels.sketch',
+      'layers-subpixel-positioning',
+      {
+        active: true,
+        scaleFactors: ['@1x', '@2x', '@3x'],
       },
     )
     expect(violations).toHaveLength(2)

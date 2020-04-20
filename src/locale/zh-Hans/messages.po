@@ -555,24 +555,24 @@ msgstr ""
 msgid "Disallow layers outside of Artboards"
 msgstr ""
 
-#: src/rules/layers-subpixel-positioning/index.ts:62
+#: src/rules/layers-subpixel-positioning/index.ts:63
 msgid "Unexpected subpixel positioning ({x},{y})"
 msgstr ""
 
-#: src/rules/layers-subpixel-positioning/index.ts:72
+#: src/rules/layers-subpixel-positioning/index.ts:73
 msgid "Layer Subpixel Positioning"
 msgstr ""
 
-#: src/rules/layers-subpixel-positioning/index.ts:73
-msgid "Enforce layer positioning with respect to subpixels"
-msgstr ""
-
-#: src/rules/layers-subpixel-positioning/index.ts:78
-msgid "Scale Factors"
+#: src/rules/layers-subpixel-positioning/index.ts:74
+msgid "Enforce layer positioning with respect to sub-pixels"
 msgstr ""
 
 #: src/rules/layers-subpixel-positioning/index.ts:79
-msgid "Array of supported scale factors in the document. Accepts elements with values \"@1x\", \"@2x\" and \"@3x\" only, which map to allowing whole pixel positions, 0.5 increments and 0.33 increments respectively"
+msgid "Scale Factors"
+msgstr ""
+
+#: src/rules/layers-subpixel-positioning/index.ts:80
+msgid "Array of supported scale factors in the document. Accepts elements with values \"@1x\", \"@2x\", \"@3x\" and \"@4x\" only, which map to allowing whole pixel positions, 0.5 increments, 0.33 increments and 0.25 increments respectively"
 msgstr ""
 
 #: src/rules/name-pattern-artboards/index.ts:7
