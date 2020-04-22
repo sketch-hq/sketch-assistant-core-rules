@@ -5,7 +5,10 @@
     "@sketch-hq/sketch-assistant-core-rules": "3.0.2"
   },
   "changesets": [
+    "dull-bikes-kneel",
+    "dull-poems-appear",
     "sixty-llamas-wave",
+    "smart-bananas-unite",
     "wet-hats-listen"
   ]
 }
