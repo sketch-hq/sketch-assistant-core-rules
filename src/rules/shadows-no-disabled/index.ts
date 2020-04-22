@@ -39,7 +39,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'shadows-no-disabled',
-    title: i18n._(t`No Disabled Shadows`),
-    description: i18n._(t`Forbids disabled shadow styles throughout the document`),
+    title: i18n._(t`Styles should not have disabled shadows`),
+    description: i18n._(
+      t`Depending on the requirements of the document, disabled properties in the inspector can introduce uncertainty about their intended purpose so some teams may wish to forbid them`,
+    ),
   }
 }

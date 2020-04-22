@@ -25,7 +25,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'layers-no-loose',
-    title: i18n._(t`No Loose Layers`),
-    description: i18n._(t`Disallow layers outside of Artboards`),
+    title: i18n._(t`Layers should not be outside artboards`),
+    description: i18n._(
+      t`Layers outside of artboards aren't visible on Sketch Cloud, some teams may wish to forbid them`,
+    ),
   }
 }

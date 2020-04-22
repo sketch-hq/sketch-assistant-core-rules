@@ -12,7 +12,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'debug-i18n',
-    title: i18n._(t`Debug Internationalization`),
+    title: i18n._(t`Debug internationalization`),
     description: i18n._(
       t`Internal debug rule that generates a violation with a translated message`,
     ),

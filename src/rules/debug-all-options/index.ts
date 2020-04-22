@@ -5,7 +5,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule: async () => {},
     name: 'debug-all-options',
-    title: i18n._(t`All Options`),
+    title: i18n._(t`Debug all options`),
     description: i18n._(
       t`Internal debug rule that defines examples of all available option schema types`,
     ),

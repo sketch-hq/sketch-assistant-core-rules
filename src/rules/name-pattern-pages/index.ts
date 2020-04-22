@@ -7,8 +7,10 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule: createNamePatternRuleFunction(i18n, ['page']),
     name: 'name-pattern-pages',
-    title: i18n._(t`Page Name Patterns`),
-    description: i18n._(t`Defines allowable and forbidden name patterns for page layers`),
+    title: i18n._(t`Page names should follow the conventions`),
+    description: i18n._(
+      t`When highly precise layer naming is required, for example when a Sketch document's contents are automatically exported to production assets, then a team may want to enforce a specific name patterns`,
+    ),
     getOptions(helpers) {
       return [
         helpers.stringArrayOption({

@@ -41,7 +41,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'shared-styles-no-unused',
-    title: i18n._(t`No Unused Shared Style`),
-    description: i18n._(t`Disallow unused shared styles`),
+    title: i18n._(t`Shared styles should be used`),
+    description: i18n._(
+      t`Unused shared styles could be considered a document hygiene issue by some teams`,
+    ),
   }
 }

@@ -22,7 +22,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'layers-no-hidden',
-    title: i18n._(t`No Hidden Layers`),
-    description: i18n._(t`Disallow layers visually hidden in the layers list UI`),
+    title: i18n._(t`Layers should not be hidden`),
+    description: i18n._(
+      t`Hidden layers can introduce uncertainty about their intended purpose so some teams may wish to forbid them`,
+    ),
   }
 }

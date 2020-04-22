@@ -17,22 +17,25 @@ const INCREMENTS: { [key: string]: string[] } = {
 const isRotated = (value: PointerValue) =>
   typeof value === 'object' && 'rotation' in value && value.rotation !== 0
 
+const parseIncrements = (scaleFactors: unknown): string[] => {
+  if (!scaleFactors || !Array.isArray(scaleFactors)) return []
+  let validIncrements: string[] = []
+  for (let i = 0; i < scaleFactors.length; i++) {
+    const scaleFactor = scaleFactors[i]
+    if (typeof scaleFactor === 'string') {
+      const increments = INCREMENTS[scaleFactor]
+      if (Array.isArray(increments)) {
+        validIncrements = [...validIncrements, ...increments]
+      }
+    }
+  }
+  return [...new Set(validIncrements)]
+}
+
 export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
-    // Type safe code to extract option from config
-    const scaleFactors = utils.getOption('scaleFactors')
-    if (!Array.isArray(scaleFactors) || scaleFactors.length === 0) return
-    let validIncrements: string[] = []
-    for (let i = 0; i < scaleFactors.length; i++) {
-      const scaleFactor = scaleFactors[i]
-      if (typeof scaleFactor === 'string') {
-        const increments = INCREMENTS[scaleFactor]
-        if (Array.isArray(increments)) {
-          validIncrements = [...validIncrements, ...increments]
-        }
-      }
-    }
+    const increments = parseIncrements(utils.getOption('scaleFactors'))
     await utils.iterateCache({
       async $layers(node): Promise<void> {
         const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
@@ -53,12 +56,12 @@ export const createRule: CreateRuleFunction = (i18n) => {
         y = Math.round(y * 100) / 100
         // Convert x,y values to increment values (e.g `12.5` to `0.50`) and check
         // to see if they're valid
-        const xValid = validIncrements.includes(Math.abs(x % 1).toFixed(2))
-        const yValid = validIncrements.includes(Math.abs(y % 1).toFixed(2))
+        const xValid = increments.includes(Math.abs(x % 1).toFixed(2))
+        const yValid = increments.includes(Math.abs(y % 1).toFixed(2))
         if (!xValid || !yValid) {
           utils.report({
             node,
-            message: i18n._(t`Unexpected subpixel positioning (${x},${y})`),
+            message: i18n._(t`Unexpected sub-pixel positioning (${x}, ${y})`),
           })
         }
       },
@@ -68,8 +71,13 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'layers-subpixel-positioning',
-    title: i18n._(t`Layer Subpixel Positioning`),
-    description: i18n._(t`Enforce layer positioning with respect to subpixels`),
+    title: (ruleConfig) => {
+      const increments = parseIncrements(ruleConfig.scaleFactors as string[]).join(', ')
+      return i18n._(t`Layers must be placed on ${increments} sub-pixel increments`)
+    },
+    description: i18n._(
+      t`Layers placed on fractional sub-pixel values could be considered a document hygiene issue by some teams. The exception to this is when designing for @2x and @3x pixel density devices, in which case 0.5 and 0.33/0.67 sub-pixel increments are commonly used.`,
+    ),
     getOptions(helpers) {
       return [
         helpers.stringArrayOption({

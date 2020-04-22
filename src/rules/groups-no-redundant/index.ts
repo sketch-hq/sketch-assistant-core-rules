@@ -26,7 +26,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'groups-no-redundant',
-    title: i18n._(t`No Redundant Groups`),
-    description: i18n._(t`Disallows unstyled groups with only one child which is also a group`),
+    title: i18n._(t`Groups should not be redundant`),
+    description: i18n._(
+      t`Redundant groups are defined as groups that aren't styled and contain only one child. Redundant groups could be considered a document hygiene or usability concern by some teams who may wish to forbid them`,
+    ),
   }
 }

@@ -35,9 +35,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'symbols-no-unused',
-    title: i18n._(t`No Unused Symbols`),
+    title: i18n._(t`Symbols should be used`),
     description: i18n._(
-      t`Disallow symbols that have no corresponding usage anywhere in the document`,
+      t`Unused symbols could be considered a document hygiene issue by some teams`,
     ),
   }
 }

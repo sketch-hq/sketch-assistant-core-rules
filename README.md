@@ -1,21 +1,14 @@
 # sketch-assistant-core-rules
 
-Official core rules Sketch Assistant.
-
 > 💁‍♀️ This is a "rules only" Assistant, meaning it contains only rule implementations and no
 > configuration. Adding this Assistant to Sketch won't do anything because rules need to be
 > activated in configuration before they will report anything.
 >
 > Use this Assistant by extending from it in your own Assistant, and adding configuration and/or
-> additional rule implementations.
-
-## Usage
-
-TODO: Link to documentation about creating Assistants, and extending from Assistants here.
-
-## Related Assistants
-
-TODO: Link to other official Assistants that extend this one.
+> additional rule implementations. To find out how to do this and more head to the
+> [Assistant Developer Documentation](/).
+>
+> ⚠️ This package is in pre-release mode using the `next` tag.
 
 ## Available rules
 
@@ -63,8 +56,8 @@ own projects.
 
 ### Requirements
 
-- Yarn >= 1.13
-- Node 12.6.0
+- Node
+- Yarn
 
 ### Scripts
 

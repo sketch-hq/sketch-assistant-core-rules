@@ -66,7 +66,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'text-styles-no-dirty',
-    title: i18n._(t`Prefer text styles to be in sync with their shared style`),
+    title: i18n._(t`Text styles must be in sync with their shared style`),
     description: i18n._(t`Disallow text styles that differ from their shared styles`),
   }
 }

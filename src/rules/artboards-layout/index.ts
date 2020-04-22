@@ -144,8 +144,10 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'artboards-layout',
-    title: i18n._(t`Artboard Layout`),
-    description: i18n._(t`Define a list of allowable artboard layout settings`),
+    title: i18n._(t`Artboard layout settings should match the conventions`),
+    description: i18n._(
+      t`Enforce the consistent and precise usage of specific layout settings across a document, team or project`,
+    ),
     getOptions(helpers) {
       return [
         helpers.objectArrayOption({

@@ -31,9 +31,10 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'artboards-max-ungrouped-layers',
-    title: i18n._(t`Max Ungrouped Layers in Artboards`),
+    title: (ruleConfig) =>
+      i18n._(t`Artboards should have less than ${ruleConfig.maxUngroupedLayers} ungrouped layers`),
     description: i18n._(
-      t`Specifies a maximum number of ungrouped layers allowable at the top-level of artboards`,
+      t`Having lots of ungrouped layers at the top level of an artboard could indicate a lack of organisation`,
     ),
     getOptions(helpers) {
       return [
