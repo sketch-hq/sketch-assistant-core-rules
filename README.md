@@ -17,7 +17,7 @@ configuration options and implementation.
 
 - [`artboards-grid`](./src/rules/artboards-grid)
 - [`artboards-layout`](./src/rules/artboards-layout)
-- [`artboards-max-ungrouped`](./src/rules/artboards-max-ungrouped)
+- [`artboards-max-ungrouped-layers`](./src/rules/artboards-max-ungrouped-layers)
 - [`borders-no-disabled`](./src/rules/borders-no-disabled)
 - [`debug-all-options`](./src/rules/debug-all-options)
 - [`debug-i18n`](./src/rules/debug-i18n)
@@ -27,10 +27,12 @@ configuration options and implementation.
 - [`groups-max-layers`](./src/rules/groups-max-layers)
 - [`groups-no-empty`](./src/rules/groups-no-empty)
 - [`groups-no-redundant`](./src/rules/groups-no-redundant)
+- [`groups-no-similar`](./src/rules/groups-no-similar)
 - [`images-no-outsized`](./src/rules/images-no-outsized)
 - [`images-no-undersized`](./src/rules/images-no-undersized)
 - [`inner-shadows-no-disabled`](./src/rules/inner-shadows-no-disabled)
-- [`layer-styles-no-dirty`](./src/layer-styles-no-dirty)
+- [`layer-styles-no-dirty`](./src/rules/layer-styles-no-dirty)
+- [`layer-styles-prefer-library`](./src/rules/layer-styles-prefer-library)
 - [`layer-styles-prefer-shared`](./src/rules/layer-styles-prefer-shared)
 - [`layers-no-hidden`](./src/rules/layers-no-hidden)
 - [`layers-no-loose`](./src/rules/layers-no-loose)
@@ -46,7 +48,9 @@ configuration options and implementation.
 - [`shadows-no-disabled`](./src/rules/shadows-no-disabled)
 - [`shared-styles-no-unused`](./src/rules/shared-styles-no-unused)
 - [`symbols-no-unused`](./src/rules/symbols-no-unused)
-- [`text-styles-no-dirty`](./src/text-styles-no-dirty)
+- [`symbols-prefer-library`](./src/rules/symbols-prefer-library)
+- [`text-styles-no-dirty`](./src/rules/text-styles-no-dirty)
+- [`text-styles-prefer-library`](./src/rules/text-styles-prefer-library)
 - [`text-styles-prefer-shared`](./src/rules/text-styles-prefer-shared)
 
 ## Development
