@@ -1,6 +1,6 @@
 {
   "name": "@sketch-hq/sketch-assistant-core-rules",
-  "version": "3.1.0-next.0",
+  "version": "3.1.0-next.1",
   "license": "MIT",
   "repository": "github:sketch-hq/sketch-assistant-core-rules",
   "homepage": "https://github.com/sketch-hq/sketch-assistant-core-rules",
@@ -26,9 +26,7 @@
     "test": "jest",
     "type-check": "tsc --noEmit"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "dependencies": {
     "@lingui/core": "2.9.1"
   },

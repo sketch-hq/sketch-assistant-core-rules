@@ -1,5 +1,16 @@
 # @sketch-hq/sketch-assistant-core-rules
 
+## 3.1.0-next.1
+
+### Minor Changes
+
+- 6437842: Add the rule groups-no-similar
+
+### Patch Changes
+
+- 860c90e: Make package public.
+- 860c90e: Rework rule copy.
+
 ## 3.1.0-next.0
 
 ### Minor Changes
