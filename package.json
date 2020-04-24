@@ -4,7 +4,6 @@
   "license": "MIT",
   "repository": "github:sketch-hq/sketch-assistant-core-rules",
   "homepage": "https://github.com/sketch-hq/sketch-assistant-core-rules",
-  "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "keywords": [
     "sketch",
@@ -16,9 +15,7 @@
     "design ops"
   ],
   "scripts": {
-    "build:types": "tsc --emitDeclarationOnly",
-    "build:node": "babel ./src --out-dir dist --extensions '.js,.ts'",
-    "build": "rm -rf ./dist && yarn i18n:compile && yarn build:node && yarn build:types",
+    "build": "rm -rf ./dist && yarn i18n:compile && babel ./src --out-dir dist --extensions '.js,.ts'",
     "format-check": "yarn prettier --check '{,**/}*.{ts,js,md,json}'",
     "i18n:compile": "lingui compile",
     "i18n:extract": "lingui extract --clean",
