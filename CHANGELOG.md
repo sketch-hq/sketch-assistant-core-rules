@@ -1,5 +1,11 @@
 # @sketch-hq/sketch-assistant-core-rules
 
+## 3.1.0-next.2
+
+### Patch Changes
+
+- 840fcc8: Do not emit types into the built package
+
 ## 3.1.0-next.1
 
 ### Minor Changes
