@@ -37,14 +37,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
         // Get an md5 hash of the style object. Only consider a subset of style
         // object properties when computing the hash (can revisit this to make the
         // check looser or stricter)
-        const hash = utils.objectHash({
-          borders: layer.style?.borders,
-          borderOptions: layer.style?.borderOptions,
-          blur: layer.style?.blur,
-          fills: layer.style?.fills,
-          shadows: layer.style?.shadows,
-          innerShadows: layer.style?.innerShadows,
-        })
+        const hash = utils.styleHash(layer.style)
         // Add the style object hash and current node to the result set
         if (results.has(hash)) {
           const nodes = results.get(hash)

@@ -8,29 +8,10 @@ import { CreateRuleFunction } from '../..'
 const IGNORE_CLASSES = ['artboard', 'page', 'symbolMaster', 'text']
 
 type SharedStyle = FileFormat.SharedStyle
-type Style = FileFormat.Style
-type HashableStyle = Partial<
-  Pick<Style, 'borders' | 'borderOptions' | 'blur' | 'fills' | 'shadows' | 'innerShadows'>
->
-
-// Helper function that creates a hash from a set of attributes of a Style
-// object.
-const styleHash = (hashFunction: (o: HashableStyle) => string, style: Partial<Style>) =>
-  hashFunction({
-    borders: style?.borders,
-    borderOptions: style?.borderOptions,
-    blur: style?.blur,
-    fills: style?.fills,
-    shadows: style?.shadows,
-    innerShadows: style?.innerShadows,
-  })
 
 export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
-    // Style comparison helper
-    const styleIsEq = (s1: Style, s2: Style) =>
-      styleHash(utils.objectHash, s1) === styleHash(utils.objectHash, s2)
     const sharedStyles: Map<string, SharedStyle> = new Map()
 
     await utils.iterateCache({
@@ -51,7 +32,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
           const sharedStyle = sharedStyles.get(layer.sharedStyleID)
           if (sharedStyle) {
             // Report if this layer style differs from its shared style
-            if (!layer.style || !styleIsEq(layer.style, sharedStyle.value)) {
+            if (!layer.style || !utils.styleEq(layer.style, sharedStyle.value)) {
               utils.report({
                 node,
                 message: i18n._(t`Style differs from the shared layer style`),
