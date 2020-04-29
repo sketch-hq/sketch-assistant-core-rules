@@ -1459,22 +1459,22 @@
   dependencies:
     type-detect "4.0.8"
 
-"@sketch-hq/sketch-assistant-types@3.0.0-next.3":
-  version "3.0.0-next.3"
-  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-types/-/sketch-assistant-types-3.0.0-next.3.tgz#9dfcffedf7f573de6aa120cb11ba84233e667c51"
-  integrity sha512-qrRvFnN9hdg7C9AS0uiIL17PJReghSeJKOiexnRvs38JLIiMQQH/vw924qZMu2d59jmBm6nABUNA9YDaFq3QdA==
+"@sketch-hq/sketch-assistant-types@3.0.0-next.5":
+  version "3.0.0-next.5"
+  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-types/-/sketch-assistant-types-3.0.0-next.5.tgz#85463a959be436aec5e968b7487caefe79a0a6cb"
+  integrity sha512-cZs7V/4WIiwUvosvDIhM8TrQByxxgeX5V1zU0p3y6dso7eB5FwsaJGDw3s5BYakwgJxbjH4gV7hEuApzGH0WOA==
   dependencies:
     "@schemastore/package" "0.0.5"
     "@sketch-hq/sketch-file-format-ts" "4.0.3"
     "@types/json-schema" "7.0.4"
 
-"@sketch-hq/sketch-assistant-utils@5.0.0-next.3":
-  version "5.0.0-next.3"
-  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-utils/-/sketch-assistant-utils-5.0.0-next.3.tgz#2d819830f9011f87a53fe4e42cf15ec290b5dcc3"
-  integrity sha512-j1JPLlZbUL2AGBY9cKK2d0yrzPPstP/NJeh3n4CdMTDTnIDxv/n0vIVrFcF1EWmssqd7X7qt9Aef0Af1rNtB5g==
+"@sketch-hq/sketch-assistant-utils@5.0.0-next.7":
+  version "5.0.0-next.7"
+  resolved "https://registry.yarnpkg.com/@sketch-hq/sketch-assistant-utils/-/sketch-assistant-utils-5.0.0-next.7.tgz#7082bf68f6c078b28ca44650674ba6311152f36d"
+  integrity sha512-tVN6CStZm6ifD61wQSGJ9PF1BqSw/QGLA2vn5AUEnMHCwuWZJL9BBlG2oZmxAj7GJcmoOTz2FfwmV8rCJZIpEg==
   dependencies:
     "@json-schema-spec/json-pointer" "0.1.2"
-    "@sketch-hq/sketch-assistant-types" "3.0.0-next.3"
+    "@sketch-hq/sketch-assistant-types" "3.0.0-next.5"
     ajv "6.12.0"
     humps "2.0.1"
     mem "6.0.1"

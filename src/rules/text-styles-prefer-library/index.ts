@@ -53,30 +53,8 @@ export const createRule: CreateRuleFunction = (i18n) => {
           }
         }
         // Check if the text styles differ from the library
-        // Get an md5 hash of the style object. Only consider a subset of style
-        // object properties when computing the hash (can revisit this to make the
-        // check looser or stricter)
-        const layerStyle = layer.style
-        const layerHash = utils.objectHash({
-          borders: layerStyle?.borders,
-          borderOptions: layerStyle?.borderOptions,
-          blur: layerStyle?.blur,
-          fills: layerStyle?.fills,
-          shadows: layerStyle?.shadows,
-          innerShadows: layerStyle?.innerShadows,
-          textStyle: layerStyle?.textStyle,
-        })
-        const libraryStyle = library.localSharedStyle.value
-        const libraryHash = utils.objectHash({
-          borders: libraryStyle?.borders,
-          borderOptions: libraryStyle?.borderOptions,
-          blur: libraryStyle?.blur,
-          fills: libraryStyle?.fills,
-          shadows: libraryStyle?.shadows,
-          innerShadows: libraryStyle?.innerShadows,
-          textStyle: libraryStyle?.textStyle,
-        })
-        if (layerHash !== libraryHash) {
+        const isStyleEq = utils.textStyleEq(layer.style, library.localSharedStyle.value)
+        if (!isStyleEq) {
           utils.report([
             {
               node,
