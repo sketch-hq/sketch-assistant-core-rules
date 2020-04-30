@@ -50,7 +50,13 @@ export const createRule: CreateRuleFunction = (i18n) => {
     name: 'groups-max-layers',
     title: (ruleConfig) => {
       const { maxLayers } = ruleConfig
-      return i18n._(t`Groups should have less than ${maxLayers} layers`)
+      return i18n._(
+        plural({
+          value: maxLayers,
+          one: 'Groups should only have one layer',
+          other: 'Groups should have less than # layers',
+        }),
+      )
     },
     description: i18n._(
       t`Groups with large layer counts could be considered a document hygiene or usability concern by some teams who may wish to limit the count.`,
