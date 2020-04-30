@@ -1,4 +1,4 @@
-import { t } from '@lingui/macro'
+import { t, plural } from '@lingui/macro'
 import { RuleContext, RuleFunction, FileFormat } from '@sketch-hq/sketch-assistant-types'
 
 import { CreateRuleFunction } from '../..'
@@ -32,7 +32,13 @@ export const createRule: CreateRuleFunction = (i18n) => {
         if (numLayers > maxLayers) {
           utils.report({
             node,
-            message: i18n._(t`Expected ${maxLayers} or less layers on group, found ${numLayers}`),
+            message: i18n._(
+              plural({
+                value: numLayers,
+                one: 'There is one layer in this group',
+                other: 'There are # layers in this group',
+              }),
+            ),
           })
         }
       },
@@ -42,7 +48,16 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'groups-max-layers',
-    title: (ruleConfig) => i18n._(t`Groups should have less than ${ruleConfig.maxLayers} layers`),
+    title: (ruleConfig) => {
+      const { maxLayers } = ruleConfig
+      return i18n._(
+        plural({
+          value: maxLayers,
+          one: 'Groups should only have one layer',
+          other: 'Groups should have less than # layers',
+        }),
+      )
+    },
     description: i18n._(
       t`Groups with large layer counts could be considered a document hygiene or usability concern by some teams who may wish to limit the count.`,
     ),

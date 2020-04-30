@@ -12,7 +12,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
         if (group.layers.length === 0) {
           utils.report({
             node,
-            message: i18n._(t`Unexpected empty group`),
+            message: i18n._(t`This group is empty`),
           })
         }
       },
@@ -23,8 +23,6 @@ export const createRule: CreateRuleFunction = (i18n) => {
     rule,
     name: 'groups-no-empty',
     title: i18n._(t`Groups should not be empty`),
-    description: i18n._(
-      t`Empty groups can collect in a document over time due to copy and paste errors, and could be considered a document hygiene or usability concern by some teams`,
-    ),
+    description: i18n._(t`Remove empty groups to avoid document organization or usability issues.`),
   }
 }

@@ -32,7 +32,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
             if (!layer.style || !utils.textStyleEq(layer.style, sharedStyle.value)) {
               utils.report({
                 node,
-                message: i18n._(t`Style differs from the shared text style`),
+                message: i18n._(t`This text style is different from its shared style`),
               })
             }
           }
@@ -44,7 +44,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'text-styles-no-dirty',
-    title: i18n._(t`Text styles must be in sync with their shared style`),
-    description: i18n._(t`Disallow text styles that differ from their shared styles`),
+    title: i18n._(t`Text styles should be the same as their shared styles`),
+    description: i18n._(
+      t`If your team wants to strictly use shared text styles, you should either create a new shared style or set the text styles to one of the existing styles.`,
+    ),
   }
 }

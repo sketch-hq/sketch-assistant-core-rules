@@ -21,7 +21,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
         if (styleHasDisabledInnerShadows(layer.style)) {
           utils.report({
             node,
-            message: i18n._(t`Unexpected disabled inner shadow on layer style`),
+            message: i18n._(t`There's a disabled inner shadow in this layer style`),
           })
         }
       },
@@ -30,7 +30,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
         if (styleHasDisabledInnerShadows(sharedStyle.value)) {
           utils.report({
             node,
-            message: i18n._(t`Unexpected disabled inner shadow in shared style`),
+            message: i18n._(t`There's a disabled inner shadow in this shared style`),
           })
         }
       },
@@ -42,7 +42,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
     name: 'inner-shadows-no-disabled',
     title: i18n._(t`Styles should not have disabled inner shadows`),
     description: i18n._(
-      t`Depending on the requirements of the document, disabled properties in the inspector can introduce uncertainty about their intended purpose so some teams may wish to forbid them`,
+      t`Depending on what you're creating, disabled properties may cause uncertainty within your team. Removing them can help.`,
     ),
   }
 }
