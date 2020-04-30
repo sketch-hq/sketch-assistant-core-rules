@@ -9,22 +9,20 @@ export const createRule: CreateRuleFunction = (i18n) => {
     name: 'name-pattern-artboards',
     title: i18n._(t`Artboard names should follow the conventions`),
     description: i18n._(
-      t`When highly precise layer naming is required, for example when a Sketch document's contents are automatically exported to production assets, then a team may want to enforce a specific name patterns`,
+      t`Teams might want to enforce specific naming patterns when it's important that your layers are precisely named.`,
     ),
     getOptions(helpers) {
       return [
         helpers.stringArrayOption({
           name: 'allowed',
           title: i18n._(t`Allowable Patterns`),
-          description: i18n._(
-            t`An array of allowed name pattern strings as JavaScript compatible regex`,
-          ),
+          description: i18n._(t`A list of regular expressions that define which names are allowed`),
         }),
         helpers.stringArrayOption({
           name: 'forbidden',
           title: i18n._(t`Forbidden Patterns`),
           description: i18n._(
-            t`An array of forbidden name pattern strings as JavaScript compatible regex`,
+            t`A list of regular expressions that define which names are forbidden`,
           ),
         }),
       ]

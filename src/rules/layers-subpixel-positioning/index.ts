@@ -76,7 +76,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
       return i18n._(t`Layers must be placed on ${increments} sub-pixel increments`)
     },
     description: i18n._(
-      t`Layers placed on fractional sub-pixel values could be considered a document hygiene issue by some teams. The exception to this is when designing for @2x and @3x pixel density devices, in which case 0.5 and 0.33/0.67 sub-pixel increments are commonly used.`,
+      t`Some teams may consider layers place on sub-pixel values a document organization issue. The exception is if you're designing for devices with @2x and @3x pixel density. In this case, you can use 0.5 and 0.33/0.67 increments.`,
     ),
     getOptions(helpers) {
       return [
@@ -84,7 +84,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
           name: 'scaleFactors',
           title: i18n._(t`Scale Factors`),
           description: i18n._(
-            t`Array of supported scale factors in the document. Accepts elements with values "@1x", "@2x" and "@3x" only, which map to allowing whole pixel positions, 0.5 increments and 0.33 increments respectively`,
+            t`Choose the scale factors that the document supports. Accepted values are @1x, @2x and @3x, which allow whole pixel positions, 0.5 increments and 0.33 increments respectively`,
           ),
           minLength: 1,
           maxLength: 3,

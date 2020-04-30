@@ -16,7 +16,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
         if (!usesSharedStyle && !isStyled && hasOneChild && onlyChildIsGroup) {
           utils.report({
             node,
-            message: i18n._(t`Unexpected redundant group`),
+            message: i18n._(t`This group is redundant`),
           })
         }
       },
@@ -28,7 +28,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
     name: 'groups-no-redundant',
     title: i18n._(t`Groups should not be redundant`),
     description: i18n._(
-      t`Redundant groups are defined as groups that aren't styled and contain only one child. Redundant groups could be considered a document hygiene or usability concern by some teams who may wish to forbid them`,
+      t`Remove redundant groups to avoid document organization or usability issues. These are groups that aren't styled and only contain one layer.`,
     ),
   }
 }

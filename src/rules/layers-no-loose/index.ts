@@ -15,7 +15,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
         if (page.layers.some(isLooseLayer)) {
           utils.report({
             node,
-            message: i18n._(t`Unexpected loose layer`),
+            message: i18n._(t`This layer is not inside an Artboard`),
           })
         }
       },
@@ -27,7 +27,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
     name: 'layers-no-loose',
     title: i18n._(t`Layers should not be outside artboards`),
     description: i18n._(
-      t`Layers outside of artboards aren't visible on Sketch Cloud, some teams may wish to forbid them`,
+      t`Layers outside of Artboards aren't visible on Cloud, so some teams may want to keep all layers inside Artboards.`,
     ),
   }
 }

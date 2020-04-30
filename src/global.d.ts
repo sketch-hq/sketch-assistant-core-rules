@@ -3,7 +3,7 @@ declare module '@lingui/macro' {
 
   function t(id: string): (strs: TemplateStringsArray, ...values: any[]) => string
 
-  const plural: (ops: { value: number; one: string; other: string }) => string
+  const plural: (ops: { value: any; one: string; other: string }) => string
 
   export { t, plural }
 }

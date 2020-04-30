@@ -61,16 +61,24 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'text-styles-prefer-shared',
-    title: (ruleConfig) =>
-      i18n._(t`No more than ${ruleConfig.maxIdentical} text styles can be identical`),
+    title: (ruleConfig) => {
+      const { maxIdentical } = ruleConfig
+      return i18n._(
+        plural({
+          value: maxIdentical,
+          one: 'Layer styles should not be identical',
+          other: 'No more than # layer styles should be identical',
+        }),
+      )
+    },
     description: i18n._(
-      t`Teams may wish to enforce the usage of shared text styles within a document, and the presence of identical text styles represent an opportunity to refactor them to use a single shared style`,
+      t`You could simplify things by removing identical text styles and applying a single style to all affected text.`,
     ),
     getOptions: (helpers) => [
       helpers.integerOption({
         name: 'maxIdentical',
         title: i18n._(t`Max Identical`),
-        description: i18n._(t`Maximum number of identical text styles allowable in the document`),
+        description: i18n._(t`The maximum allowed number of identical text styles`),
         minimum: 1,
         defaultValue: 1,
       }),

@@ -1,4 +1,4 @@
-import { t } from '@lingui/macro'
+import { t, plural } from '@lingui/macro'
 import { RuleContext, RuleFunction, FileFormat } from '@sketch-hq/sketch-assistant-types'
 
 import { CreateRuleFunction } from '../..'
@@ -20,7 +20,11 @@ export const createRule: CreateRuleFunction = (i18n) => {
           utils.report({
             node,
             message: i18n._(
-              t`Found ${nonGroupLayers} ungrouped layers at top level of artboard, expected at most ${maxUngroupedLayers}`,
+              plural({
+                value: nonGroupLayers,
+                one: `There is one ungrouped layer within this Artboard`,
+                other: `There are # ungrouped layers within this Artboard`,
+              }),
             ),
           })
         }
@@ -31,18 +35,18 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'artboards-max-ungrouped-layers',
-    title: (ruleConfig) =>
-      i18n._(t`Artboards should have less than ${ruleConfig.maxUngroupedLayers} ungrouped layers`),
-    description: i18n._(
-      t`Having lots of ungrouped layers at the top level of an artboard could indicate a lack of organisation`,
-    ),
+    title: (ruleConfig) => {
+      const { maxUngroupedLayers } = ruleConfig
+      return i18n._(t`Artboards should have less than ${maxUngroupedLayers} ungrouped layers`)
+    },
+    description: i18n._(t`Grouping layers within your Artboards will help you stay organized.`),
     getOptions(helpers) {
       return [
         helpers.numberOption({
           name: 'maxUngroupedLayers',
           title: i18n._(t`Maximum Ungrouped Layers`),
           defaultValue: 5,
-          description: i18n._(t`Maximum number of ungrouped layers`),
+          description: i18n._(t`The maximum number of ungrouped layers`),
           minimum: 1,
         }),
       ]

@@ -1,4 +1,4 @@
-import { t } from '@lingui/macro'
+import { t, plural } from '@lingui/macro'
 import { Node, RuleContext, RuleFunction, FileFormat } from '@sketch-hq/sketch-assistant-types'
 
 import { CreateRuleFunction } from '../..'
@@ -39,7 +39,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
             .join() // ...converted to a single string
           utils.report({
             node,
-            message: i18n._(t`Group is similar to ${identicalGroupNames}. A Symbol is preferred.`),
+            message: i18n._(t`Group is similar to other groups: ${identicalGroupNames}`),
           })
         })
       }
@@ -49,13 +49,24 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'groups-no-similar',
-    title: i18n._(t`No Similar Groups`),
-    description: i18n._(t`Disallow similar groups`),
+    title: (ruleConfig) => {
+      const { maxIdentical } = ruleConfig
+      return i18n._(
+        plural({
+          value: maxIdentical,
+          one: 'Similar groups should be a symbol',
+          other: 'More than # similar groups should be a symbol',
+        }),
+      )
+    },
+    description: i18n._(
+      t`Don't allow groups that are too similar. Consider using a Symbol instead.`,
+    ),
     getOptions: (helpers) => [
       helpers.integerOption({
         name: 'maxIdentical',
         title: i18n._(t`Max Identical`),
-        description: i18n._(t`Maximum number of identical groups allowable in the document`),
+        description: i18n._(t`The maximum number of identical groups allowed in the document`),
         minimum: 1,
         defaultValue: 1,
       }),

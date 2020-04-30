@@ -32,7 +32,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
 
     utils.report(
       invalid.map((node) => ({
-        message: i18n._(t`Unexpected unused shared style`),
+        message: i18n._(t`This shared style is unused`),
         node,
       })),
     )
@@ -41,9 +41,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'shared-styles-no-unused',
-    title: i18n._(t`Shared styles should be used`),
+    title: i18n._(t`All shared styles should be used`),
     description: i18n._(
-      t`Unused shared styles could be considered a document hygiene issue by some teams`,
+      t`Some teams may consider unused shared styles a document organization issue.`,
     ),
   }
 }

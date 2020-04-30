@@ -35,7 +35,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
             if (!layer.style || !utils.styleEq(layer.style, sharedStyle.value)) {
               utils.report({
                 node,
-                message: i18n._(t`Style differs from the shared layer style`),
+                message: i18n._(t`This layer style is different from its shared style`),
               })
             }
           }
@@ -47,9 +47,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'layer-styles-no-dirty',
-    title: i18n._(t`Layer styles should be in sync with their shared style`),
+    title: i18n._(t`Layer styles should be the same as their shared style`),
     description: i18n._(
-      t`Teams may wish to enforce the strict usage of shared styles within a document, and the presence of deviations in layer styles might represent an opportunity to either create a new shared style or set the layers style accordingly`,
+      t`If your team wants to strictly use shared styles, you should either create a new shared style or set the layer styles to one of the existing styles.`,
     ),
   }
 }

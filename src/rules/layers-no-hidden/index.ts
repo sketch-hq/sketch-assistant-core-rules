@@ -12,7 +12,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
         if (layer.isVisible === false) {
           utils.report({
             node,
-            message: i18n._(t`Unexpected hidden layer`),
+            message: i18n._(t`This layer is hidden`),
           })
         }
       },
@@ -22,9 +22,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'layers-no-hidden',
-    title: i18n._(t`Layers should not be hidden`),
+    title: i18n._(t`There should be no hidden layers`),
     description: i18n._(
-      t`Hidden layers can introduce uncertainty about their intended purpose so some teams may wish to forbid them`,
+      t`Hidden layers may cause uncertainty. Some teams may want to remove them.`,
     ),
   }
 }

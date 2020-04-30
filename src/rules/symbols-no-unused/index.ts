@@ -26,7 +26,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
     )
     utils.report(
       invalid.map((node) => ({
-        message: i18n._(t`Unexpected unused symbol`),
+        message: i18n._(t`This symbol is unused`),
         node,
       })),
     )
@@ -35,9 +35,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
   return {
     rule,
     name: 'symbols-no-unused',
-    title: i18n._(t`Symbols should be used`),
-    description: i18n._(
-      t`Unused symbols could be considered a document hygiene issue by some teams`,
-    ),
+    title: i18n._(t`All symbols should be in-use`),
+    description: i18n._(t`Some teams may consider unused symbols a document organization issue.`),
   }
 }

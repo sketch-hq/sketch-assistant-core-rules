@@ -20,7 +20,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
         if (styleHasDisabledFill(layer.style)) {
           utils.report({
             node,
-            message: i18n._(t`Unexpected disabled fill on layer style`),
+            message: i18n._(t`There's a disabled fill in this layer style`),
           })
         }
       },
@@ -29,7 +29,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
         if (styleHasDisabledFill(sharedStyle.value)) {
           utils.report({
             node,
-            message: i18n._(t`Unexpected disabled fill in shared style`),
+            message: i18n._(t`There's a disabled fill in this shared style`),
           })
         }
       },
@@ -41,7 +41,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
     name: 'fills-no-disabled',
     title: i18n._(t`Styles should not have disabled fills`),
     description: i18n._(
-      t`Depending on the requirements of the document, disabled properties in the inspector can introduce uncertainty about their intended purpose so some teams may wish to forbid them`,
+      t`Depending on what you're creating, disabled properties may cause uncertainty within your team. Removing them can help.`,
     ),
   }
 }
