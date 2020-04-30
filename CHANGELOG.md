@@ -1,5 +1,12 @@
 # @sketch-hq/sketch-assistant-core-rules
 
+## 3.1.0-next.3
+
+### Patch Changes
+
+- 461d018: Add copy changes from review.
+- 6e8ba28: Resolves the bug with quarter subpixel positions
+
 ## 3.1.0-next.2
 
 ### Patch Changes
