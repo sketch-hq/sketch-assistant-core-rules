@@ -6,17 +6,15 @@ import { CreateRuleFunction } from '../..'
 export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
-    await utils.iterateCache({
-      async $layers(node): Promise<void> {
-        const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
-        if (layer.isVisible === false) {
-          utils.report({
-            node,
-            message: i18n._(t`This layer is hidden`),
-          })
-        }
-      },
-    })
+    for (const node of utils.iterators.$layers) {
+      const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
+      if (layer.isVisible === false) {
+        utils.report({
+          node,
+          message: i18n._(t`This layer is hidden`),
+        })
+      }
+    }
   }
 
   return {

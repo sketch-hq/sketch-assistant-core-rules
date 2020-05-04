@@ -24,25 +24,23 @@ export const createRule: CreateRuleFunction = (i18n) => {
     assertMaxLayers(maxLayers)
     assertSkipClasses(skipClasses)
 
-    await utils.iterateCache({
-      async $groups(node): Promise<void> {
-        const group = utils.nodeToObject<FileFormat.AnyGroup>(node)
-        if (group._class === 'shapeGroup') return // Do not consider shape groups, its common/expected for these to have many layers
-        const numLayers = group.layers.filter((layer) => !skipClasses.includes(layer._class)).length
-        if (numLayers > maxLayers) {
-          utils.report({
-            node,
-            message: i18n._(
-              plural({
-                value: numLayers,
-                one: 'There is one layer in this group',
-                other: 'There are # layers in this group',
-              }),
-            ),
-          })
-        }
-      },
-    })
+    for (const node of utils.iterators.$groups) {
+      const group = utils.nodeToObject<FileFormat.AnyGroup>(node)
+      if (group._class === 'shapeGroup') continue // Do not consider shape groups, its common/expected for these to have many layers
+      const numLayers = group.layers.filter((layer) => !skipClasses.includes(layer._class)).length
+      if (numLayers > maxLayers) {
+        utils.report({
+          node,
+          message: i18n._(
+            plural({
+              value: numLayers,
+              one: 'There is one layer in this group',
+              other: 'There are # layers in this group',
+            }),
+          ),
+        })
+      }
+    }
   }
 
   return {

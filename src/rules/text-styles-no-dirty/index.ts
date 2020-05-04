@@ -14,31 +14,28 @@ export const createRule: CreateRuleFunction = (i18n) => {
     // node iterator bellow
     const sharedStyles: Map<string, SharedStyle> = new Map()
 
-    await utils.iterateCache({
-      // Builds the shared styles container
-      async sharedStyle(node) {
-        const style: SharedStyle = node as SharedStyle
-        if (typeof style.do_objectID === 'string') {
-          sharedStyles.set(style.do_objectID, style)
-        }
-      },
-      async text(node): Promise<void> {
-        const layer = utils.nodeToObject<FileFormat.Text>(node)
-        if (typeof layer.sharedStyleID === 'string') {
-          // Get the shared style object
-          const sharedStyle = sharedStyles.get(layer.sharedStyleID)
-          if (sharedStyle) {
-            // Report if this text style differs from its shared style
-            if (!layer.style || !utils.textStyleEq(layer.style, sharedStyle.value)) {
-              utils.report({
-                node,
-                message: i18n._(t`This text style is different from its shared style`),
-              })
-            }
+    for (const node of utils.iterators.sharedStyle) {
+      const style: SharedStyle = node as SharedStyle
+      if (typeof style.do_objectID === 'string') {
+        sharedStyles.set(style.do_objectID, style)
+      }
+    }
+    for (const node of utils.iterators.text) {
+      const layer = utils.nodeToObject<FileFormat.Text>(node)
+      if (typeof layer.sharedStyleID === 'string') {
+        // Get the shared style object
+        const sharedStyle = sharedStyles.get(layer.sharedStyleID)
+        if (sharedStyle) {
+          // Report if this text style differs from its shared style
+          if (!layer.style || !utils.textStyleEq(layer.style, sharedStyle.value)) {
+            utils.report({
+              node,
+              message: i18n._(t`This text style is different from its shared style`),
+            })
           }
         }
-      },
-    })
+      }
+    }
   }
 
   return {

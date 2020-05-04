@@ -36,36 +36,34 @@ export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
     const increments = parseIncrements(utils.getOption('scaleFactors'))
-    await utils.iterateCache({
-      async $layers(node): Promise<void> {
-        const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
-        if (!('frame' in layer)) return // Narrow type to layers with a `frame` prop
-        // If the current layer or any of its parents have rotation return early
-        let hasRotation = isRotated(node)
-        utils.iterateParents(node, (parent) => {
-          if (isRotated(parent)) {
-            hasRotation = true
-          }
-        })
-        if (hasRotation) return
-        let { x, y } = layer.frame
-        // Round x,y values to two decimal places to mimick how Sketch normalises
-        // values too. This avoids reporting subpixel violations that don't match
-        // with what Sketch displays in the inspector
-        x = Math.round(x * 100) / 100
-        y = Math.round(y * 100) / 100
-        // Convert x,y values to increment values (e.g `12.5` to `0.50`) and check
-        // to see if they're valid
-        const xValid = increments.includes(Math.abs(x % 1).toFixed(2))
-        const yValid = increments.includes(Math.abs(y % 1).toFixed(2))
-        if (!xValid || !yValid) {
-          utils.report({
-            node,
-            message: i18n._(t`Unexpected sub-pixel positioning (${x}, ${y})`),
-          })
+    for (const node of utils.iterators.$layers) {
+      const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
+      if (!('frame' in layer)) continue // Narrow type to layers with a `frame` prop
+      // If the current layer or any of its parents have rotation return early
+      let hasRotation = isRotated(node)
+      utils.iterateParents(node, (parent) => {
+        if (isRotated(parent)) {
+          hasRotation = true
         }
-      },
-    })
+      })
+      if (hasRotation) continue
+      let { x, y } = layer.frame
+      // Round x,y values to two decimal places to mimick how Sketch normalises
+      // values too. This avoids reporting subpixel violations that don't match
+      // with what Sketch displays in the inspector
+      x = Math.round(x * 100) / 100
+      y = Math.round(y * 100) / 100
+      // Convert x,y values to increment values (e.g `12.5` to `0.50`) and check
+      // to see if they're valid
+      const xValid = increments.includes(Math.abs(x % 1).toFixed(2))
+      const yValid = increments.includes(Math.abs(y % 1).toFixed(2))
+      if (!xValid || !yValid) {
+        utils.report({
+          node,
+          message: i18n._(t`Unexpected sub-pixel positioning (${x}, ${y})`),
+        })
+      }
+    }
   }
 
   return {

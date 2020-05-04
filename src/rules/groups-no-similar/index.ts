@@ -18,18 +18,16 @@ export const createRule: CreateRuleFunction = (i18n) => {
     const maxIdentical = utils.getOption('maxIdentical')
     assertMaxIdentical(maxIdentical)
     const fingerprints = new Map<GroupFingerprint, GroupNode[]>()
-    await utils.iterateCache({
-      async group(node): Promise<void> {
-        const group = utils.nodeToObject<FileFormat.Group>(node)
-        const numberOfLayers = group.layers.length
-        const layerTypes = group.layers.map((layer) => layer?._class)
-        const layerNames = group.layers.map((layer) => layer?.name)
-        const fingerprint = JSON.stringify({ numberOfLayers, layerTypes, layerNames })
-        const similarGroups = fingerprints.get(fingerprint) || []
-        similarGroups.push(node as GroupNode)
-        fingerprints.set(fingerprint, similarGroups)
-      },
-    })
+    for (const node of utils.iterators.group) {
+      const group = utils.nodeToObject<FileFormat.Group>(node)
+      const numberOfLayers = group.layers.length
+      const layerTypes = group.layers.map((layer) => layer?._class)
+      const layerNames = group.layers.map((layer) => layer?.name)
+      const fingerprint = JSON.stringify({ numberOfLayers, layerTypes, layerNames })
+      const similarGroups = fingerprints.get(fingerprint) || []
+      similarGroups.push(node as GroupNode)
+      fingerprints.set(fingerprint, similarGroups)
+    }
     for (let similar of fingerprints.values()) {
       if (similar.length > maxIdentical) {
         similar.forEach((node) => {

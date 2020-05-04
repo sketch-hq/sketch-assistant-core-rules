@@ -22,6 +22,7 @@ export const createRule: CreateRuleFunction = (i18n) => {
     const grids = utils.getOption('grids')
     if (!Array.isArray(grids) || grids.length === 0) return
     const specs: GridSpec[] = []
+
     for (let i = 0; i < grids.length; i++) {
       const grid = grids[i]
       if (typeof grid !== 'object') continue
@@ -30,26 +31,24 @@ export const createRule: CreateRuleFunction = (i18n) => {
         specs.push({ gridBlockSize, thickLinesEvery })
       }
     }
-    await utils.iterateCache({
-      async artboard(node): Promise<void> {
-        const { grid } = utils.nodeToObject<FileFormat.Artboard>(node)
-        if (!grid) {
-          invalid.push(node) // Treat artboards without grid settings as invalid
-          return
-        }
-        // The artboard's grid much precisely match one of the grids defined in the
-        // options
-        const gridValid = specs
-          .map(
-            (spec) =>
-              grid.gridSize === spec.gridBlockSize && grid.thickGridTimes === spec.thickLinesEvery,
-          )
-          .includes(true)
-        if (!gridValid) {
-          invalid.push(node)
-        }
-      },
-    })
+    for (const node of utils.iterators.artboard) {
+      const { grid } = utils.nodeToObject<FileFormat.Artboard>(node)
+      if (!grid) {
+        invalid.push(node) // Treat artboards without grid settings as invalid
+        return
+      }
+      // The artboard grid much precisely match one of the grids defined in the
+      // options
+      const gridValid = specs
+        .map(
+          (spec) =>
+            grid.gridSize === spec.gridBlockSize && grid.thickGridTimes === spec.thickLinesEvery,
+        )
+        .includes(true)
+      if (!gridValid) {
+        invalid.push(node)
+      }
+    }
     utils.report(
       invalid.map(
         (node): ReportItem => ({

@@ -20,33 +20,31 @@ export const createRule: CreateRuleFunction = (i18n) => {
     const maxIdentical = utils.getOption('maxIdentical')
     assertMaxIdentical(maxIdentical)
     const results: Map<string, Node[]> = new Map()
-    await utils.iterateCache({
-      async $layers(node): Promise<void> {
-        const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
-        if (IGNORE_CLASSES.includes(node._class)) return
-        if (isCombinedShapeChildLayer(node, utils)) return // Ignore layers in combined shapes
-        if (layer._class === 'group' && !layer.style?.shadows?.length) return // Ignore groups with default styles (i.e. no shadows)
-        if (typeof layer.sharedStyleID === 'string') return // Ignore layers using a shared style
-        // Determine whether we're inside a symbol instance, if so return early since
-        // duplicate layer styles are to be expected across the docucument in instances
-        const classes: string[] = [node._class]
-        utils.iterateParents(node, (parent) => {
-          if (typeof parent === 'object' && '_class' in parent) classes.push(parent._class)
-        })
-        if (classes.includes('symbolInstance')) return
-        // Get an md5 hash of the style object. Only consider a subset of style
-        // object properties when computing the hash (can revisit this to make the
-        // check looser or stricter)
-        const hash = utils.styleHash(layer.style)
-        // Add the style object hash and current node to the result set
-        if (results.has(hash)) {
-          const nodes = results.get(hash)
-          nodes?.push(node)
-        } else {
-          results.set(hash, [node])
-        }
-      },
-    })
+    for (const node of utils.iterators.$layers) {
+      const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
+      if (IGNORE_CLASSES.includes(node._class)) continue
+      if (isCombinedShapeChildLayer(node, utils)) continue // Ignore layers in combined shapes
+      if (layer._class === 'group' && !layer.style?.shadows?.length) continue // Ignore groups with default styles (i.e. no shadows)
+      if (typeof layer.sharedStyleID === 'string') continue // Ignore layers using a shared style
+      // Determine whether we're inside a symbol instance, if so return early since
+      // duplicate layer styles are to be expected across the docucument in instances
+      const classes: string[] = [node._class]
+      utils.iterateParents(node, (parent) => {
+        if (typeof parent === 'object' && '_class' in parent) classes.push(parent._class)
+      })
+      if (classes.includes('symbolInstance')) continue
+      // Get an md5 hash of the style object. Only consider a subset of style
+      // object properties when computing the hash (can revisit this to make the
+      // check looser or stricter)
+      const hash = utils.styleHash(layer.style)
+      // Add the style object hash and current node to the result set
+      if (results.has(hash)) {
+        const nodes = results.get(hash)
+        nodes?.push(node)
+      } else {
+        results.set(hash, [node])
+      }
+    }
     // Loop the results, generating violations as needed
     for (const [, nodes] of results) {
       const numIdentical = nodes.length
