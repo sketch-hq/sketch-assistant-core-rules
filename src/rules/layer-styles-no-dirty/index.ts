@@ -14,34 +14,32 @@ export const createRule: CreateRuleFunction = (i18n) => {
     const { utils } = context
     const sharedStyles: Map<string, SharedStyle> = new Map()
 
-    await utils.iterateCache({
-      // Build the shared styles container
-      async sharedStyle(node) {
-        const style: SharedStyle = node as SharedStyle
-        if (typeof style.do_objectID === 'string') {
-          sharedStyles.set(style.do_objectID, style)
-        }
-      },
-      async $layers(node): Promise<void> {
-        const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
-        if (IGNORE_CLASSES.includes(node._class)) return
-        // Ignore groups with default styles (i.e. no shadows)
-        if (layer._class === 'group' && !layer.style?.shadows?.length) return
-        if (typeof layer.sharedStyleID === 'string') {
-          // Get the shared style object
-          const sharedStyle = sharedStyles.get(layer.sharedStyleID)
-          if (sharedStyle) {
-            // Report if this layer style differs from its shared style
-            if (!layer.style || !utils.styleEq(layer.style, sharedStyle.value)) {
-              utils.report({
-                node,
-                message: i18n._(t`This layer style is different from its shared style`),
-              })
-            }
+    for (const node of utils.iterators.sharedStyle) {
+      const style: SharedStyle = node as SharedStyle
+      if (typeof style.do_objectID === 'string') {
+        sharedStyles.set(style.do_objectID, style)
+      }
+    }
+
+    for (const node of utils.iterators.$layers) {
+      const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
+      if (IGNORE_CLASSES.includes(node._class)) continue
+      // Ignore groups with default styles (i.e. no shadows)
+      if (layer._class === 'group' && !layer.style?.shadows?.length) continue
+      if (typeof layer.sharedStyleID === 'string') {
+        // Get the shared style object
+        const sharedStyle = sharedStyles.get(layer.sharedStyleID)
+        if (sharedStyle) {
+          // Report if this layer style differs from its shared style
+          if (!layer.style || !utils.styleEq(layer.style, sharedStyle.value)) {
+            utils.report({
+              node,
+              message: i18n._(t`This layer style is different from its shared style`),
+            })
           }
         }
-      },
-    })
+      }
+    }
   }
 
   return {

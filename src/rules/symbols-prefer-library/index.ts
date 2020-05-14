@@ -14,37 +14,35 @@ export const createRule: CreateRuleFunction = (i18n) => {
       (symbolMap, libSymbol) => symbolMap.set(libSymbol.symbolMaster.symbolID, libSymbol),
       new Map(),
     )
-    await utils.iterateCache({
-      async symbolInstance(node): Promise<void> {
-        const symbol = node as FileFormat.SymbolInstance
-        // Check if the symbol comes from a library
-        const library = libSymbols.get(symbol.symbolID)
-        if (!library) {
-          // Symbol does not belong to a library
+    for (const node of utils.iterators.symbolInstance) {
+      const symbol = node as FileFormat.SymbolInstance
+      // Check if the symbol comes from a library
+      const library = libSymbols.get(symbol.symbolID)
+      if (!library) {
+        // Symbol does not belong to a library
+        utils.report([
+          {
+            node,
+            message: i18n._(t`A symbol from a library is expected`),
+          },
+        ])
+        continue
+      }
+      // Determine if the library is one of the allowed libraries
+      const libraryName = library.sourceLibraryName
+      if (Array.isArray(authorizedLibraries) && authorizedLibraries.length > 0) {
+        const isAuthorized = authorizedLibraries.indexOf(libraryName) > -1
+        if (!isAuthorized) {
           utils.report([
             {
               node,
-              message: i18n._(t`A symbol from a library is expected`),
+              message: i18n._(t`Uses the unauthorized library "${libraryName}"`),
             },
           ])
-          return
+          continue
         }
-        // Determine if the library is one of the allowed libraries
-        const libraryName = library.sourceLibraryName
-        if (Array.isArray(authorizedLibraries) && authorizedLibraries.length > 0) {
-          const isAuthorized = authorizedLibraries.indexOf(libraryName) > -1
-          if (!isAuthorized) {
-            utils.report([
-              {
-                node,
-                message: i18n._(t`Uses the unauthorized library "${libraryName}"`),
-              },
-            ])
-            return
-          }
-        }
-      },
-    })
+      }
+    }
   }
 
   return {

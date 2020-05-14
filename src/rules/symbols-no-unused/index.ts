@@ -8,14 +8,12 @@ export const createRule: CreateRuleFunction = (i18n) => {
     const { utils } = context
     const masters: Node[] = []
     const instances: Node[] = []
-    await utils.iterateCache({
-      async symbolMaster(node): Promise<void> {
-        masters.push(node)
-      },
-      async symbolInstance(node): Promise<void> {
-        instances.push(node)
-      },
-    })
+    for (const node of utils.iterators.symbolMaster) {
+      masters.push(node)
+    }
+    for (const node of utils.iterators.symbolInstance) {
+      instances.push(node)
+    }
     const invalid: Node[] = masters.filter(
       (master) =>
         instances.findIndex(

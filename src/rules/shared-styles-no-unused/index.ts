@@ -10,23 +10,21 @@ export const createRule: CreateRuleFunction = (i18n) => {
     const sharedStyles: Node<FileFormat.SharedStyle>[] = []
     const usages: Set<string> = new Set()
 
-    await utils.iterateCache({
-      async sharedStyle(node) {
-        sharedStyles.push(node as Node<FileFormat.SharedStyle>)
-      },
-      async symbolInstance(node) {
-        const obj = utils.nodeToObject<FileFormat.SymbolInstance>(node)
-        obj.overrideValues.forEach((override) => {
-          if (typeof override.value === 'string') usages.add(override.value)
-        })
-      },
-      async $layers(node) {
-        const obj = utils.nodeToObject(node)
-        if ('sharedStyleID' in obj && typeof obj.sharedStyleID === 'string') {
-          usages.add(obj.sharedStyleID)
-        }
-      },
-    })
+    for (const node of utils.iterators.sharedStyle) {
+      sharedStyles.push(node as Node<FileFormat.SharedStyle>)
+    }
+    for (const node of utils.iterators.symbolInstance) {
+      const obj = utils.nodeToObject<FileFormat.SymbolInstance>(node)
+      obj.overrideValues.forEach((override) => {
+        if (typeof override.value === 'string') usages.add(override.value)
+      })
+    }
+    for (const node of utils.iterators.$layers) {
+      const obj = utils.nodeToObject(node)
+      if ('sharedStyleID' in obj && typeof obj.sharedStyleID === 'string') {
+        usages.add(obj.sharedStyleID)
+      }
+    }
 
     const invalid: Node[] = sharedStyles.filter((node) => !usages.has(node.do_objectID))
 

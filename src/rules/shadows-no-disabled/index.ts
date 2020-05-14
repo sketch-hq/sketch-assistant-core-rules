@@ -10,30 +10,28 @@ const styleHasDisabledShadow = (style: FileFormat.Style): boolean =>
 export const createRule: CreateRuleFunction = (i18n) => {
   const rule: RuleFunction = async (context: RuleContext): Promise<void> => {
     const { utils } = context
-    await utils.iterateCache({
-      async $layers(node: Node): Promise<void> {
-        const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
-        if (isCombinedShapeChildLayer(node, utils)) return // Ignore layers in combined shapes
-        if (!('style' in layer)) return // Narrow type to layers with a `style` prop
-        if (!layer.style) return // Narrow type to truthy `style` prop
-        if (typeof layer.sharedStyleID === 'string') return // Ignore layers using a shared style
-        if (styleHasDisabledShadow(layer.style)) {
-          utils.report({
-            node,
-            message: i18n._(t`There's a disabled shadow on this layer style`),
-          })
-        }
-      },
-      async sharedStyle(node: Node): Promise<void> {
-        const sharedStyle = utils.nodeToObject<FileFormat.SharedStyle>(node)
-        if (styleHasDisabledShadow(sharedStyle.value)) {
-          utils.report({
-            node,
-            message: i18n._(t`There's a disabled shadow on this shared style`),
-          })
-        }
-      },
-    })
+    for (const node of utils.iterators.$layers) {
+      const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
+      if (isCombinedShapeChildLayer(node, utils)) continue // Ignore layers in combined shapes
+      if (!('style' in layer)) continue // Narrow type to layers with a `style` prop
+      if (!layer.style) continue // Narrow type to truthy `style` prop
+      if (typeof layer.sharedStyleID === 'string') continue // Ignore layers using a shared style
+      if (styleHasDisabledShadow(layer.style)) {
+        utils.report({
+          node,
+          message: i18n._(t`There's a disabled shadow on this layer style`),
+        })
+      }
+    }
+    for (const node of utils.iterators.sharedStyle) {
+      const sharedStyle = utils.nodeToObject<FileFormat.SharedStyle>(node)
+      if (styleHasDisabledShadow(sharedStyle.value)) {
+        utils.report({
+          node,
+          message: i18n._(t`There's a disabled shadow on this shared style`),
+        })
+      }
+    }
   }
 
   return {

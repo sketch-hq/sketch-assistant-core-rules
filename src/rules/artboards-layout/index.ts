@@ -83,54 +83,52 @@ export const createRule: CreateRuleFunction = (i18n) => {
       }
       specs.push(spec)
     }
-    await utils.iterateCache({
-      async artboard(node): Promise<void> {
-        const { layout } = utils.nodeToObject<FileFormat.Artboard>(node)
-        if (!layout || !layout.isEnabled) {
-          invalid.push(node) // Treat artboards without grid settings as invalid
-          return
-        }
-        // The artboard's layout much match one of the layouts defined in the options
-        const columnsValid = specs
-          .map((spec) => {
-            if (spec.drawVertical === false) {
-              // Treat artboard columns as valid and return early if
-              // drawVertical set to false, i.e. columns checkbox in layout
-              // UI unchecked.
-              return true
-            }
-            return (
-              typeof spec.columns === 'object' &&
-              spec.columns.gutterWidth === layout.gutterWidth &&
-              spec.columns.columnWidth === layout.columnWidth &&
-              spec.columns.guttersOutside === layout.guttersOutside &&
-              spec.columns.horizontalOffset === layout.horizontalOffset &&
-              spec.columns.numberOfColumns === layout.numberOfColumns &&
-              spec.columns.totalWidth === layout.totalWidth
-            )
-          })
-          .includes(true)
-        const rowsValid = specs
-          .map((spec) => {
-            if (spec.drawHorizontal === false) {
-              // Treat artboard rows as valid and return early if
-              // drawHorizontal set to false, i.e. rows checkbox in layout
-              // UI unchecked.
-              return true
-            }
-            return (
-              typeof spec.rows === 'object' &&
-              spec.rows.gutterHeight === layout.gutterHeight &&
-              spec.rows.rowHeightMultiplication === layout.rowHeightMultiplication &&
-              spec.rows.drawHorizontalLines === layout.drawHorizontalLines
-            )
-          })
-          .includes(true)
-        if (!rowsValid || !columnsValid) {
-          invalid.push(node)
-        }
-      },
-    })
+    for (const node of utils.iterators.artboard) {
+      const { layout } = utils.nodeToObject<FileFormat.Artboard>(node)
+      if (!layout || !layout.isEnabled) {
+        invalid.push(node) // Treat artboards without grid settings as invalid
+        continue
+      }
+      // The artboard's layout much match one of the layouts defined in the options
+      const columnsValid = specs
+        .map((spec) => {
+          if (spec.drawVertical === false) {
+            // Treat artboard columns as valid and return early if
+            // drawVertical set to false, i.e. columns checkbox in layout
+            // UI unchecked.
+            return true
+          }
+          return (
+            typeof spec.columns === 'object' &&
+            spec.columns.gutterWidth === layout.gutterWidth &&
+            spec.columns.columnWidth === layout.columnWidth &&
+            spec.columns.guttersOutside === layout.guttersOutside &&
+            spec.columns.horizontalOffset === layout.horizontalOffset &&
+            spec.columns.numberOfColumns === layout.numberOfColumns &&
+            spec.columns.totalWidth === layout.totalWidth
+          )
+        })
+        .includes(true)
+      const rowsValid = specs
+        .map((spec) => {
+          if (spec.drawHorizontal === false) {
+            // Treat artboard rows as valid and return early if
+            // drawHorizontal set to false, i.e. rows checkbox in layout
+            // UI unchecked.
+            return true
+          }
+          return (
+            typeof spec.rows === 'object' &&
+            spec.rows.gutterHeight === layout.gutterHeight &&
+            spec.rows.rowHeightMultiplication === layout.rowHeightMultiplication &&
+            spec.rows.drawHorizontalLines === layout.drawHorizontalLines
+          )
+        })
+        .includes(true)
+      if (!rowsValid || !columnsValid) {
+        invalid.push(node)
+      }
+    }
     utils.report(
       invalid.map(
         (node): ReportItem => ({

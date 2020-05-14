@@ -14,56 +14,54 @@ export const createRule: CreateRuleFunction = (i18n) => {
       (styleMap, libStyle) => styleMap.set(libStyle.localSharedStyle.do_objectID, libStyle),
       new Map(),
     )
-    await utils.iterateCache({
-      async text(node): Promise<void> {
-        const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
-        if (typeof layer.sharedStyleID !== 'string') {
-          // Report immediately if there is no sharedStyleID
+    for (const node of utils.iterators.text) {
+      const layer = utils.nodeToObject<FileFormat.AnyLayer>(node)
+      if (typeof layer.sharedStyleID !== 'string') {
+        // Report immediately if there is no sharedStyleID
+        utils.report([
+          {
+            node,
+            message: i18n._(t`Text styles must be set with the shared styles of a library`),
+          },
+        ])
+        continue // don't process this node further
+      }
+      const library = libraries.get(layer.sharedStyleID)
+      if (!library) {
+        // the sharedStyleID in use does not belong to a library
+        utils.report([
+          {
+            node,
+            message: i18n._(t`A shared style from a library is expected`),
+          },
+        ])
+        continue
+      }
+      const libraryName = library.sourceLibraryName
+      // Determine if the library is one of the allowed libraries
+      if (Array.isArray(authorizedLibraries) && authorizedLibraries.length > 0) {
+        const isAuthorized = authorizedLibraries.indexOf(libraryName) > -1
+        if (!isAuthorized) {
           utils.report([
             {
               node,
-              message: i18n._(t`Text styles must be set with the shared styles of a library`),
+              message: i18n._(t`Uses the unauthorized library "${libraryName}"`),
             },
           ])
-          return // don't process this node further
+          continue
         }
-        const library = libraries.get(layer.sharedStyleID)
-        if (!library) {
-          // the sharedStyleID in use does not belong to a library
-          utils.report([
-            {
-              node,
-              message: i18n._(t`A shared style from a library is expected`),
-            },
-          ])
-          return
-        }
-        const libraryName = library.sourceLibraryName
-        // Determine if the library is one of the allowed libraries
-        if (Array.isArray(authorizedLibraries) && authorizedLibraries.length > 0) {
-          const isAuthorized = authorizedLibraries.indexOf(libraryName) > -1
-          if (!isAuthorized) {
-            utils.report([
-              {
-                node,
-                message: i18n._(t`Uses the unauthorized library "${libraryName}"`),
-              },
-            ])
-            return
-          }
-        }
-        // Check if the text styles differ from the library
-        const isStyleEq = utils.textStyleEq(layer.style, library.localSharedStyle.value)
-        if (!isStyleEq) {
-          utils.report([
-            {
-              node,
-              message: i18n._(t`Shared style differs from library`),
-            },
-          ])
-        }
-      },
-    })
+      }
+      // Check if the text styles differ from the library
+      const isStyleEq = utils.textStyleEq(layer.style, library.localSharedStyle.value)
+      if (!isStyleEq) {
+        utils.report([
+          {
+            node,
+            message: i18n._(t`Shared style differs from library`),
+          },
+        ])
+      }
+    }
   }
 
   return {

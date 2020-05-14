@@ -25,11 +25,9 @@ export const createRule: CreateRuleFunction = (i18n) => {
 
     const imageProcessor = createImageProcessor(utils.getImageMetadata, utils.nodeToObject)
 
-    await utils.iterateCache({
-      async $layers(node): Promise<void> {
-        imageProcessor.handleLayerImages(node)
-      },
-    })
+    for (const node of utils.iterators.$layers) {
+      imageProcessor.handleLayerImages(node)
+    }
 
     const results = await imageProcessor.getResults()
 

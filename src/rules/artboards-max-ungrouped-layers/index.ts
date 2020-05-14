@@ -12,24 +12,22 @@ export const createRule: CreateRuleFunction = (i18n) => {
     const { utils } = context
     const maxUngroupedLayers = utils.getOption('maxUngroupedLayers')
     assertMaxUngrouped(maxUngroupedLayers)
-    await utils.iterateCache({
-      async artboard(node): Promise<void> {
-        const artboard = utils.nodeToObject<FileFormat.Artboard>(node)
-        const nonGroupLayers = artboard.layers.filter((layer) => layer._class !== 'group').length
-        if (nonGroupLayers > maxUngroupedLayers) {
-          utils.report({
-            node,
-            message: i18n._(
-              plural({
-                value: nonGroupLayers,
-                one: `There is one ungrouped layer within this Artboard`,
-                other: `There are # ungrouped layers within this Artboard`,
-              }),
-            ),
-          })
-        }
-      },
-    })
+    for (const node of utils.iterators.artboard) {
+      const artboard = utils.nodeToObject<FileFormat.Artboard>(node)
+      const nonGroupLayers = artboard.layers.filter((layer) => layer._class !== 'group').length
+      if (nonGroupLayers > maxUngroupedLayers) {
+        utils.report({
+          node,
+          message: i18n._(
+            plural({
+              value: nonGroupLayers,
+              one: `There is one ungrouped layer within this Artboard`,
+              other: `There are # ungrouped layers within this Artboard`,
+            }),
+          ),
+        })
+      }
+    }
   }
 
   return {
